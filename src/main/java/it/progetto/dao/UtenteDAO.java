@@ -5,29 +5,20 @@ import it.progetto.model.Utente;
 
 public class UtenteDAO {
 
-    public Utente login(String email, String password) throws SQLException {
-        String sql = "SELECT * FROM utente WHERE email = ? AND password = ?";
+	public void insertUtente(Utente u) throws SQLException {
 
-        try (Connection con = DataSourceProvider.getDataSource().getConnection();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+	    String sql = "INSERT INTO utente (nome, cognome, email, password, ruolo) VALUES (?, ?, ?, ?, ?)";
 
-            ps.setString(1, email);
-            ps.setString(2, password);
+	    try (Connection con = DataSourceProvider.getDataSource().getConnection();
+	         PreparedStatement ps = con.prepareStatement(sql)) {
 
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    Utente u = new Utente();
-                    u.setId(rs.getInt("id"));
-                    u.setNome(rs.getString("nome"));
-                    u.setCognome(rs.getString("cognome"));
-                    u.setEmail(rs.getString("email"));
-                    u.setPassword(rs.getString("password"));
-                    u.setRuolo(rs.getString("ruolo"));
-                    return u;
-                }
-            }
-        }
+	        ps.setString(1, u.getNome());
+	        ps.setString(2, u.getCognome());
+	        ps.setString(3, u.getEmail());
+	        ps.setString(4, u.getPassword());
+	        ps.setString(5, "USER");
 
-        return null;
-    }
+	        ps.executeUpdate();
+	    }
+	}
 }
