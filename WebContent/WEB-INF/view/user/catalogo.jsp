@@ -21,12 +21,12 @@
 
     <section class="categorie-tonde">
         <a href="#bouquet" class="categoria-tonda">
-            <img src="${pageContext.request.contextPath}/images/bouquet/bouquet2.jpeg" alt="Bouquet">
+            <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_tulipani.jpeg" alt="Bouquet">
             <span>Bouquet</span>
         </a>
 
         <a href="#corone" class="categoria-tonda">
-            <img src="${pageContext.request.contextPath}/images/coronalarea/corona_laurea2.jpg" alt="Corone di laurea">
+            <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea2.jpeg" alt="Corone di laurea">
             <span>Laurea</span>
         </a>
 
@@ -41,12 +41,12 @@
         </a>
 
         <a href="#piante" class="categoria-tonda">
-            <img src="${pageContext.request.contextPath}/images/piante/orchidea_bianca.jpg" alt="Piante e orchidee">
+            <img src="${pageContext.request.contextPath}/images/piante/orchidea_bianca.jpeg" alt="Piante">
             <span>Piante</span>
         </a>
 
         <a href="#profumatori" class="categoria-tonda">
-            <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muschio.jpg" alt="Profumatori">
+            <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_blu.jpeg" alt="Profumatori">
             <span>Profumatori</span>
         </a>
 
@@ -61,7 +61,7 @@
 
         <div class="griglia-prodotti">
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpg" alt="Bouquet sposa">
+                <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpeg" alt="Bouquet sposa">
                 <div class="prodotto-info">
                     <h3>Bouquet Sposa Elegance</h3>
                     <p>Bouquet raffinato con rose bianche e gypsophila.</p>
@@ -71,7 +71,7 @@
             </article>
 
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_tulipani.jpg" alt="Bouquet tulipani">
+                <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_tulipani.jpeg" alt="Bouquet tulipani">
                 <div class="prodotto-info">
                     <h3>Bouquet Tulipani Bianchi</h3>
                     <p>Composizione elegante e luminosa con tulipani freschi.</p>
@@ -97,7 +97,7 @@
 
         <div class="griglia-prodotti">
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/coronalarea/corona_laurea_rossa.jpg" alt="Corona laurea">
+                <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea_rose.jpeg" alt="Corona laurea con rose">
                 <div class="prodotto-info">
                     <h3>Corona di Laurea Classica</h3>
                     <p>Corona con alloro fresco e rose rosse.</p>
@@ -107,7 +107,7 @@
             </article>
 
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/coronalarea/corona_laurea2.jpg" alt="Corona laurea personalizzata">
+                <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea2.jpeg" alt="Corona laurea personalizzata">
                 <div class="prodotto-info">
                     <h3>Corona di Laurea Personalizzata</h3>
                     <p>Corona con dettagli floreali personalizzabili.</p>
@@ -133,21 +133,21 @@
             </article>
 
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/eventi/evento1.jpeg" alt="Centrotavola evento">
+                <img src="${pageContext.request.contextPath}/images/eventi/evento_matrimonio2.jpeg" alt="Allestimento matrimonio elegante">
                 <div class="prodotto-info">
-                    <h3>Centrotavola Floreale</h3>
-                    <p>Composizione elegante per eventi e ricevimenti.</p>
-                    <p class="prezzo">Da €45,00</p>
+                    <h3>Allestimento Tavoli</h3>
+                    <p>Decorazioni floreali eleganti per ricevimenti e banchetti.</p>
+                    <p class="prezzo">Da €180,00</p>
                     <a class="btn" href="#">Dettagli</a>
                 </div>
             </article>
 
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/eventi/evento2.jpeg" alt="Composizione cerimonia">
+                <img src="${pageContext.request.contextPath}/images/eventi/evento1.jpeg" alt="Centrotavola evento">
                 <div class="prodotto-info">
-                    <h3>Composizione da Cerimonia</h3>
-                    <p>Fiori delicati per chiese, sale e ingressi.</p>
-                    <p class="prezzo">Da €70,00</p>
+                    <h3>Centrotavola Floreale</h3>
+                    <p>Composizione elegante per eventi e ricevimenti.</p>
+                    <p class="prezzo">Da €45,00</p>
                     <a class="btn" href="#">Dettagli</a>
                 </div>
             </article>
@@ -169,7 +169,7 @@
             </article>
 
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube2.jpg" alt="Rosa in campana">
+                <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube2.jpeg" alt="Rosa in campana">
                 <div class="prodotto-info">
                     <h3>Rosa Eterna in Campana</h3>
                     <p>Rosa stabilizzata sotto vetro, perfetta come regalo.</p>
@@ -179,7 +179,7 @@
             </article>
 
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube3.jpg" alt="Cuore rose">
+                <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube3.jpeg" alt="Cuore rose">
                 <div class="prodotto-info">
                     <h3>Cuore di Rose</h3>
                     <p>Composizione romantica con rose stabilizzate.</p>
@@ -195,7 +195,7 @@
 
         <div class="griglia-prodotti">
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/piante/orchidea_bianca.jpg" alt="Orchidea bianca">
+                <img src="${pageContext.request.contextPath}/images/piante/orchidea_bianca.jpeg" alt="Orchidea bianca">
                 <div class="prodotto-info">
                     <h3>Orchidea Bianca</h3>
                     <p>Pianta elegante da interno, ideale anche come regalo.</p>
@@ -213,6 +213,16 @@
                     <a class="btn" href="#">Dettagli</a>
                 </div>
             </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/piante/piante2.jpeg" alt="Pianta decorativa">
+                <div class="prodotto-info">
+                    <h3>Pianta Verde Decorativa</h3>
+                    <p>Soluzione naturale per arredare con eleganza.</p>
+                    <p class="prezzo">€27,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
         </div>
     </section>
 
@@ -221,11 +231,31 @@
 
         <div class="griglia-prodotti">
             <article class="prodotto-box">
-                <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muschio.jpg" alt="Profumatore floreale">
+                <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_blu.jpeg" alt="Profumatore blu">
                 <div class="prodotto-info">
-                    <h3>Profumatore Muschio e Fiori</h3>
+                    <h3>Profumatore Muha Blu</h3>
                     <p>Profumatore decorativo con dettagli floreali.</p>
                     <p class="prezzo">€19,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_giallo.jpeg" alt="Profumatore giallo">
+                <div class="prodotto-info">
+                    <h3>Profumatore Muha Giallo</h3>
+                    <p>Fragranza elegante con confezione decorativa.</p>
+                    <p class="prezzo">€19,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/profumatori/profumatori_muha1.jpeg" alt="Profumatori floreali">
+                <div class="prodotto-info">
+                    <h3>Profumatore Floreale</h3>
+                    <p>Idea regalo raffinata per casa e ambienti eleganti.</p>
+                    <p class="prezzo">€21,90</p>
                     <a class="btn" href="#">Dettagli</a>
                 </div>
             </article>
