@@ -4,35 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Fiorista Maria</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/primocss.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style1.css">
 </head>
 <body>
 
-<header>
-    <h1>Fiorista Maria</h1>
+<jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-    <nav>
-        <a href="${pageContext.request.contextPath}/home">Home</a>
-        <a href="${pageContext.request.contextPath}/catalogo">Catalogo</a>
-        <a href="${pageContext.request.contextPath}/carrello">Carrello</a>
-        <a href="${pageContext.request.contextPath}/login">Login</a>
-    </nav>
-</header>
+<section class="hero">
+    <h1>Fiori freschi per ogni emozione</h1>
+    <p>Bouquet, piante e composizioni floreali personalizzate con consegna a domicilio.</p>
+    <a class="btn" href="${pageContext.request.contextPath}/catalogo">Scopri il catalogo</a>
+</section>
 
-<main>
-    <section class="hero">
-        <h2>Fiori, bouquet e composizioni per ogni occasione</h2>
-        <p>
-            Acquista online fiori freschi, piante ornamentali e composizioni personalizzate
-            con consegna a domicilio.
-        </p>
-        <a class="btn" href="${pageContext.request.contextPath}/catalogo">Vai al catalogo</a>
-    </section>
-</main>
+<section class="sezione">
+    <h2>Prodotti in evidenza</h2>
 
-<footer>
-    <p>&copy; 2026 Fiorista Maria</p>
-</footer>
+    <div class="prodotti">
+        <div class="card">
+            <img src="${pageContext.request.contextPath}/images/image.jpg" alt="Bouquet romantico">
+            <h3>Bouquet romantico</h3>
+            <p>Perfetto per anniversari e occasioni speciali.</p>
+            <p class="prezzo">€ 29,90</p>
+            <a class="btn" href="${pageContext.request.contextPath}/catalogo">Acquista</a>
+        </div>
+
+        <div class="card">
+            <img src="${pageContext.request.contextPath}/images/image.jpg" alt="Rose rosse">
+            <h3>Rose rosse</h3>
+            <p>Un classico elegante per dire ti amo.</p>
+            <p class="prezzo">€ 39,90</p>
+            <a class="btn" href="${pageContext.request.contextPath}/catalogo">Acquista</a>
+        </div>
+
+        <div class="card">
+            <img src="${pageContext.request.contextPath}/images/image.jpg" alt="Pianta ornamentale">
+            <h3>Pianta ornamentale</h3>
+            <p>Ideale per casa, ufficio o regalo.</p>
+            <p class="prezzo">€ 24,90</p>
+            <a class="btn" href="${pageContext.request.contextPath}/catalogo">Acquista</a>
+        </div>
+    </div>
+</section>
+
+<section class="sezione info">
+    <h2>Perché scegliere Fiorista Maria?</h2>
+    <p>
+        Offriamo fiori freschi, composizioni personalizzate e consegna a domicilio
+        per compleanni, anniversari, lauree, matrimoni e occasioni speciali.
+    </p>
+</section>
+
+<jsp:include page="/WEB-INF/view/common/footer.jsp" />
 
 </body>
 </html>
