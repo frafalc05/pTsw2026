@@ -2,6 +2,7 @@ package it.progetto.control;
 
 import java.io.IOException;
 
+import it.progetto.dao.ConnectionTest;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,6 +21,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	ConnectionTest.getConnection();
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/user/home.jsp");
         dispatcher.forward(request, response);
     }
