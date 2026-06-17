@@ -57,3 +57,43 @@ footer {
     text-align: center;
     padding: 15px;
 }
+.catalogo-hero {
+    padding: 70px 20px;
+    text-align: center;
+    background: linear-gradient(rgba(123, 45, 66, 0.55), rgba(123, 45, 66, 0.55)),
+                url("../images/home/home1.jpeg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.catalogo-hero h1 {
+    font-size: 46px;
+    margin-bottom: 15px;
+}
+
+.catalogo-hero p {
+    font-size: 20px;
+}
+
+.categorie-catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.categorie-catalogo a {
+    padding: 12px 22px;
+    border-radius: 30px;
+    background-color: white;
+    color: #7b2d42;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+
+.categorie-catalogo a:hover {
+    background-color: #7b2d42;
+    color: white;
+}
