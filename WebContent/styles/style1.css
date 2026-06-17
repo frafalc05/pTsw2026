@@ -5,15 +5,22 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #fff8f4;
+    background-color: red !important;
     color: #333;
 }
+
+/* HEADER */
 
 header {
     background-color: #7b2d42;
     color: white;
     padding: 20px;
     text-align: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
 }
 
 nav {
@@ -27,11 +34,35 @@ nav a {
     font-weight: bold;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* BOTTONI */
+
+.btn {
+    display: inline-block;
+    padding: 11px 22px;
+    background-color: #7b2d42;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #9b3d57;
+}
+
+/* HOME */
+
 .hero {
     padding: 60px 20px;
     text-align: center;
+    background-color: #fff8f4;
 }
 
+.hero h1,
 .hero h2 {
     font-size: 33px;
     color: #7b2d42;
@@ -43,57 +74,263 @@ nav a {
     font-size: 18px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
+.sezione {
+    padding: 45px 40px;
+    text-align: center;
+}
+
+/* CATALOGO */
+
+.catalogo-intro {
+    text-align: center;
+    padding: 32px 20px 14px;
+    background-color: #fff8f4;
+}
+
+.catalogo-intro h1 {
+    color: #7b2d42;
+    font-size: 36px;
+    margin: 0 0 8px 0;
+}
+
+.catalogo-intro p {
+    color: #555;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* BARRA CATEGORIE */
+
+.categorie-tonde {
+    width: 100%;
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 18px 30px;
+    background-color: #f7eeee;
+    border-top: 1px solid #ead8d8;
+    border-bottom: 1px solid #ead8d8;
+    align-items: flex-start;
+}
+
+.categoria-tonda {
+    width: 105px;
+    min-width: 105px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    font-weight: bold;
+    display: block;
+}
+
+.categoria-tonda img {
+    width: 74px !important;
+    height: 74px !important;
+    min-width: 74px !important;
+    max-width: 74px !important;
+    min-height: 74px !important;
+    max-height: 74px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin: 0 auto 7px auto !important;
+    border: 3px solid white;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.categoria-tonda span {
+    display: block;
+    line-height: 1.2;
+    white-space: normal;
+}
+
+.categoria-tonda:hover {
+    color: #7b2d42;
+}
+
+/* BLOCCHI PRODOTTI */
+
+.blocco-catalogo {
+    padding: 45px 40px;
+    background-color: #fff8f4;
+}
+
+.blocco-catalogo h2 {
+    text-align: center;
+    color: #7b2d42;
+    font-size: 30px;
+    margin-bottom: 28px;
+}
+
+.griglia-prodotti {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 260px));
+    gap: 28px;
+    justify-content: center;
+}
+
+.prodotto-box {
+    width: 260px;
+    background-color: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.12);
+}
+
+.prodotto-box > img {
+    width: 260px !important;
+    height: 210px !important;
+    max-width: 260px !important;
+    max-height: 210px !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 0 !important;
+}
+
+.prodotto-info {
+    padding: 18px;
+    text-align: center;
+}
+
+.prodotto-info h3 {
+    color: #7b2d42;
+    margin-top: 0;
+}
+
+.prodotto-info p {
+    color: #555;
+}
+
+.prezzo {
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* LOGIN / REGISTRAZIONE */
+
+.login-section,
+.register-section {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #fff8f4;
+}
+
+.login-box,
+.register-box {
+    width: 100%;
+    max-width: 480px;
+    background-color: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.login-box h1,
+.register-box h1 {
+    color: #7b2d42;
+}
+
+.login-form,
+.register-form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.login-form label,
+.register-form label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.login-form input,
+.register-form input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.login-form input:focus,
+.register-form input:focus {
+    outline: none;
+    border-color: #7b2d42;
+}
+
+.btn-login {
+    padding: 13px;
+    border: none;
+    border-radius: 30px;
     background-color: #7b2d42;
     color: white;
-    text-decoration: none;
-    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
 }
+
+.btn-login:hover {
+    background-color: #9b3d57;
+}
+
+.errore-login {
+    background-color: #ffe5e5;
+    color: #9b1c1c;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+.login-link {
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #7b2d42;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* FOOTER */
 
 footer {
     background-color: #eee;
     text-align: center;
     padding: 15px;
-}
-.catalogo-hero {
-    padding: 70px 20px;
-    text-align: center;
-    background: linear-gradient(rgba(123, 45, 66, 0.55), rgba(123, 45, 66, 0.55)),
-                url("../images/home/home1.jpeg");
-    background-size: cover;
-    background-position: center;
-    color: white;
+    margin-top: 30px;
 }
 
-.catalogo-hero h1 {
-    font-size: 46px;
-    margin-bottom: 15px;
-}
+/* RESPONSIVE */
 
-.catalogo-hero p {
-    font-size: 20px;
-}
+@media (max-width: 768px) {
+    header {
+        padding: 18px;
+    }
 
-.categorie-catalogo {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-}
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
 
-.categorie-catalogo a {
-    padding: 12px 22px;
-    border-radius: 30px;
-    background-color: white;
-    color: #7b2d42;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-}
+    .catalogo-intro h1 {
+        font-size: 30px;
+    }
 
-.categorie-catalogo a:hover {
-    background-color: #7b2d42;
-    color: white;
+    .blocco-catalogo {
+        padding: 35px 18px;
+    }
+
+    .categorie-tonde {
+        padding: 16px 18px;
+        gap: 16px;
+    }
 }
