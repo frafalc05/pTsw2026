@@ -18,7 +18,7 @@ public class UtenteDAO {
             ps.setString(1, u.getNome());
             ps.setString(2, u.getCognome());
             ps.setString(3, u.getEmail());
-            ps.setString(4, u.getPassword());
+            ps.setString(4, u.getPassword()); // già hashata nella servlet
             ps.setString(5, "USER");
 
             ps.executeUpdate();
