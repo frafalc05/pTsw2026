@@ -5,202 +5,300 @@
 <head>
     <meta charset="UTF-8">
     <title>Catalogo - Fiorista Maria</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style1.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style1.css?v=10">
 </head>
 
 <body>
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-<section class="catalogo-hero">
-    <h1>Il nostro catalogo</h1>
-    <p>Composizioni floreali, bouquet, piante, terrarium e creazioni per eventi speciali.</p>
-</section>
+<main>
 
-<section class="sezione">
-    <h2>Categorie</h2>
+    <section class="catalogo-intro">
+        <h1>Il nostro catalogo</h1>
+        <p>Scegli la categoria e trova la composizione floreale perfetta per ogni occasione.</p>
+    </section>
 
-    <div class="categorie-catalogo">
-        <a href="#bouquet">Bouquet d'Autore</a>
-        <a href="#corone">Corone di Laurea</a>
-        <a href="#eventi">Eventi e Cerimonie</a>
-        <a href="#flowercube">Flower Cube</a>
-        <a href="#piante">Piante e Orchidee</a>
-        <a href="#profumatori">Profumatori Floreali</a>
-        <a href="#terrarium">Terrarium</a>
-    </div>
-</section>
+    <section class="categorie-tonde">
+        <a href="#bouquet" class="categoria-tonda">
+            <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_tulipani.jpeg" alt="Bouquet">
+            <span>Bouquet</span>
+        </a>
 
-<section class="sezione" id="bouquet">
-    <h2>Bouquet d'Autore</h2>
-    <div class="prodotti">
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpg" alt="Bouquet sposa">
-            <h3>Bouquet Sposa Elegance</h3>
-            <p>Bouquet raffinato con rose bianche e gypsophila.</p>
-            <p class="prezzo">€89,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
+        <a href="#corone" class="categoria-tonda">
+            <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea2.jpeg" alt="Corone di laurea">
+            <span>Laurea</span>
+        </a>
 
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_tulipani.jpg" alt="Bouquet tulipani">
-            <h3>Bouquet Tulipani Bianchi</h3>
-            <p>Composizione elegante e luminosa con tulipani freschi.</p>
-            <p class="prezzo">€39,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
+        <a href="#eventi" class="categoria-tonda">
+            <img src="${pageContext.request.contextPath}/images/eventi/evento1.jpeg" alt="Eventi">
+            <span>Eventi</span>
+        </a>
 
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/bouquet/bouquet2.jpeg" alt="Bouquet misto">
-            <h3>Bouquet Primavera</h3>
-            <p>Fiori misti colorati per compleanni e occasioni speciali.</p>
-            <p class="prezzo">€44,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-    </div>
-</section>
+        <a href="#flowercube" class="categoria-tonda">
+            <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube.jpeg" alt="Flower Cube">
+            <span>Flower Cube</span>
+        </a>
 
-<section class="sezione" id="corone">
-    <h2>Corone di Laurea</h2>
-    <div class="prodotti">
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/coronalarea/corona_laurea_rossa.jpg" alt="Corona laurea">
-            <h3>Corona di Laurea Classica</h3>
-            <p>Corona con alloro fresco e rose rosse.</p>
-            <p class="prezzo">€29,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
+        <a href="#piante" class="categoria-tonda">
+            <img src="${pageContext.request.contextPath}/images/piante/orchidea_bianca.jpeg" alt="Piante">
+            <span>Piante</span>
+        </a>
 
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/coronalarea/corona_laurea2.jpg" alt="Corona laurea personalizzata">
-            <h3>Corona di Laurea Personalizzata</h3>
-            <p>Corona con dettagli floreali personalizzabili.</p>
-            <p class="prezzo">€34,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-    </div>
-</section>
+        <a href="#profumatori" class="categoria-tonda">
+            <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_blu.jpeg" alt="Profumatori">
+            <span>Profumatori</span>
+        </a>
 
-<section class="sezione" id="eventi">
-    <h2>Eventi e Cerimonie</h2>
-    <div class="prodotti">
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/eventi/evento_matrimonio.jpeg" alt="Allestimento matrimonio">
-            <h3>Allestimento Matrimonio</h3>
-            <p>Decorazioni floreali per location, tavoli e cerimonia.</p>
-            <p class="prezzo">Da €250,00</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/eventi/evento1.jpeg" alt="Centrotavola evento">
-            <h3>Centrotavola Floreale</h3>
-            <p>Composizione elegante per eventi e ricevimenti.</p>
-            <p class="prezzo">Da €45,00</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/eventi/evento2.jpeg" alt="Composizione cerimonia">
-            <h3>Composizione da Cerimonia</h3>
-            <p>Fiori delicati per chiese, sale e ingressi.</p>
-            <p class="prezzo">Da €70,00</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-    </div>
-</section>
-
-<section class="sezione" id="flowercube">
-    <h2>Flower Cube</h2>
-    <div class="prodotti">
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube.jpeg" alt="Flower cube">
-            <h3>Flower Cube Rosso</h3>
-            <p>Rosa stabilizzata in cubo elegante.</p>
-            <p class="prezzo">€49,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube2.jpg" alt="Rosa in campana">
-            <h3>Rosa Eterna in Campana</h3>
-            <p>Rosa stabilizzata sotto vetro, perfetta come regalo.</p>
-            <p class="prezzo">€59,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube3.jpg" alt="Cuore rose">
-            <h3>Cuore di Rose</h3>
-            <p>Composizione romantica con rose stabilizzate.</p>
-            <p class="prezzo">€69,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-    </div>
-</section>
-
-<section class="sezione" id="piante">
-    <h2>Piante e Orchidee</h2>
-    <div class="prodotti">
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/piante/orchidea_bianca.jpg" alt="Orchidea bianca">
-            <h3>Orchidea Bianca</h3>
-            <p>Pianta elegante da interno, ideale anche come regalo.</p>
-            <p class="prezzo">€34,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/piante/piantagialla.jpeg" alt="Pianta ornamentale">
-            <h3>Pianta Ornamentale</h3>
-            <p>Pianta decorativa per casa, ufficio o attività commerciali.</p>
-            <p class="prezzo">€24,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-    </div>
-</section>
-
-<section class="sezione" id="profumatori">
-    <h2>Profumatori Floreali</h2>
-    <div class="prodotti">
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muschio.jpg" alt="Profumatore floreale">
-            <h3>Profumatore Muschio e Fiori</h3>
-            <p>Profumatore decorativo con dettagli floreali.</p>
-            <p class="prezzo">€19,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
-    </div>
-</section>
-
-<section class="sezione" id="terrarium">
-    <h2>Terrarium</h2>
-    <div class="prodotti">
-        <div class="card">
+        <a href="#terrarium" class="categoria-tonda">
             <img src="${pageContext.request.contextPath}/images/terrarium/terrarium1.jpeg" alt="Terrarium">
-            <h3>Terrarium Elegance</h3>
-            <p>Composizione in vetro con piante e muschio decorativo.</p>
-            <p class="prezzo">€39,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
+            <span>Terrarium</span>
+        </a>
+    </section>
 
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/terrarium/terrarium2.jpeg" alt="Terrarium natura">
-            <h3>Terrarium Natura</h3>
-            <p>Piccolo ecosistema decorativo in contenitore di vetro.</p>
-            <p class="prezzo">€44,90</p>
-            <a class="btn" href="#">Dettagli</a>
-        </div>
+    <section class="blocco-catalogo" id="bouquet">
+        <h2>Bouquet d'Autore</h2>
 
-        <div class="card">
-            <img src="${pageContext.request.contextPath}/images/terrarium/terrarium3.jpeg" alt="Marimo">
-            <h3>Marimo in Vetro</h3>
-            <p>Decorazione acquatica con marimo e pietre naturali.</p>
-            <p class="prezzo">€24,90</p>
-            <a class="btn" href="#">Dettagli</a>
+        <div class="griglia-prodotti">
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpeg" alt="Bouquet sposa">
+                <div class="prodotto-info">
+                    <h3>Bouquet Sposa Elegance</h3>
+                    <p>Bouquet raffinato con rose bianche e gypsophila.</p>
+                    <p class="prezzo">€89,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_tulipani.jpeg" alt="Bouquet tulipani">
+                <div class="prodotto-info">
+                    <h3>Bouquet Tulipani Bianchi</h3>
+                    <p>Composizione elegante e luminosa con tulipani freschi.</p>
+                    <p class="prezzo">€39,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/bouquet/bouquet2.jpeg" alt="Bouquet misto">
+                <div class="prodotto-info">
+                    <h3>Bouquet Primavera</h3>
+                    <p>Fiori misti colorati per compleanni e occasioni speciali.</p>
+                    <p class="prezzo">€44,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="blocco-catalogo" id="corone">
+        <h2>Corone di Laurea</h2>
+
+        <div class="griglia-prodotti">
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea_rose.jpeg" alt="Corona laurea con rose">
+                <div class="prodotto-info">
+                    <h3>Corona di Laurea Classica</h3>
+                    <p>Corona con alloro fresco e rose rosse.</p>
+                    <p class="prezzo">€29,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea2.jpeg" alt="Corona laurea personalizzata">
+                <div class="prodotto-info">
+                    <h3>Corona di Laurea Personalizzata</h3>
+                    <p>Corona con dettagli floreali personalizzabili.</p>
+                    <p class="prezzo">€34,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="blocco-catalogo" id="eventi">
+        <h2>Eventi e Cerimonie</h2>
+
+        <div class="griglia-prodotti">
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/eventi/evento_matrimonio.jpeg" alt="Allestimento matrimonio">
+                <div class="prodotto-info">
+                    <h3>Allestimento Matrimonio</h3>
+                    <p>Decorazioni floreali per location, tavoli e cerimonia.</p>
+                    <p class="prezzo">Da €250,00</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/eventi/evento_matrimonio2.jpeg" alt="Allestimento matrimonio elegante">
+                <div class="prodotto-info">
+                    <h3>Allestimento Tavoli</h3>
+                    <p>Decorazioni floreali eleganti per ricevimenti e banchetti.</p>
+                    <p class="prezzo">Da €180,00</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/eventi/evento1.jpeg" alt="Centrotavola evento">
+                <div class="prodotto-info">
+                    <h3>Centrotavola Floreale</h3>
+                    <p>Composizione elegante per eventi e ricevimenti.</p>
+                    <p class="prezzo">Da €45,00</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="blocco-catalogo" id="flowercube">
+        <h2>Flower Cube</h2>
+
+        <div class="griglia-prodotti">
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube.jpeg" alt="Flower cube">
+                <div class="prodotto-info">
+                    <h3>Flower Cube Rosso</h3>
+                    <p>Rosa stabilizzata in cubo elegante.</p>
+                    <p class="prezzo">€49,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube2.jpeg" alt="Rosa in campana">
+                <div class="prodotto-info">
+                    <h3>Rosa Eterna in Campana</h3>
+                    <p>Rosa stabilizzata sotto vetro, perfetta come regalo.</p>
+                    <p class="prezzo">€59,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube3.jpeg" alt="Cuore rose">
+                <div class="prodotto-info">
+                    <h3>Cuore di Rose</h3>
+                    <p>Composizione romantica con rose stabilizzate.</p>
+                    <p class="prezzo">€69,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="blocco-catalogo" id="piante">
+        <h2>Piante e Orchidee</h2>
+
+        <div class="griglia-prodotti">
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/piante/orchidea_bianca.jpeg" alt="Orchidea bianca">
+                <div class="prodotto-info">
+                    <h3>Orchidea Bianca</h3>
+                    <p>Pianta elegante da interno, ideale anche come regalo.</p>
+                    <p class="prezzo">€34,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/piante/piantagialla.jpeg" alt="Pianta ornamentale">
+                <div class="prodotto-info">
+                    <h3>Pianta Ornamentale</h3>
+                    <p>Pianta decorativa per casa, ufficio o attività commerciali.</p>
+                    <p class="prezzo">€24,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/piante/piante2.jpeg" alt="Pianta decorativa">
+                <div class="prodotto-info">
+                    <h3>Pianta Verde Decorativa</h3>
+                    <p>Soluzione naturale per arredare con eleganza.</p>
+                    <p class="prezzo">€27,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="blocco-catalogo" id="profumatori">
+        <h2>Profumatori Floreali</h2>
+
+        <div class="griglia-prodotti">
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_blu.jpeg" alt="Profumatore blu">
+                <div class="prodotto-info">
+                    <h3>Profumatore Muha Blu</h3>
+                    <p>Profumatore decorativo con dettagli floreali.</p>
+                    <p class="prezzo">€19,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_giallo.jpeg" alt="Profumatore giallo">
+                <div class="prodotto-info">
+                    <h3>Profumatore Muha Giallo</h3>
+                    <p>Fragranza elegante con confezione decorativa.</p>
+                    <p class="prezzo">€19,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/profumatori/profumatori_muha1.jpeg" alt="Profumatori floreali">
+                <div class="prodotto-info">
+                    <h3>Profumatore Floreale</h3>
+                    <p>Idea regalo raffinata per casa e ambienti eleganti.</p>
+                    <p class="prezzo">€21,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="blocco-catalogo" id="terrarium">
+        <h2>Terrarium</h2>
+
+        <div class="griglia-prodotti">
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/terrarium/terrarium1.jpeg" alt="Terrarium">
+                <div class="prodotto-info">
+                    <h3>Terrarium Elegance</h3>
+                    <p>Composizione in vetro con piante e muschio decorativo.</p>
+                    <p class="prezzo">€39,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/terrarium/terrarium2.jpeg" alt="Terrarium natura">
+                <div class="prodotto-info">
+                    <h3>Terrarium Natura</h3>
+                    <p>Piccolo ecosistema decorativo in contenitore di vetro.</p>
+                    <p class="prezzo">€44,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+
+            <article class="prodotto-box">
+                <img src="${pageContext.request.contextPath}/images/terrarium/terrarium3.jpeg" alt="Marimo">
+                <div class="prodotto-info">
+                    <h3>Marimo in Vetro</h3>
+                    <p>Decorazione acquatica con marimo e pietre naturali.</p>
+                    <p class="prezzo">€24,90</p>
+                    <a class="btn" href="#">Dettagli</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+</main>
 
 <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 
