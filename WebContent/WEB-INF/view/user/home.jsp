@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Fiorista Maria</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 <body>
 
