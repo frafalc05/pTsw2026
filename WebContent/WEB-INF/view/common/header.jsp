@@ -7,12 +7,10 @@
 
     <div class="header-top">
 
-        <a href="${pageContext.request.contextPath}/home" class="header-logo">
-            <div>
-                <h1>Fiorista Maria</h1>
-                <p>Addobbi floreali</p>
-            </div>
-        </a>
+       <a href="${pageContext.request.contextPath}/home" class="header-logo">
+    <img src="${pageContext.request.contextPath}/images/home/banner-header.png"
+         alt="Fiorista Maria - Addobbi Floreali">
+</a>
 
         <nav class="header-nav">
             <a href="${pageContext.request.contextPath}/home" class="active">Home</a>

@@ -16,8 +16,6 @@
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
 <main class="home-page">
-
-    <!-- HERO -->
     <section class="home-hero">
 
         <div class="hero-floral-banner"></div>

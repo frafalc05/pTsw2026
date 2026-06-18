@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrati - Fiorista Maria</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
     <link rel="stylesheet" href="styles/style1.css">
 	<link rel="stylesheet" href="styles/login.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css">
 </head>
 <body>
 
@@ -25,7 +27,7 @@
             <h1>Crea un Account</h1>
             <p>Inserisci i tuoi dati per registrarti.</p>
 
-            <%-- Se la servlet rileva che le password non coincidono o un errore DB, mostra il box --%>
+
             <% if (request.getAttribute("errore") != null) { %>
                 <div class="errore-login">
                     <%= request.getAttribute("errore") %>
@@ -58,9 +60,7 @@
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 - Fiorista Maria. Tutti i diritti riservati.</p>
-    </footer>
+    <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 
 </body>
 </html>
