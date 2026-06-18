@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Catalogo - Fiorista Maria</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style1.css?v=10">
+    <link rel="stylesheet" href="styles/style1.css">
+	<link rel="stylesheet" href="styles/catalogo.css">
 </head>
 
 <body>

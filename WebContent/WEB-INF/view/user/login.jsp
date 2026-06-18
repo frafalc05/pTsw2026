@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Fiorista Maria</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style1.css">
+    <link rel="stylesheet" href="styles/style1.css">
+	<link rel="stylesheet" href="styles/login.css">
 </head>
 
 <body>
