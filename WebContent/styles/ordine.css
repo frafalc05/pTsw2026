@@ -1,0 +1,71 @@
+/* Struttura principale del contenitore */
+.ordini-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.ordini-titolo {
+    color: #333;
+}
+
+.ordini-descrizione {
+    color: #555;
+}
+
+/* Tabella degli ordini */
+.ordini-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.ordini-table th, 
+.ordini-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.ordini-table th {
+    background-color: #6B2D3C; /* Il tuo bordeaux */
+    color: white;
+}
+
+.ordini-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Elementi di stato e avvisi */
+.badge-stato {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.nessun-ordine-box {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.nessun-ordine-testo {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Pulsanti e link bordeaux */
+.btn-link {
+    background-color: #6B2D3C; 
+    color: white; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}

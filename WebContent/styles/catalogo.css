@@ -112,9 +112,52 @@
     height: auto;
 }
 
+<<<<<<< HEAD
+=======
+/* Pulsanti e Controlli nel Catalogo */
+.carrello-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0; /* Spazio bilanciato tra il prezzo e la riga dei comandi */
+}
+
+/* Casella di input per la quantità */
+.qta-input {
+    width: 50px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Bottone Aggiungi al Carrello (Uniformato al colore di Dettagli) */
+.btn-add-carrello {
+    display: inline-block;
+    background-color: #7b2d42; /* Colore bordeaux scuro */
+    color: white;
+    padding: 8px 18px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-add-carrello:hover {
+    background-color: #632334;
+}
+
+/* Bottone Dettagli (Posizionato sotto in modo pulito) */
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
 .prodotto-info .btn {
     display: inline-block;
-    background-color: #7b2d42;
+    background-color: #7b2d42; /* Colore bordeaux scuro */
     color: white;
     padding: 8px 20px;
     text-decoration: none;
@@ -123,10 +166,12 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    margin-top: 5px;
 }
 
 .prodotto-info .btn:hover {
     background-color: #632334;
+<<<<<<< HEAD
 }
 
 .form-carrello {
@@ -149,4 +194,6 @@
 
 .btn-aggiungi-carrello:hover {
     background-color: #7b2d42;
+=======
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
 }

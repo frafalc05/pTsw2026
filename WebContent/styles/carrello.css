@@ -1,53 +1,249 @@
-.carrello-container {
+/* ==========================================================================
+   1. RESET GENERALE (Risolve il taglio a destra dell'header)
+   ========================================================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #faf6f7;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* ==========================================================================
+   2. CONTROLLI DI ACQUISTO
+   ========================================================================== */
+.carrello-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.qta-input {
+    width: 60px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-add-carrello {
+    background-color: #6b2d3c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-carrello:hover {
+    background-color: #52202c;
+}
+
+/* ==========================================================================
+   3. STRUTTURA E TABELLA RIASSUNTIVA DEL CARRELLO
+   ========================================================================== */
+.carrello-box {
     max-width: 1000px;
     margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    background: white;
+    padding: 30px;
     border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-.carrello-tabella {
+
+.carrello-box h2 {
+    color: #6b2d3c;
+    border-bottom: 2px solid #6b2d3c;
+    padding-bottom: 12px;
+    margin-top: 0;
+    font-size: 1.6rem;
+}
+
+.carrello-box table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
-.carrello-tabella th, .carrello-tabella td {
-    padding: 15px;
+
+.carrello-box th, 
+.carrello-box td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e2d9db;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
 }
-.carrello-tabella th {
-    background-color: #7b2d42;
-    color: white;
-}
-.img-carrello {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-.totale-box {
-    text-align: right;
-    margin-top: 20px;
-    font-size: 1.3rem;
+
+.carrello-box th {
+    background-color: #faf6f7;
+    color: #6b2d3c;
     font-weight: bold;
-    color: #7b2d42;
 }
-.btn-carrello {
-    display: inline-block;
-    background-color: #7b2d42;
+
+/* Riga del Totale Finale */
+.riga-totale {
+    background-color: #faf6f7;
+    font-size: 1.1rem;
+}
+
+.riga-totale td {
+    border-top: 2px solid #6b2d3c;
+    border-bottom: none;
+    padding: 16px 12px;
+}
+
+.txt-destra {
+    text-align: right;
+    font-weight: bold;
+    color: #6b2d3c;
+}
+
+.valore-totale {
+    font-weight: bold;
+    color: #6b2d3c;
+    font-size: 1.3rem;
+}
+
+.carrello-box .vuoto {
+    text-align: center;
+    color: #666;
+    padding: 40px 20px;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   4. BOTTONI E AZIONI FOOTER
+   ========================================================================== */
+.carrello-footer-azioni {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gruppo-bottoni-dx {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-rimuovi {
+    background-color: #c9302c;
     color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 15px;
     border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-svuota {
+    background-color: #777;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: bold;
     cursor: pointer;
 }
-.btn-carrello:hover {
-    background-color: #632334;
+
+.btn-torna {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #6b2d3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
 }
-.carrello-vuoto {
+
+.btn-torna:hover {
+    background-color: #52202c;
+}
+
+.btn-checkout {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-checkout:hover:not(.btn-disabilitato) {
+    background-color: #218838;
+}
+
+.btn-disabilitato {
+    background-color: #777;
+    cursor: not-allowed;
+}
+/* ==========================================================================
+   5. STILI PER LA PAGINA DI CHECKOUT (Senza stili inline)
+   ========================================================================== */
+.form-checkout {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-checkout,
+.select-checkout {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.w-cap {
+    width: 120px;
+}
+
+.separatore {
+    border: 0;
+    border-top: 1px solid #e2d9db;
+    margin: 25px 0;
+}
+
+.form-azioni-checkout {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-ritorno {
+    text-decoration: none;
     text-align: center;
-    padding: 40px;
+    line-height: 20px; /* Allinea il testo come il bottone accanto */
 }

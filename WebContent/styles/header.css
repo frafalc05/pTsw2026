@@ -13,13 +13,27 @@
 
 .header-top {
     width: 100%;
+<<<<<<< HEAD
     max-width: 1750px;
     margin: 0 auto;
     padding: 22px 48px;
     display: grid;
     grid-template-columns: 480px 1fr 290px;
+=======
+    max-width: none;
+    margin: 0;
+    /* Bilanciato il padding per dare più spazio sui lati */
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     align-items: center;
+<<<<<<< HEAD
     gap: 28px;
+=======
+    /* Ridotto il gap tra le tre macro aree */
+    gap: 15px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     box-sizing: border-box;
 }
 
@@ -28,11 +42,20 @@
     align-items: center;
     justify-content: flex-start;
     text-decoration: none;
+<<<<<<< HEAD
+=======
+    flex-shrink: 0;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
 }
 
 .header-logo img {
+<<<<<<< HEAD
     width: 455px;
     max-width: 100%;
+=======
+    /* Ottimizzata la larghezza del banner logo per liberare spazio */
+    width: 340px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     height: auto;
     display: block;
     filter: drop-shadow(0 6px 12px rgba(123, 45, 66, 0.10));
@@ -42,16 +65,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
     gap: 48px;
+=======
+    /* Ridotto leggermente lo spazio tra le voci di menu centrali (da 34px a 24px) */
+    gap: 24px;
+    flex: 1;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
 }
 
 .header-nav a {
     color: #743044;
     text-decoration: none;
+<<<<<<< HEAD
     font-size: 20px;
+=======
+    /* Ottimizzato font size a 16px per evitare sovrapposizioni */
+    font-size: 16px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     font-weight: 800;
     text-transform: uppercase;
+<<<<<<< HEAD
     letter-spacing: 1.3px;
+=======
+    letter-spacing: 1px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     position: relative;
     padding-bottom: 8px;
     white-space: nowrap;
@@ -84,16 +122,30 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+<<<<<<< HEAD
     gap: 30px;
+=======
+    /* Spazio tra Carrello, Ordini e Utente ottimizzato */
+    gap: 18px;
+    flex-shrink: 0;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
 }
 
 .header-action {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     gap: 9px;
+=======
+    gap: 6px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     color: #743044;
     text-decoration: none;
+<<<<<<< HEAD
     font-size: 16px;
+=======
+    font-size: 14px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     font-weight: 800;
     text-transform: uppercase;
     white-space: nowrap;
@@ -101,7 +153,11 @@
 }
 
 .header-action i {
+<<<<<<< HEAD
     font-size: 28px;
+=======
+    font-size: 24px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
 }
 
 .header-action:hover {
@@ -109,18 +165,30 @@
     transform: translateY(-1px);
 }
 
-.logo-symbol {
-    width: 48px;
-    height: 48px;
-    border: 1px solid #caa66a;
-    color: #b28a4a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 27px;
+/* RESPONSIVE PER SCHERMI MEDI E PICCOLI */
+@media (max-width: 1340px) {
+    .header-logo img {
+        width: 290px;
+    }
+    
+    .header-nav {
+        gap: 14px;
+    }
+    
+    .header-nav a {
+        font-size: 14px;
+    }
+    
+    .header-actions {
+        gap: 12px;
+    }
+    
+    .header-action {
+        font-size: 13px;
+    }
 }
 
+<<<<<<< HEAD
 .header-logo h1 {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
@@ -140,13 +208,21 @@
 }
 
 @media (max-width: 1500px) {
+=======
+@media (max-width: 1100px) {
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     .header-top {
+<<<<<<< HEAD
         grid-template-columns: 400px 1fr 250px;
         padding: 20px 36px;
         gap: 24px;
+=======
+        padding: 15px 20px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     }
 
     .header-logo img {
+<<<<<<< HEAD
         width: 380px;
     }
 
@@ -176,20 +252,29 @@
 
     .header-logo img {
         width: 320px;
+=======
+        width: 260px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     }
 
     .header-nav {
-        gap: 24px;
+        gap: 10px;
     }
 
     .header-nav a {
+<<<<<<< HEAD
         font-size: 15px;
         letter-spacing: 1px;
     }
 
     .header-actions {
         gap: 20px;
+=======
+        font-size: 13px;
+        letter-spacing: 0.5px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     }
+<<<<<<< HEAD
 
     .header-action {
         font-size: 13px;
@@ -199,9 +284,20 @@
 @media (max-width: 950px) {
     .header-top {
         grid-template-columns: 1fr;
+=======
+}
+
+@media (max-width: 950px) {
+    .header-top {
+        flex-direction: column;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
         text-align: center;
+<<<<<<< HEAD
         gap: 18px;
         padding: 18px 24px;
+=======
+        gap: 14px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     }
 
     .header-logo {
@@ -209,12 +305,17 @@
     }
 
     .header-logo img {
+<<<<<<< HEAD
         width: 360px;
+=======
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
         margin: 0 auto;
+        width: 300px;
     }
 
     .header-nav {
         flex-wrap: wrap;
+<<<<<<< HEAD
         gap: 22px;
     }
 
@@ -223,38 +324,56 @@
     }
 
     .header-actions {
+=======
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
         justify-content: center;
+<<<<<<< HEAD
         gap: 24px;
+=======
+        gap: 15px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     }
 }
 
+<<<<<<< HEAD
 @media (max-width: 700px) {
     .header-top {
         padding: 16px 16px;
     }
 
+=======
+@media (max-width: 600px) {
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     .header-logo img {
+<<<<<<< HEAD
         width: 285px;
     }
 
     .header-nav {
         gap: 15px;
+=======
+        width: 230px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     }
 
     .header-nav a {
+<<<<<<< HEAD
         font-size: 13px;
         letter-spacing: 0.8px;
     }
 
     .header-action {
         font-size: 13px;
+=======
+        font-size: 12px;
+>>>>>>> branch 'main' of https://github.com/frafalc05/pTsw2026.git
     }
 
     .header-action span {
         display: none;
     }
-
+    
     .header-action i {
-        font-size: 24px;
+        font-size: 22px;
     }
 }
