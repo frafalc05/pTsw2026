@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>Cronologia Ordini</title>
     
-    <%-- COLLEGAMENTO AL FILE CSS ESTERNO --%>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/ordine.css">
 </head>
 <body>
@@ -15,7 +14,6 @@
         <h2 class="ordini-titolo">Cronologia dei Miei Ordini</h2>
         <p class="ordini-descrizione">Benvenuto nella tua area personale. Qui sotto trovi lo storico dei tuoi acquisti.</p>
 
-        <%-- CONTROLLO SE LA LISTA ORDINI E' VUOTA --%>
         <c:choose>
             <c:when test="${empty listaOrdini}">
                 <div class="nessun-ordine-box">
@@ -25,7 +23,7 @@
             </c:when>
             
             <c:otherwise>
-                <%-- SE CI SONO ORDINI, MOSTRAMO LA TABELLA --%>
+              
                 <table class="ordini-table">
                     <thead>
                         <tr>
@@ -49,7 +47,6 @@
             </c:otherwise>
         </c:choose>
 
-        <%-- PULSANTE TORNA ALLA HOME --%>
         <div class="margin-top-30">
             <a href="${pageContext.request.contextPath}/" class="btn-link">Torna alla Home</a>
         </div>
