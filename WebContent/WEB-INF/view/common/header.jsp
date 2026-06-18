@@ -1,27 +1,39 @@
-<%@ page import="it.progetto.model.Utente" %>
-<%
-    // Recuperiamo l'utente e il ruolo dalla sessione
-    Utente utenteLoggato = (Utente) session.getAttribute("utente");
-    String ruolo = (String) session.getAttribute("ruolo");
-%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<header>
-    <div class="logo">Fiorista Maria</div>
-    <nav>
-        <a href="${pageContext.request.contextPath}/home">Home</a>
-        <a href="${pageContext.request.contextPath}/catalogo">Catalogo</a>
-        <a href="${pageContext.request.contextPath}/carrello">Carrello</a>
-       
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
 
-        <% if (utenteLoggato == null) { %>
-            <a href="${pageContext.request.contextPath}/login">Login</a>
-            <a href="${pageContext.request.contextPath}/registrazione">Registrati</a>
-        <% } else if ("ADMIN".equalsIgnoreCase(ruolo)) { %>
-            <a href="${pageContext.request.contextPath}/admin/dashboard" style="color: #ffeb3b;">Dashboard Admin</a>
-            <a href="${pageContext.request.contextPath}/logout">Logout (<%= utenteLoggato.getNome() %>)</a>
-        <% } else { %>
-            <a href="${pageContext.request.contextPath}/ordini">I Miei Ordini</a>
-            <a href="${pageContext.request.contextPath}/logout">Logout (<%= utenteLoggato.getNome() %>)</a>
-        <% } %>
-    </nav>
+<header class="main-header">
+
+    <div class="header-top">
+
+        <a href="${pageContext.request.contextPath}/home" class="header-logo">
+            <div>
+                <h1>Fiorista Maria</h1>
+                <p>Addobbi floreali</p>
+            </div>
+        </a>
+
+        <nav class="header-nav">
+            <a href="${pageContext.request.contextPath}/home" class="active">Home</a>
+            <a href="${pageContext.request.contextPath}/catalogo">Catalogo</a>
+            <a href="#chi-siamo">Chi siamo</a>
+            <a href="#eventi">Eventi</a>
+            <a href="#contatti">Contatti</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#" class="header-action">
+                <i class="bi bi-bag-heart"></i>
+                <span>Carrello</span>
+            </a>
+
+            <a href="${pageContext.request.contextPath}/login" class="header-action">
+                <i class="bi bi-person"></i>
+                <span>Login</span>
+            </a>
+        </div>
+
+    </div>
+
 </header>

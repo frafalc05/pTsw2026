@@ -1,0 +1,474 @@
+/* =========================
+   HOME PAGE
+   ========================= */
+
+body {
+    margin: 0;
+    background: #fffaf7;
+    color: #4b2b32;
+}
+
+.home-page {
+    overflow: hidden;
+}
+
+/* HERO */
+
+.home-hero {
+    position: relative;
+    background: linear-gradient(180deg, #fffaf7 0%, #fff4f5 100%);
+    padding-bottom: 42px;
+    text-align: center;
+}
+
+.hero-floral-banner {
+    width: 100%;
+    height: 245px;
+    background-image: url("../images/home/banner-fiori.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    margin-bottom: -20px;
+}
+
+.hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-logo-symbol {
+    width: 78px;
+    height: 78px;
+    border: 1px solid #caa66a;
+    border-radius: 50%;
+    color: #b28a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 40px;
+    background: rgba(255, 250, 247, 0.85);
+}
+
+.hero-content h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 54px;
+    font-weight: 500;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #9d7845;
+}
+
+.hero-content h2 {
+    margin: 8px 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    color: #a84663;
+}
+
+.hero-content p {
+    margin: 0 auto;
+    max-width: 650px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #57343d;
+}
+
+.hero-buttons {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primary-home,
+.btn-secondary-home {
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: 0.25s;
+}
+
+.btn-primary-home {
+    background: #8f3850;
+    color: white;
+}
+
+.btn-primary-home:hover {
+    background: #743044;
+    transform: translateY(-2px);
+}
+
+.btn-secondary-home {
+    border: 1px solid #8f3850;
+    color: #8f3850;
+    background: white;
+}
+
+.btn-secondary-home:hover {
+    background: #fff0f4;
+    transform: translateY(-2px);
+}
+
+/* CATEGORIE TONDE */
+
+.home-categories {
+    max-width: 1180px;
+    margin: 35px auto 45px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.home-category {
+    width: 125px;
+    text-align: center;
+    text-decoration: none;
+    color: #743044;
+    transition: 0.25s;
+}
+
+.home-category img {
+    width: 104px;
+    height: 104px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #f3d6dc;
+    box-shadow: 0 8px 18px rgba(123, 45, 66, 0.16);
+    transition: 0.25s;
+}
+
+.home-category span {
+    display: block;
+    margin-top: 11px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.home-category:hover {
+    transform: translateY(-4px);
+}
+
+.home-category:hover img {
+    border-color: #a84663;
+}
+
+/* ABOUT */
+
+.home-about {
+    max-width: 1180px;
+    margin: 0 auto 55px;
+    padding: 45px 35px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 45px;
+    align-items: center;
+    background: #fff3f5;
+    border-radius: 30px;
+}
+
+.section-kicker {
+    color: #a84663;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.about-text h2 {
+    margin: 12px 0 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    color: #743044;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #57343d;
+}
+
+.about-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #8f3850;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.about-link:hover {
+    text-decoration: underline;
+}
+
+.about-image-card {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 18px 35px rgba(123, 45, 66, 0.18);
+}
+
+.about-image-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+}
+
+/* SHOWCASE */
+
+.home-showcase {
+    max-width: 1250px;
+    margin: 0 auto 45px;
+    padding: 0 35px;
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 32px;
+    align-items: start;
+}
+
+.product-section {
+    margin-bottom: 36px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid #f0d6dc;
+    border-radius: 24px;
+    padding: 24px;
+}
+
+.section-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.section-title-row h2 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    color: #743044;
+}
+
+.section-title-row a {
+    color: #a84663;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.section-title-row a:hover {
+    text-decoration: underline;
+}
+
+.product-grid-home {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.home-product-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(123, 45, 66, 0.10);
+    border: 1px solid #f2d9df;
+    transition: 0.25s;
+}
+
+.home-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 26px rgba(123, 45, 66, 0.17);
+}
+
+.home-product-card img {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    display: block;
+}
+
+.home-product-info {
+    padding: 14px;
+}
+
+.home-product-info h3 {
+    margin: 0 0 7px;
+    font-size: 16px;
+    color: #743044;
+}
+
+.home-product-info p {
+    margin: 0 0 10px;
+    color: #6d4a51;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.home-product-info span {
+    color: #a84663;
+    font-weight: 800;
+}
+
+/* RECENSIONI */
+
+.reviews-sidebar {
+    background: #fff3f5;
+    border: 1px solid #f0d6dc;
+    border-radius: 24px;
+    padding: 24px;
+    position: sticky;
+    top: 120px;
+}
+
+.reviews-sidebar h2 {
+    margin: 0 0 18px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #743044;
+    font-size: 26px;
+}
+
+.review-card {
+    background: white;
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 18px rgba(123, 45, 66, 0.10);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.review-header strong {
+    color: #743044;
+}
+
+.review-header span {
+    color: #d6a640;
+    font-size: 13px;
+}
+
+.review-card p {
+    margin: 0;
+    color: #5c3c43;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.reviews-button {
+    display: block;
+    text-align: center;
+    background: #8f3850;
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 999px;
+    font-weight: 700;
+    margin-top: 18px;
+}
+
+.reviews-button:hover {
+    background: #743044;
+}
+
+/* SERVICE STRIP */
+
+.service-strip {
+    max-width: 1180px;
+    margin: 20px auto 35px;
+    padding: 22px 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    border-top: 1px solid #e8c8d0;
+    border-bottom: 1px solid #e8c8d0;
+}
+
+.service-strip div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    color: #743044;
+}
+
+.service-strip i {
+    font-size: 29px;
+    color: #a84663;
+}
+
+.service-strip span {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .home-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-sidebar {
+        position: static;
+    }
+
+    .product-grid-home {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+    .hero-floral-banner {
+        height: 170px;
+        background-size: cover;
+    }
+
+    .hero-content h1 {
+        font-size: 35px;
+        letter-spacing: 4px;
+    }
+
+    .hero-content h2 {
+        font-size: 14px;
+        letter-spacing: 4px;
+    }
+
+    .home-about {
+        grid-template-columns: 1fr;
+        padding: 35px 24px;
+    }
+
+    .about-text h2 {
+        font-size: 29px;
+    }
+
+    .product-grid-home {
+        grid-template-columns: 1fr;
+    }
+
+    .service-strip {
+        grid-template-columns: 1fr;
+    }
+}
