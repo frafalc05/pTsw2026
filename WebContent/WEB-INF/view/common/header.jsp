@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
@@ -7,10 +8,9 @@
 
     <div class="header-top">
 
-       <a href="${pageContext.request.contextPath}/home" class="header-logo">
-    <img src="${pageContext.request.contextPath}/images/home/banner-header.png"
-         alt="Fiorista Maria - Addobbi Floreali">
-</a>
+        <a href="${pageContext.request.contextPath}/home" class="header-logo">
+            <img src="${pageContext.request.contextPath}/images/home/banner-header.png" alt="Fiorista Maria - Addobbi Floreali">
+        </a>
 
         <nav class="header-nav">
             <a href="${pageContext.request.contextPath}/home" class="active">Home</a>
@@ -21,15 +21,31 @@
         </nav>
 
         <div class="header-actions">
-            <a href="#" class="header-action">
+            <a href="${pageContext.request.contextPath}/CarrelloServlet" class="header-action">
                 <i class="bi bi-bag-heart"></i>
-                <span>Carrello</span>
+                <span>Carrello <span id="quantita-carrello">(0)</span></span>
             </a>
 
-            <a href="${pageContext.request.contextPath}/login" class="header-action">
-                <i class="bi bi-person"></i>
-                <span>Login</span>
-            </a>
+            <%-- CONTROLLO LOGGATO / NON LOGGATO --%>
+            <c:choose>
+                <c:when test="${not empty sessionScope.utente}">
+                    <a href="${pageContext.request.contextPath}/ordini" class="header-action">
+                        <i class="bi bi-journal-text"></i>
+                        <span>I miei ordini</span>
+                    </a>
+                    
+                    <a href="${pageContext.request.contextPath}/logout" class="header-action">
+                        <i class="bi bi-person-check-fill"></i>
+                        <span>${sessionScope.utente.nome} (Esci)</span>
+                    </a>
+                </c:when>
+                <c:otherwise>
+                    <a href="${pageContext.request.contextPath}/login" class="header-action">
+                        <i class="bi bi-person"></i>
+                        <span>Login</span>
+                    </a>
+                </c:otherwise>
+            </c:choose>
         </div>
 
     </div>
