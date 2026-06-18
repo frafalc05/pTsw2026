@@ -19,11 +19,14 @@
 
 <main class="home-page">
 
-    <section class="home-hero">
-        <div class="hero-floral-banner"></div>
+    <section class="hero-home">
+        <div class="hero-flower-wrap">
+            <img src="${pageContext.request.contextPath}/images/home/fiori-home.png"
+                 alt="Fiorista Maria"
+                 class="hero-flower-banner">
+        </div>
 
         <div class="hero-content">
-            <h1>Fiorista Maria</h1>
             <h2>Addobbi floreali</h2>
 
             <p>
@@ -109,6 +112,7 @@
 
     <section class="home-showcase">
         <div class="home-products">
+
             <section class="product-section">
                 <div class="section-title-row">
                     <h2>Selezionati per te</h2>
@@ -198,6 +202,7 @@
                     </article>
                 </div>
             </section>
+
         </div>
 
         <aside class="reviews-sidebar">
