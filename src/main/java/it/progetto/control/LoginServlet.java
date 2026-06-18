@@ -30,10 +30,20 @@ public class LoginServlet extends HttpServlet {
 
             if (utente != null) {
                 HttpSession session = request.getSession();
+                
+                // REQUISITO: Token inserito in sessione per il controllo degli accessi
                 session.setAttribute("utente", utente);
                 session.setAttribute("ruolo", utente.getRuolo());
 
-                response.sendRedirect(request.getContextPath() + "/home");
+                // REQUISITO: Controllo del ruolo per il reindirizzamento
+                if ("ADMIN".equalsIgnoreCase(utente.getRuolo())) {
+                    // Se è admin, lo reindirizziamo alla servlet della dashboard admin (o alla pagina admin)
+                    response.sendRedirect(request.getContextPath() + "/admin/dashboard"); 
+                } else {
+                    // Se è un cliente normale, va alla home
+                    response.sendRedirect(request.getContextPath() + "/home");
+                }
+                
             } else {
                 request.setAttribute("errore", "Email o password non corretti");
                 request.getRequestDispatcher("/WEB-INF/view/user/login.jsp").forward(request, response);
