@@ -1,4 +1,5 @@
 package it.progetto.control;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -23,15 +24,15 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        UtenteDAO dao = new UtenteDAO();
-
         try {
+            UtenteDAO dao = new UtenteDAO();
             Utente utente = dao.login(email, password);
 
             if (utente != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("utente", utente);
                 session.setAttribute("ruolo", utente.getRuolo());
+
                 response.sendRedirect(request.getContextPath() + "/home");
             } else {
                 request.setAttribute("errore", "Email o password non corretti");
