@@ -1,0 +1,53 @@
+.carrello-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+.carrello-tabella {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.carrello-tabella th, .carrello-tabella td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.carrello-tabella th {
+    background-color: #7b2d42;
+    color: white;
+}
+.img-carrello {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.totale-box {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #7b2d42;
+}
+.btn-carrello {
+    display: inline-block;
+    background-color: #7b2d42;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+.btn-carrello:hover {
+    background-color: #632334;
+}
+.carrello-vuoto {
+    text-align: center;
+    padding: 40px;
+}
