@@ -1,39 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrati - Fiorista Maria</title>
-    </head>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/style.css">
+</head>
 <body>
 
-    <div class="registration-container">
-        <h2>Crea un Account</h2>
-        
-        <%-- Mostra l'errore se le password non coincidono (gestito dalla tua Servlet alla riga 33) --%>
-        <% if (request.getAttribute("errore") != null) { %>
-            <p style="color: red;"><%= request.getAttribute("errore") %></p>
-        <% } %>
+    <header>
+        <div class="logo">Fiorista Maria</div>
+        <nav>
+            <a href="${pageContext.request.contextPath}/home">Home</a>
+            <a href="${pageContext.request.contextPath}/catalogo">Catalogo</a>
+            <a href="${pageContext.request.contextPath}/carrello">Carrello</a>
+            <a href="${pageContext.request.contextPath}/login">Login</a>
+        </nav>
+    </header>
 
-        <form action="${pageContext.request.contextPath}/registrazione" method="post">
-            <label for="nome">Nome:</label><br>
-            <input type="text" id="nome" name="nome" required><br><br>
+    <main class="register-section">
+        <div class="register-box">
+            <h1>Crea un Account</h1>
+            <p>Inserisci i tuoi dati per registrarti.</p>
 
-            <label for="cognome">Cognome:</label><br>
-            <input type="text" id="cognome" name="cognome" required><br><br>
+            <%-- Se la servlet rileva che le password non coincidono o un errore DB, mostra il box --%>
+            <% if (request.getAttribute("errore") != null) { %>
+                <div class="errore-login">
+                    <%= request.getAttribute("errore") %>
+                </div>
+            <% } %>
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
+            <form class="register-form" action="${pageContext.request.contextPath}/registrazione" method="post">
+                
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
 
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
+                <label for="cognome">Cognome</label>
+                <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
 
-            <label for="confermaPassword">Conferma Password:</label><br>
-            <input type="password" id="confermaPassword" name="confermaPassword" required><br><br>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
 
-            <button type="submit">Registrati</button>
-        </form>
-    </div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Crea una password" required>
+
+                <label for="confermaPassword">Conferma Password</label>
+                <input type="password" id="confermaPassword" name="confermaPassword" placeholder="Ripeti la password" required>
+
+                <button type="submit" class="btn-login">Registrati</button>
+            </form>
+
+            <div class="login-link">
+                Hai già un account? <a href="${pageContext.request.contextPath}/login">Accedi</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Fiorista Maria. Tutti i diritti riservati.</p>
+    </footer>
 
 </body>
 </html>
