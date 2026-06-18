@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <title>Fiorista Maria - Addobbi Floreali</title>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/home.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css">
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
+	<link rel="stylesheet" href="styles/home.css">
+	<link rel="stylesheet" href="styles/footer.css">
+	
 </head>
 
 <body>
@@ -16,6 +17,7 @@
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
 <main class="home-page">
+
     <section class="home-hero">
 
         <div class="hero-floral-banner"></div>

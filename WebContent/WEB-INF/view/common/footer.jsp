@@ -1,8 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<link rel="stylesheet" href="styles/footer.css">
 <footer class="site-footer">
 
-    <!-- PARTE ALTA BRAND -->
     <section class="footer-brand-section">
         <h2>Fiorista Maria</h2>
 
@@ -23,10 +22,8 @@
         </div>
     </section>
 
-    <!-- PARTE CENTRALE COLONNE -->
     <section class="footer-main-section">
 
-        <!-- CONTATTI -->
         <div class="footer-column">
             <h3>Contatti</h3>
 
@@ -68,7 +65,6 @@
             </ul>
         </div>
 
-        <!-- NEGOZIO -->
         <div class="footer-column">
             <h3>Negozio</h3>
 
@@ -110,7 +106,6 @@
             </ul>
         </div>
 
-        <!-- INFORMAZIONI -->
         <div class="footer-column">
             <h3>Informazioni</h3>
 
@@ -152,7 +147,6 @@
             </ul>
         </div>
 
-        <!-- SOCIAL -->
         <div class="footer-column footer-social-column">
             <h3>Seguici</h3>
 
@@ -205,7 +199,6 @@
 
     </section>
 
-    <!-- COPYRIGHT -->
     <section class="footer-copy">
         <p>© 2026 Fiorista Maria - Tutti i diritti riservati</p>
     </section>

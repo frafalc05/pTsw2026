@@ -1,4 +1,4 @@
-/* Layout Generale del Catalogo */
+
 .catalogo-intro {
     text-align: center;
     padding: 40px 20px;
@@ -12,7 +12,6 @@
     margin-bottom: 10px;
 }
 
-/* Categorie Tonde in Alto */
 .categorie-tonde {
     display: table;
     margin: 0 auto 40px auto;
@@ -48,7 +47,6 @@
     font-weight: bold;
 }
 
-/* Griglia e Box Prodotti */
 .blocco-catalogo {
     max-width: 1200px;
     margin: 0 auto 50px auto;
@@ -114,7 +112,6 @@
     height: auto;
 }
 
-/* Pulsanti nel Catalogo */
 .prodotto-info .btn {
     display: inline-block;
     background-color: #7b2d42;
@@ -132,7 +129,6 @@
     background-color: #632334;
 }
 
-/* Form e Bottone di Aggiunta al Carrello */
 .form-carrello {
     margin-top: 10px;
 }

@@ -5,10 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Catalogo - Fiorista Maria</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
-    <link rel="stylesheet" href="styles/style1.css">
 	<link rel="stylesheet" href="styles/catalogo.css">
-	<link rel="stylesheet" href="styles/footer.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 
