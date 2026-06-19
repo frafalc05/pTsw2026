@@ -5,22 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrati - Fiorista Maria</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
+    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/base.css">
 	<link rel="stylesheet" href="styles/login.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">Fiorista Maria</div>
-        <nav>
-            <a href="${pageContext.request.contextPath}/home">Home</a>
-            <a href="${pageContext.request.contextPath}/catalogo">Catalogo</a>
-            <a href="${pageContext.request.contextPath}/carrello">Carrello</a>
-            <a href="${pageContext.request.contextPath}/login">Login</a>
-        </nav>
-    </header>
+    
+<jsp:include page="/WEB-INF/view/common/header.jsp" />
 
     <main class="register-section">
         <div class="register-box">

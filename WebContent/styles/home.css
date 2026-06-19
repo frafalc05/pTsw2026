@@ -1,5 +1,21 @@
 @charset "UTF-8";
 
+:root {
+    --color-bg: #fffaf7;
+    --color-bg-soft: #fff3f5;
+    --color-white: #ffffff;
+    --color-granata: #743044;
+    --color-granata-light: #a84663;
+    --color-granata-dark: #632334;
+    --color-gold: #b28a4a;
+    --color-gold-light: #d6b673;
+    --color-text: #4b2b32;
+    --color-text-soft: #6d4a51;
+    --color-border: #f0d6dc;
+    --shadow-soft: 0 10px 26px rgba(123, 45, 66, 0.10);
+    --shadow-hover: 0 18px 38px rgba(123, 45, 66, 0.20);
+}
+
 .home-page {
     position: relative;
     background:
@@ -384,7 +400,7 @@
     padding: 24px;
     box-shadow: 0 10px 26px rgba(123, 45, 66, 0.10);
     position: sticky;
-    top: 105px;
+    top: 120px;
 }
 
 .reviews-sidebar h2 {
@@ -459,7 +475,7 @@
 
 .home-experience {
     max-width: 1220px;
-    margin: 20px auto 65px;
+    margin: 25px auto 65px;
     padding: 0 35px;
 }
 
@@ -499,7 +515,7 @@
 
 .experience-card {
     position: relative;
-    min-height: 360px;
+    min-height: 380px;
     border-radius: 30px;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
@@ -509,7 +525,7 @@
 .experience-card img {
     width: 100%;
     height: 100%;
-    min-height: 360px;
+    min-height: 380px;
     object-fit: cover;
     display: block;
     transition: 0.4s ease;
@@ -519,10 +535,10 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(60, 20, 30, 0.08), rgba(80, 25, 40, 0.76));
+    background: linear-gradient(180deg, rgba(60, 20, 30, 0.08), rgba(80, 25, 40, 0.78));
 }
 
-.experience-card div {
+.experience-card-content {
     position: absolute;
     left: 24px;
     right: 24px;
@@ -543,7 +559,7 @@
     font-size: 15px;
 }
 
-.experience-card a {
+.experience-card-link {
     display: inline-block;
     padding: 10px 18px;
     border-radius: 999px;
@@ -551,6 +567,12 @@
     color: var(--color-granata);
     text-decoration: none;
     font-weight: 800;
+    transition: 0.25s ease;
+}
+
+.experience-card-link:hover {
+    background: #fff0f4;
+    transform: translateY(-2px);
 }
 
 .experience-card:hover img {

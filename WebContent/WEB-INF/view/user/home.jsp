@@ -7,10 +7,10 @@
     <title>Fiorista Maria - Addobbi Floreali</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/home.css?v=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=1">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/home.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=30">
 </head>
 
 <body class="site-theme">
@@ -256,28 +256,28 @@
         <div class="experience-grid">
             <article class="experience-card">
                 <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpeg" alt="Bouquet personalizzato">
-                <div>
+                <div class="experience-card-content">
                     <h3>Bouquet personalizzato</h3>
                     <p>Colori, stile e dettagli scelti per raccontare la tua emozione.</p>
-                    <a href="${pageContext.request.contextPath}/catalogo#bouquet">Scopri</a>
+                    <a href="${pageContext.request.contextPath}/catalogo#bouquet" class="experience-card-link">Scopri di più</a>
                 </div>
             </article>
 
             <article class="experience-card">
                 <img src="${pageContext.request.contextPath}/images/eventi/evento_matrimonio.jpeg" alt="Allestimenti floreali">
-                <div>
+                <div class="experience-card-content">
                     <h3>Eventi e cerimonie</h3>
                     <p>Allestimenti floreali eleganti per matrimoni, lauree e occasioni speciali.</p>
-                    <a href="${pageContext.request.contextPath}/catalogo#eventi">Scopri</a>
+                    <a href="${pageContext.request.contextPath}/catalogo#eventi" class="experience-card-link">Scopri di più</a>
                 </div>
             </article>
 
             <article class="experience-card">
                 <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube.jpeg" alt="Regalo floreale">
-                <div>
+                <div class="experience-card-content">
                     <h3>Regalo floreale</h3>
                     <p>Flower cube, piante e idee regalo curate in ogni dettaglio.</p>
-                    <a href="${pageContext.request.contextPath}/catalogo#flowercube">Scopri</a>
+                    <a href="${pageContext.request.contextPath}/catalogo#flowercube" class="experience-card-link">Scopri di più</a>
                 </div>
             </article>
         </div>

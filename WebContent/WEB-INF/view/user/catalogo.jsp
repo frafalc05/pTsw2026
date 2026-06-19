@@ -7,10 +7,10 @@
     <title>Catalogo - Fiorista Maria</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/catalogo.css?v=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=1">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=10">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=10">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/catalogo.css?v=10">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=10">
 </head>
 
 <body class="site-theme">

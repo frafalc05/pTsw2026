@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 170px;
+}
+
 .catalogo-intro {
     text-align: center;
     padding: 55px 20px 35px;
@@ -90,6 +95,17 @@
     max-width: 1260px;
     margin: 0 auto 58px;
     padding: 0 35px;
+    scroll-margin-top: 170px;
+}
+
+#bouquet,
+#corone,
+#eventi,
+#flowercube,
+#piante,
+#profumatori,
+#terrarium {
+    scroll-margin-top: 170px;
 }
 
 .blocco-catalogo h2 {
@@ -226,12 +242,42 @@
 }
 
 @media (max-width: 1150px) {
+    html {
+        scroll-padding-top: 230px;
+    }
+
+    .blocco-catalogo,
+    #bouquet,
+    #corone,
+    #eventi,
+    #flowercube,
+    #piante,
+    #profumatori,
+    #terrarium {
+        scroll-margin-top: 230px;
+    }
+
     .griglia-prodotti {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 850px) {
+    html {
+        scroll-padding-top: 260px;
+    }
+
+    .blocco-catalogo,
+    #bouquet,
+    #corone,
+    #eventi,
+    #flowercube,
+    #piante,
+    #profumatori,
+    #terrarium {
+        scroll-margin-top: 260px;
+    }
+
     .categorie-tonde {
         justify-content: flex-start;
         flex-wrap: nowrap;
@@ -260,6 +306,21 @@
 }
 
 @media (max-width: 560px) {
+    html {
+        scroll-padding-top: 285px;
+    }
+
+    .blocco-catalogo,
+    #bouquet,
+    #corone,
+    #eventi,
+    #flowercube,
+    #piante,
+    #profumatori,
+    #terrarium {
+        scroll-margin-top: 285px;
+    }
+
     .griglia-prodotti {
         grid-template-columns: 1fr;
     }

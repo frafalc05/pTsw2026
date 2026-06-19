@@ -1,14 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-    String uri = request.getRequestURI();
+    String uri = request.getRequestURI().toLowerCase();
+    String context = request.getContextPath();
 
-    boolean homeAttiva = uri.endsWith("/home") || uri.endsWith("/");
-    boolean catalogoAttivo = uri.endsWith("/catalogo");
-    boolean eventiAttivo = uri.endsWith("/eventi");
-    boolean chiSiamoAttivo = uri.endsWith("/chi-siamo");
-    boolean carrelloAttivo = uri.endsWith("/carrello");
-    boolean loginAttivo = uri.endsWith("/login");
+    boolean homeAttiva = uri.endsWith("/home") || uri.endsWith(context.toLowerCase() + "/");
+    boolean catalogoAttivo = uri.endsWith("/catalogo") || uri.contains("/catalogo");
+    boolean eventiAttivo = uri.endsWith("/eventi") || uri.contains("/eventi");
+    boolean chiSiamoAttivo = uri.endsWith("/chi-siamo") || uri.contains("/chi-siamo");
+    boolean carrelloAttivo = uri.endsWith("/carrello") || uri.contains("/carrello");
+    boolean loginAttivo = uri.endsWith("/login") || uri.contains("/login");
+
+    boolean paginaSenzaFooter = loginAttivo || carrelloAttivo;
+    String contattiHref = paginaSenzaFooter ? context + "/home#contatti" : "#contatti";
 %>
 
 <header class="main-header">
@@ -24,7 +28,7 @@
             <a href="${pageContext.request.contextPath}/catalogo" class="<%= catalogoAttivo ? "active" : "" %>">Catalogo</a>
             <a href="${pageContext.request.contextPath}/chi-siamo" class="<%= chiSiamoAttivo ? "active" : "" %>">Chi siamo</a>
             <a href="${pageContext.request.contextPath}/eventi" class="<%= eventiAttivo ? "active" : "" %>">Eventi</a>
-            <a href="#contatti" class="contatti-link">Contatti</a>
+            <a href="<%= contattiHref %>">Contatti</a>
         </nav>
 
         <div class="header-actions">
@@ -41,19 +45,3 @@
 
     </div>
 </header>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const contattiLink = document.querySelector(".contatti-link");
-        const navLinks = document.querySelectorAll(".header-nav a");
-
-        if (contattiLink) {
-            contattiLink.addEventListener("click", function () {
-                navLinks.forEach(function (link) {
-                    link.classList.remove("active");
-                });
-                contattiLink.classList.add("active");
-            });
-        }
-    });
-</script>
