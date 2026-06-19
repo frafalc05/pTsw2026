@@ -8,6 +8,9 @@
     <meta charset="UTF-8">
     <title>Il tuo Carrello - Fiorista Maria</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/carrello.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=10">
 </head>
 <body>
 

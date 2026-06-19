@@ -32,7 +32,7 @@
         </nav>
 
         <div class="header-actions">
-            <a href="${pageContext.request.contextPath}/carrello" class="header-action <%= carrelloAttivo ? "active" : "" %>">
+            <a href="${pageContext.request.contextPath}/CarrelloServlet" class="header-action <%= carrelloAttivo ? "active" : "" %>">
                 <i class="bi bi-bag-heart"></i>
                 <span>Carrello</span>
             </a>
