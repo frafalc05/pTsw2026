@@ -29,7 +29,7 @@ public class ProdottoDAO {
         return lista;
     }
 
-    // Metodo originale
+    // Recupera il prodotto singolo per ID
     public Prodotto getProdottoById(int id) throws SQLException {
         Prodotto p = null;
         String sql = "SELECT * FROM prodotto WHERE id = ?";
@@ -61,10 +61,10 @@ public class ProdottoDAO {
        METODI PER IL CRUD AMMINISTRATORE
        ========================================================================== */
 
-    // Metodo originale per admin
+    // MODIFICATO: Ora mostra all'admin solo i prodotti attivi, così l'eliminazione ha effetto visivo immediato!
     public ArrayList<Prodotto> trovaTuttiAdmin() throws SQLException {
         ArrayList<Prodotto> lista = new ArrayList<>();
-        String sql = "SELECT * FROM prodotto ORDER BY id DESC";
+        String sql = "SELECT * FROM prodotto WHERE attivo=true ORDER BY id DESC";
         try (Connection con = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
@@ -123,9 +123,10 @@ public class ProdottoDAO {
         }
     }
 
-    // 4. CANCELLAZIONE LOGICA
+    // 4. CANCELLAZIONE LOGICA (Imposta lo stato a disattivato)
+ // Sostituisci il vecchio doDelete con questo se vuoi la cancellazione TOTALE dal DB
     public void doDelete(int id) throws SQLException {
-        String query = "UPDATE prodotto SET attivo = false WHERE id = ?";
+        String query = "DELETE FROM prodotto WHERE id = ?"; // <-- Cambiata la query
         
         try (Connection con = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {

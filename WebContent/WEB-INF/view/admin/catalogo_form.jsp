@@ -4,12 +4,13 @@
     Prodotto p = (Prodotto) request.getAttribute("prodotto");
     
     String titoloPagina = (p == null) ? "Inserisci Nuovo Prodotto" : "Modifica Prodotto: " + p.getNome();
-    int id = (p == null) ? 0 : p.getId();
+    // Se p è null, l'id deve essere una stringa vuota o non passata per l'inserimento, 
+    // altrimenti teniamo il valore numerico in stringa.
+    String idValue = (p == null) ? "" : String.valueOf(p.getId());
     String nome = (p == null) ? "" : p.getNome();
     String descrizione = (p == null) ? "" : p.getDescrizione();
     double prezzo = (p == null) ? 0.0 : p.getPrezzo();
     int quantita = (p == null) ? 1 : p.getQuantita();
-    String immagine = (p == null) ? "" : p.getImmagine();
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -24,9 +25,9 @@
 <div class="form-container">
     <h1><%= titoloPagina %></h1>
     
-    <form action="${pageContext.request.contextPath}/admin/catalogo" method="POST">
+    <form action="${pageContext.request.contextPath}/admin/catalogo" method="POST" enctype="multipart/form-data">
         
-        <input type="hidden" name="id" value="<%= id %>">
+        <input type="hidden" name="id" value="<%= idValue %>">
 
         <div class="form-group">
             <label for="nome">Nome Prodotto/Fiore:</label>
@@ -49,9 +50,13 @@
         </div>
 
         <div class="form-group">
-            <label for="immagine">Nome File Immagine (es: rosa.jpg):</label>
-            <input type="text" id="immagine" name="immagine" value="<%= immagine %>" placeholder="rosa.jpg">
-            <small style="color: #999;">Assicurati che il file sia presente nella cartella /images/</small>
+            <label for="immagine">Seleziona Immagine Prodotto:</label>
+            <input type="file" id="immagine" name="immagine" accept="image/*">
+            <% if (p != null && p.getImmagine() != null && !p.getImmagine().isEmpty()) { %>
+                <p style="font-size: 13px; color: #555; margin-top: 5px;">
+                    Immagine attuale: <strong><%= p.getImmagine() %></strong> (Lascia vuoto per non cambiarla)
+                </p>
+            <% } %>
         </div>
 
         <button type="submit" class="btn-submit">Salva Prodotto</button>
