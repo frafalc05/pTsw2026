@@ -30,7 +30,8 @@ public class OrdiniServlet extends HttpServlet {
         try {
             OrdineDAO dao = new OrdineDAO();
             // Recupera gli ordini associati all'ID dell'utente loggato
-            List<Ordine> listaOrdini = dao.doRetrieveByUtente(utente.getId()); 
+            // CORRETTO: Usiamo il nome esatto del metodo presente in OrdineDAO
+            List<Ordine> listaOrdini = dao.getOrdiniByUtente(utente.getId());
             
             // Passa la lista alla pagina JSP
             request.setAttribute("listaOrdini", listaOrdini);
@@ -40,7 +41,10 @@ public class OrdiniServlet extends HttpServlet {
             
         } catch (SQLException e) {
             throw new ServletException(e);
-        }
+        } catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -8,7 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
-@WebServlet("/LoginServlet")
+@WebServlet(urlPatterns = {"/login", "/LoginServlet"})
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
