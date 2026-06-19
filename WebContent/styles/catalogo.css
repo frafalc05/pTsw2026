@@ -1,90 +1,147 @@
-/* Layout Generale del Catalogo */
+@charset "UTF-8";
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 170px;
+}
+
 .catalogo-intro {
     text-align: center;
-    padding: 40px 20px;
-    background-color: #faf6f7;
-    margin-bottom: 30px;
+    padding: 55px 20px 35px;
+    background: linear-gradient(180deg, #fffaf7 0%, #fff3f5 100%);
+    margin-bottom: 20px;
 }
 
 .catalogo-intro h1 {
-    color: #7b2d42;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+    color: var(--color-granata);
+    font-size: 42px;
+    font-weight: 500;
+    margin: 0 0 12px;
 }
 
-/* Categorie Tonde in Alto */
+.catalogo-intro p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--color-text-soft);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
 .categorie-tonde {
-    display: table;
-    margin: 0 auto 40px auto;
-    border-collapse: separate;
-    border-spacing: 20px 0;
+    max-width: 1220px;
+    margin: 35px auto 58px;
+    padding: 0 35px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .categoria-tonda {
-    display: table-cell;
+    width: 132px;
     text-align: center;
     text-decoration: none;
-    color: #333;
-    vertical-align: top;
+    color: var(--color-granata);
+    transition: 0.25s ease;
 }
 
 .categoria-tonda img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+    width: 108px;
+    height: 108px;
     object-fit: cover;
-    border: 3px solid #7b2d42;
-    transition: transform 0.2s ease;
-}
-
-.categoria-tonda img:hover {
-    transform: scale(1.08);
+    border-radius: 50%;
+    border: 3px solid #f0d2da;
+    background: #ffffff;
+    box-shadow: 0 10px 22px rgba(123, 45, 66, 0.14);
+    transition: 0.25s ease;
 }
 
 .categoria-tonda span {
     display: block;
-    margin-top: 8px;
-    font-size: 0.95rem;
-    font-weight: bold;
+    margin-top: 12px;
+    font-size: 12.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    line-height: 1.35;
 }
 
-/* Griglia e Box Prodotti */
+.categoria-tonda::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    margin: 8px auto 0;
+    background: var(--color-gold-light);
+    border-radius: 999px;
+    transition: 0.25s ease;
+}
+
+.categoria-tonda:hover {
+    transform: translateY(-5px);
+}
+
+.categoria-tonda:hover img {
+    border-color: var(--color-granata-light);
+    box-shadow: 0 16px 32px rgba(123, 45, 66, 0.22);
+}
+
+.categoria-tonda:hover::after {
+    width: 48px;
+    background: var(--color-granata-light);
+}
+
 .blocco-catalogo {
-    max-width: 1200px;
-    margin: 0 auto 50px auto;
-    padding: 0 20px;
+    max-width: 1260px;
+    margin: 0 auto 58px;
+    padding: 0 35px;
+    scroll-margin-top: 170px;
+}
+
+#bouquet,
+#corone,
+#eventi,
+#flowercube,
+#piante,
+#profumatori,
+#terrarium {
+    scroll-margin-top: 170px;
 }
 
 .blocco-catalogo h2 {
-    color: #7b2d42;
-    border-left: 4px solid #7b2d42;
-    padding-left: 12px;
-    margin-bottom: 25px;
-    font-size: 1.6rem;
+    color: var(--color-granata);
+    border-left: 5px solid var(--color-granata-light);
+    padding-left: 14px;
+    margin: 0 0 25px;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .griglia-prodotti {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: separate;
-    border-spacing: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
 }
 
 .prodotto-box {
-    display: table-cell;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: var(--shadow-soft);
     overflow: hidden;
-    vertical-align: top;
-    padding-bottom: 20px;
+    border: 1px solid #f2d9df;
+    transition: 0.25s ease;
+}
+
+.prodotto-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 .prodotto-box img {
     width: 100%;
     height: 250px;
     object-fit: cover;
+    display: block;
 }
 
 .prodotto-info {
@@ -93,81 +150,186 @@
 }
 
 .prodotto-info h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.3rem;
-    color: #333;
+    margin: 0 0 10px;
+    font-size: 21px;
+    color: var(--color-granata);
+    font-weight: 600;
 }
 
 .prodotto-info p {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 12px;
-    height: 40px;
-    overflow: hidden;
+    font-size: 15px;
+    color: var(--color-text-soft);
+    margin: 0 0 12px;
+    min-height: 42px;
+    line-height: 1.5;
 }
 
 .prodotto-info .prezzo {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #7b2d42;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--color-granata-light);
     margin-bottom: 15px;
-    height: auto;
+    min-height: auto;
 }
 
-/* Pulsanti e Controlli nel Catalogo */
 .carrello-controls {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin: 15px 0; /* Spazio bilanciato tra il prezzo e la riga dei comandi */
+    margin: 15px 0;
 }
 
-/* Casella di input per la quantità */
 .qta-input {
-    width: 50px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    width: 56px;
+    padding: 9px;
+    border: 1px solid #e2c5ce;
+    border-radius: 10px;
     text-align: center;
-    font-size: 0.95rem;
-    color: #333;
+    font-size: 15px;
+    color: var(--color-text);
+    background: #fffaf7;
 }
 
-/* Bottone Aggiungi al Carrello (Uniformato al colore di Dettagli) */
-.btn-add-carrello {
+.form-carrello {
+    margin-top: 10px;
+}
+
+.btn-add-carrello,
+.btn-aggiungi-carrello {
     display: inline-block;
-    background-color: #7b2d42; /* Colore bordeaux scuro */
+    background-color: var(--color-granata-light);
     color: white;
-    padding: 8px 18px;
+    padding: 10px 19px;
     text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border: none;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 800;
+    border: 1px solid var(--color-granata);
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: 0.25s ease;
 }
 
-.btn-add-carrello:hover {
-    background-color: #632334;
+.btn-aggiungi-carrello {
+    display: block;
+    width: 100%;
 }
 
-/* Bottone Dettagli (Posizionato sotto in modo pulito) */
+.btn-add-carrello:hover,
+.btn-aggiungi-carrello:hover {
+    background-color: var(--color-granata);
+    transform: translateY(-2px);
+}
+
 .prodotto-info .btn {
     display: inline-block;
-    background-color: #7b2d42; /* Colore bordeaux scuro */
+    background-color: var(--color-granata);
     color: white;
-    padding: 8px 20px;
+    padding: 10px 22px;
     text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    border-radius: 999px;
+    font-size: 15px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    margin-top: 5px;
+    transition: 0.25s ease;
+    margin-top: 8px;
+    font-weight: 800;
 }
 
 .prodotto-info .btn:hover {
-    background-color: #632334;
+    background-color: var(--color-granata-dark);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1150px) {
+    html {
+        scroll-padding-top: 230px;
+    }
+
+    .blocco-catalogo,
+    #bouquet,
+    #corone,
+    #eventi,
+    #flowercube,
+    #piante,
+    #profumatori,
+    #terrarium {
+        scroll-margin-top: 230px;
+    }
+
+    .griglia-prodotti {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+    html {
+        scroll-padding-top: 260px;
+    }
+
+    .blocco-catalogo,
+    #bouquet,
+    #corone,
+    #eventi,
+    #flowercube,
+    #piante,
+    #profumatori,
+    #terrarium {
+        scroll-margin-top: 260px;
+    }
+
+    .categorie-tonde {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 5px 22px 18px;
+        margin-bottom: 35px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .categoria-tonda {
+        min-width: 120px;
+        scroll-snap-align: start;
+    }
+
+    .griglia-prodotti {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .catalogo-intro h1 {
+        font-size: 34px;
+    }
+
+    .blocco-catalogo {
+        padding: 0 22px;
+    }
+}
+
+@media (max-width: 560px) {
+    html {
+        scroll-padding-top: 285px;
+    }
+
+    .blocco-catalogo,
+    #bouquet,
+    #corone,
+    #eventi,
+    #flowercube,
+    #piante,
+    #profumatori,
+    #terrarium {
+        scroll-margin-top: 285px;
+    }
+
+    .griglia-prodotti {
+        grid-template-columns: 1fr;
+    }
+
+    .prodotto-box img {
+        height: 260px;
+    }
+
+    .catalogo-intro {
+        padding: 42px 20px 28px;
+    }
 }

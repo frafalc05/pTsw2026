@@ -2,25 +2,24 @@
 
 .main-header {
     width: 100%;
-    min-height: 105px;
-    background: #fffaf7;
-    border-bottom: 1px solid rgba(123, 45, 66, 0.13);
+    background: rgba(255, 250, 247, 0.96);
+    border-bottom: 1px solid rgba(123, 45, 66, 0.12);
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 8px 28px rgba(123, 45, 66, 0.10);
+    backdrop-filter: blur(8px);
 }
 
 .header-top {
     width: 100%;
-    max-width: none;
-    margin: 0;
-    /* Bilanciato il padding per dare più spazio sui lati */
-    padding: 18px 25px;
-    display: flex;
-    justify-content: space-between;
+    max-width: 1750px;
+    margin: 0 auto;
+    padding: 22px 48px;
+    display: grid;
+    grid-template-columns: 480px 1fr 290px;
     align-items: center;
-    /* Ridotto il gap tra le tre macro aree */
-    gap: 15px;
+    gap: 28px;
     box-sizing: border-box;
 }
 
@@ -29,36 +28,34 @@
     align-items: center;
     justify-content: flex-start;
     text-decoration: none;
-    flex-shrink: 0;
 }
 
 .header-logo img {
-    /* Ottimizzata la larghezza del banner logo per liberare spazio */
-    width: 340px;
+    width: 455px;
+    max-width: 100%;
     height: auto;
     display: block;
+    filter: drop-shadow(0 6px 12px rgba(123, 45, 66, 0.10));
 }
 
 .header-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Ridotto leggermente lo spazio tra le voci di menu centrali (da 34px a 24px) */
-    gap: 24px;
-    flex: 1;
+    gap: 48px;
 }
 
 .header-nav a {
     color: #743044;
     text-decoration: none;
-    /* Ottimizzato font size a 16px per evitare sovrapposizioni */
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.3px;
     position: relative;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     white-space: nowrap;
+    transition: 0.25s ease;
 }
 
 .header-nav a::after {
@@ -67,9 +64,15 @@
     height: 2px;
     background: #a84663;
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: 0;
+    transform: translateX(-50%);
     transition: 0.25s ease;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+    color: #a84663;
 }
 
 .header-nav a:hover::after,
@@ -77,26 +80,20 @@
     width: 100%;
 }
 
-.header-nav a:hover {
-    color: #a84663;
-}
-
 .header-actions {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* Spazio tra Carrello, Ordini e Utente ottimizzato */
-    gap: 18px;
-    flex-shrink: 0;
+    gap: 30px;
 }
 
 .header-action {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 9px;
     color: #743044;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 800;
     text-transform: uppercase;
     white-space: nowrap;
@@ -104,60 +101,107 @@
 }
 
 .header-action i {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .header-action:hover {
     color: #a84663;
+    transform: translateY(-1px);
 }
 
-/* RESPONSIVE PER SCHERMI MEDI E PICCOLI */
-@media (max-width: 1340px) {
+.logo-symbol {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #caa66a;
+    color: #b28a4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.header-logo h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #9d7845;
+}
+
+.header-logo p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #a84663;
+}
+
+@media (max-width: 1500px) {
+    .header-top {
+        grid-template-columns: 400px 1fr 250px;
+        padding: 20px 36px;
+        gap: 24px;
+    }
+
     .header-logo img {
-        width: 290px;
+        width: 380px;
     }
-    
+
     .header-nav {
-        gap: 14px;
+        gap: 34px;
     }
-    
+
     .header-nav a {
+        font-size: 17px;
+    }
+
+    .header-action {
         font-size: 14px;
     }
-    
-    .header-actions {
-        gap: 12px;
+
+    .header-action i {
+        font-size: 25px;
     }
-    
+}
+
+@media (max-width: 1200px) {
+    .header-top {
+        grid-template-columns: 340px 1fr 220px;
+        padding: 18px 28px;
+        gap: 18px;
+    }
+
+    .header-logo img {
+        width: 320px;
+    }
+
+    .header-nav {
+        gap: 24px;
+    }
+
+    .header-nav a {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .header-actions {
+        gap: 20px;
+    }
+
     .header-action {
         font-size: 13px;
     }
 }
 
-@media (max-width: 1100px) {
-    .header-top {
-        padding: 15px 20px;
-    }
-
-    .header-logo img {
-        width: 260px;
-    }
-
-    .header-nav {
-        gap: 10px;
-    }
-
-    .header-nav a {
-        font-size: 13px;
-        letter-spacing: 0.5px;
-    }
-}
-
 @media (max-width: 950px) {
     .header-top {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         text-align: center;
-        gap: 14px;
+        gap: 18px;
+        padding: 18px 24px;
     }
 
     .header-logo {
@@ -165,31 +209,52 @@
     }
 
     .header-logo img {
+        width: 360px;
         margin: 0 auto;
-        width: 300px;
     }
 
     .header-nav {
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-}
-
-@media (max-width: 600px) {
-    .header-logo img {
-        width: 230px;
+        gap: 22px;
     }
 
     .header-nav a {
-        font-size: 12px;
+        font-size: 15px;
+    }
+
+    .header-actions {
+        justify-content: center;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-top {
+        padding: 16px 16px;
+    }
+
+    .header-logo img {
+        width: 285px;
+    }
+
+    .header-nav {
+        gap: 15px;
+    }
+
+    .header-nav a {
+        font-size: 13px;
+        letter-spacing: 0.8px;
+    }
+
+    .header-action {
+        font-size: 13px;
     }
 
     .header-action span {
         display: none;
     }
-    
+
     .header-action i {
-        font-size: 22px;
+        font-size: 24px;
     }
 }

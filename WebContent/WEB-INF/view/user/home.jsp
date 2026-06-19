@@ -6,22 +6,27 @@
     <meta charset="UTF-8">
     <title>Fiorista Maria - Addobbi Floreali</title>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/home.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/home.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=30">
 </head>
 
-<body>
+<body class="site-theme">
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
 <main class="home-page">
-    <section class="home-hero">
 
-        <div class="hero-floral-banner"></div>
+    <section class="hero-home">
+        <div class="hero-flower-wrap">
+            <img src="${pageContext.request.contextPath}/images/home/fiori-home.png"
+                 alt="Fiorista Maria"
+                 class="hero-flower-banner">
+        </div>
 
         <div class="hero-content">
-            <h1>Fiorista Maria</h1>
             <h2>Addobbi floreali</h2>
 
             <p>
@@ -35,17 +40,14 @@
                     Scopri il catalogo
                 </a>
 
-                <a href="https://wa.me/393485238469" target="_blank" class="btn-secondary-home">
+                <a href="https://wa.me/393485238469" target="_blank" rel="noopener noreferrer" class="btn-secondary-home">
                     Ordina su WhatsApp
                 </a>
             </div>
         </div>
-
     </section>
 
-    <!-- CATEGORIE TONDE -->
     <section class="home-categories">
-
         <a class="home-category" href="${pageContext.request.contextPath}/catalogo#bouquet">
             <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_tulipani.jpeg" alt="Bouquet">
             <span>Bouquet</span>
@@ -80,12 +82,9 @@
             <img src="${pageContext.request.contextPath}/images/terrarium/terrarium1.jpeg" alt="Terrarium">
             <span>Terrarium</span>
         </a>
-
     </section>
 
-    <!-- CHI SIAMO -->
     <section id="chi-siamo" class="home-about">
-
         <div class="about-text">
             <span class="section-kicker">La nostra storia</span>
             <h2>Fiori, emozioni e dettagli che restano nel tempo</h2>
@@ -109,15 +108,11 @@
         <div class="about-image-card">
             <img src="${pageContext.request.contextPath}/images/home/home1.jpeg" alt="Fiorista Maria negozio">
         </div>
-
     </section>
 
-    <!-- CONTENUTO PRODOTTI + RECENSIONI -->
     <section class="home-showcase">
-
         <div class="home-products">
 
-            <!-- SELEZIONATI -->
             <section class="product-section">
                 <div class="section-title-row">
                     <h2>Selezionati per te</h2>
@@ -125,7 +120,6 @@
                 </div>
 
                 <div class="product-grid-home">
-
                     <article class="home-product-card">
                         <img src="${pageContext.request.contextPath}/images/bouquet/bouquet2.jpeg" alt="Bouquet romantico">
                         <div class="home-product-info">
@@ -161,11 +155,9 @@
                             <span>Su richiesta</span>
                         </div>
                     </article>
-
                 </div>
             </section>
 
-            <!-- PIÙ POPOLARI -->
             <section class="product-section">
                 <div class="section-title-row">
                     <h2>I più popolari</h2>
@@ -173,7 +165,6 @@
                 </div>
 
                 <div class="product-grid-home">
-
                     <article class="home-product-card">
                         <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpeg" alt="Bouquet sposa">
                         <div class="home-product-info">
@@ -209,15 +200,12 @@
                             <span>€ 29,00</span>
                         </div>
                     </article>
-
                 </div>
             </section>
 
         </div>
 
-        <!-- RECENSIONI -->
         <aside class="reviews-sidebar">
-
             <h2>Dicono di noi</h2>
 
             <article class="review-card">
@@ -226,7 +214,7 @@
                     <span>★★★★★</span>
                 </div>
                 <p>
-                   per qualsiasi evento ti puoi fidare della professionalità e dell'arte dei fiori della fiorista Maria,di Coperchia di Pellezzano...sono bravi e straordinari...non è facile trovare tanta arte come da MARIA💐💗
+                    Per qualsiasi evento ti puoi fidare della professionalità e dell'arte dei fiori della Fiorista Maria di Coperchia di Pellezzano. Sono bravi e straordinari, non è facile trovare tanta arte come da Maria.
                 </p>
             </article>
 
@@ -236,7 +224,7 @@
                     <span>★★★★★</span>
                 </div>
                 <p>
-                    Eccellente in tutto. Qualità, gentilezza, professionalità e, soprattutto, arte nel confezionare qualsiasi cosa. Consigliatissimo
+                    Eccellente in tutto. Qualità, gentilezza, professionalità e soprattutto arte nel confezionare qualsiasi cosa. Consigliatissimo.
                 </p>
             </article>
 
@@ -246,21 +234,56 @@
                     <span>★★★★★</span>
                 </div>
                 <p>
-                    Enrico ed Anna due persone squisite che hanno capito sin dall’inizio il nostro desiderio di rendere speciale il nostro SI! Abbiamo scelto loro come fornitori per l'aspetto floreale del matrimonio, la composizione per l’auto , le nostre case e la chiesa erano meravigliose! Fiori agli occhielli, braccialetti per le testimone e fiocco auto erano curati nei minimi dettagli e agevoli da applicare. Ci siamo sentiti subito capiti con la loro simpatia, professionalità, puntualitá, precisione ed educazione ci hanno seguiti passo passo consigliandoci su cosa era più giusto fare e cosa no per rendere il nostro giorno ancora piu bello!Grazie mille ad entrambi ❤️
+                    Enrico ed Anna hanno capito sin dall’inizio il nostro desiderio di rendere speciale il nostro sì. Fiori, braccialetti, fiocco auto e composizioni erano curati nei minimi dettagli. Professionalità, puntualità, precisione ed educazione: grazie mille di cuore.
                 </p>
             </article>
 
-            <a href="https://www.facebook.com/fioripellezzano/reviews" target="_blank" class="reviews-button">
+            <a href="https://www.facebook.com/fioripellezzano/reviews" target="_blank" rel="noopener noreferrer" class="reviews-button">
                 Leggi tutte le recensioni
             </a>
-
         </aside>
-
     </section>
 
-    <!-- BARRA SERVIZI -->
-    <section class="service-strip">
+    <section class="home-experience">
+        <div class="experience-title">
+            <span>Esperienze floreali</span>
+            <h2>Crea il tuo momento speciale</h2>
+            <p>
+                Scegli il servizio più adatto alla tua occasione e lasciati guidare nella composizione perfetta.
+            </p>
+        </div>
 
+        <div class="experience-grid">
+            <article class="experience-card">
+                <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpeg" alt="Bouquet personalizzato">
+                <div class="experience-card-content">
+                    <h3>Bouquet personalizzato</h3>
+                    <p>Colori, stile e dettagli scelti per raccontare la tua emozione.</p>
+                    <a href="${pageContext.request.contextPath}/catalogo#bouquet" class="experience-card-link">Scopri di più</a>
+                </div>
+            </article>
+
+            <article class="experience-card">
+                <img src="${pageContext.request.contextPath}/images/eventi/evento_matrimonio.jpeg" alt="Allestimenti floreali">
+                <div class="experience-card-content">
+                    <h3>Eventi e cerimonie</h3>
+                    <p>Allestimenti floreali eleganti per matrimoni, lauree e occasioni speciali.</p>
+                    <a href="${pageContext.request.contextPath}/catalogo#eventi" class="experience-card-link">Scopri di più</a>
+                </div>
+            </article>
+
+            <article class="experience-card">
+                <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube.jpeg" alt="Regalo floreale">
+                <div class="experience-card-content">
+                    <h3>Regalo floreale</h3>
+                    <p>Flower cube, piante e idee regalo curate in ogni dettaglio.</p>
+                    <a href="${pageContext.request.contextPath}/catalogo#flowercube" class="experience-card-link">Scopri di più</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="service-strip">
         <div>
             <i class="bi bi-flower1"></i>
             <span>Fiori freschi<br>ogni giorno</span>
@@ -280,7 +303,6 @@
             <i class="bi bi-chat-heart"></i>
             <span>Assistenza sempre<br>disponibile</span>
         </div>
-
     </section>
 
 </main>

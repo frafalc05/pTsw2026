@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+:root {
+    --color-bg: #fffaf7;
+    --color-bg-soft: #fff3f5;
+    --color-white: #ffffff;
+    --color-granata: #743044;
+    --color-granata-light: #a84663;
+    --color-granata-dark: #632334;
+    --color-gold: #b28a4a;
+    --color-gold-light: #d6b673;
+    --color-text: #4b2b32;
+    --color-text-soft: #6d4a51;
+    --color-border: #f0d6dc;
+    --shadow-soft: 0 10px 26px rgba(123, 45, 66, 0.10);
+    --shadow-hover: 0 18px 38px rgba(123, 45, 66, 0.20);
+    --font-main: Georgia, "Times New Roman", serif;
+}
+
+.site-theme {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+}
+
+.site-theme * {
+    box-sizing: border-box;
+}
+
+.site-theme a {
+    font-family: inherit;
+}
+
+.site-theme button,
+.site-theme input,
+.site-theme select,
+.site-theme textarea {
+    font-family: inherit;
+}
+
+.site-theme img {
+    max-width: 100%;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 135px;
+}
+
+#contatti,
+#chi-siamo,
+.blocco-catalogo {
+    scroll-margin-top: 135px;
+}
+
+@media (max-width: 1050px) {
+    html {
+        scroll-padding-top: 230px;
+    }
+
+    #contatti,
+    #chi-siamo,
+    .blocco-catalogo {
+        scroll-margin-top: 230px;
+    }
+}
