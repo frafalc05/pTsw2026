@@ -12,15 +12,13 @@
 }
 
 .header-top {
-    width: 100%;
-    max-width: 1750px;
-    margin: 0 auto;
-    padding: 22px 48px;
-    display: grid;
-    grid-template-columns: 480px 1fr 290px;
+    display: flex;
     align-items: center;
-    gap: 28px;
+    justify-content: space-between; /* Spinge Logo a sinistra, Nav al centro, Azioni a destra */
+    width: 100%;
+    padding: 10px 20px;
     box-sizing: border-box;
+    flex-wrap: nowrap; /* Impedisce di spaccare le righe in modo disordinato */
 }
 
 .header-logo {
