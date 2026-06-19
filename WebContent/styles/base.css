@@ -42,3 +42,25 @@
 .site-theme img {
     max-width: 100%;
 }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 135px;
+}
+
+#contatti,
+#chi-siamo,
+.blocco-catalogo {
+    scroll-margin-top: 135px;
+}
+
+@media (max-width: 1050px) {
+    html {
+        scroll-padding-top: 230px;
+    }
+
+    #contatti,
+    #chi-siamo,
+    .blocco-catalogo {
+        scroll-margin-top: 230px;
+    }
+}
