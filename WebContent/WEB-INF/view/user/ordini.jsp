@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>Cronologia Ordini</title>
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/ordine.css">
 </head>
 <body>
@@ -17,38 +18,48 @@
         <c:choose>
             <c:when test="${empty listaOrdini}">
                 <div class="nessun-ordine-box">
-                    <p class="nessun-ordine-testo">Non hai ancora effettuato nessun ordine.</p>
+                    <span class="nessun-ordine-icona">
+                        <i class="bi bi-flower3"></i>
+                    </span>
+                    <h3 class="nessun-ordine-testo">Il tuo storico è ancora vuoto</h3>
+                    <p class="nessun-ordine-sottotitolo">
+                        Non hai ancora effettuato ordini su Fiorista Maria.<br>
+                        Esplora il nostro catalogo per scoprire splendidi bouquet e composizioni uniche.
+                    </p>
                     <a href="${pageContext.request.contextPath}/" class="btn-link">Inizia a fare acquisti</a>
                 </div>
             </c:when>
             
             <c:otherwise>
-              
-                <table class="ordini-table">
-                    <thead>
-                        <tr>
-                            <th>ID Ordine</th>
-                            <th>Totale Speso</th>
-                            <th>Stato Avanzamento</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="ordine" items="${listaOrdini}">
+                <div class="ordini-table-wrapper">
+                    <table class="ordini-table">
+                        <thead>
                             <tr>
-                                <td><strong># ${ordine.id}</strong></td>
-                                <td>€ ${ordine.totale}</td>
-                                <td>
-                                    <span class="badge-stato">${ordine.stato}</span>
-                                </td>
+                                <th>ID Ordine</th>
+                                <th>Totale Speso</th>
+                                <th>Stato Avanzamento</th>
                             </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="ordine" items="${listaOrdini}">
+                                <tr>
+                                    <td><strong># ${ordine.id}</strong></td>
+                                    <td>€ ${ordine.totale}</td>
+                                    <td>
+                                        <span class="badge-stato ${ordine.stato.toLowerCase()}">${ordine.stato}</span>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </c:otherwise>
         </c:choose>
 
         <div class="margin-top-30">
-            <a href="${pageContext.request.contextPath}/" class="btn-link">Torna alla Home</a>
+            <a href="${pageContext.request.contextPath}/" class="btn-link btn-outline">
+                <i class="bi bi-arrow-left"></i> Torna alla Home
+            </a>
         </div>
     </div>
 

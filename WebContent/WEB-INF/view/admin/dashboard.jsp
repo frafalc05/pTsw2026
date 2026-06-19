@@ -1,106 +1,93 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
-
+<%@ page import="java.util.List" %>
+<%@ page import="it.progetto.model.Ordine" %>
+<%
+    // Recuperiamo i dati passati dalla AdminDashboardServlet
+    List<Ordine> listaOrdini = (List<Ordine>) request.getAttribute("listaOrdini");
+    String dataInizio = (String) request.getAttribute("dataInizio");
+    String dataFine = (String) request.getAttribute("dataFine");
+    String idCliente = (String) request.getAttribute("idCliente");
+    
+    if (dataInizio == null) dataInizio = "";
+    if (dataFine == null) dataFine = "";
+    if (idCliente == null) idCliente = "";
+%>
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Admin - Fiorista Maria</title>
+    <title>Dashboard Amministratore - Fiorista Maria</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style1.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/carrello.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/dashboard.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css">
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/view/common/header.jsp" />
-
-<main class="carrello-box admin-main">
-    <h1>Pannello di Controllo Amministratore</h1>
-    <p class="admin-subtitle">Benvenuta Maria! Da qui potrai gestire i tuoi fiori, vedere gli ordini e modificare il catalogo.</p>
+<div class="admin-container">
+    <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout-link">Logout</a>
+    <h1>Pannello di Controllo - Maria</h1>
+    <p>Benvenuta nel report gestionale degli ordini.</p>
     
-    <div class="catalogo-shortcut-box">
-        <strong>Gestione Catalogo:</strong> &nbsp;&nbsp;
-        <a href="${pageContext.request.contextPath}/AdminCatalogoServlet?action=list" class="btn-torna btn-admin-azione">
-            📋 Gestisci i Prodotti (Inserisci, Modifica, Cancella)
-        </a>
+    <a href="${pageContext.request.contextPath}/admin/catalogo?action=list" class="btn-nav">Gestisci Catalogo Prodotti</a>
+
+    <div class="filter-box">
+        <h3>Filtra Ordini Complessivi</h3>
+        <form action="${pageContext.request.contextPath}/admin/dashboard" method="GET" class="filter-form">
+            <div class="filter-group">
+                <label for="dataInizio">Da Data (X):</label>
+                <input type="date" id="dataInizio" name="dataInizio" value="<%= dataInizio %>">
+            </div>
+            <div class="filter-group">
+                <label for="dataFine">A Data (Y):</label>
+                <input type="date" id="dataFine" name="dataFine" value="<%= dataFine %>">
+            </div>
+            <div class="filter-group">
+                <label for="idCliente">ID Cliente:</label>
+                <input type="number" id="idCliente" name="idCliente" placeholder="Es. 5" value="<%= idCliente %>">
+            </div>
+            <button type="submit" class="btn-filter">Applica Filtri</button>
+            <a href="${pageContext.request.contextPath}/admin/dashboard" style="padding: 10px; color: #7f8c8d; text-decoration: none;">Resetta</a>
+        </form>
     </div>
 
-    <hr class="separatore">
-
-    <h2 class="admin-section-title">Visualizza Report Ordini Complessivi</h2>
-    
-    <form action="${pageContext.request.contextPath}/AdminDashboardServlet" method="GET" class="form-checkout form-filtri-admin">
-        <div class="row-filtri">
-            <div class="form-group group-filtro">
-                <label>Dalla data (x):</label>
-                <input type="date" name="dataInizio" value="${dataInizio}" class="input-checkout input-filtro-data">
-            </div>
-            
-            <div class="form-group group-filtro">
-                <label>Alla data (y):</label>
-                <input type="date" name="dataFine" value="${dataFine}" class="input-checkout input-filtro-data">
-            </div>
-            
-            <div class="form-group group-filtro">
-                <label>Filtra per ID Cliente:</label>
-                <input type="number" name="idCliente" value="${idCliente}" class="input-checkout input-filtro-number" placeholder="Es. 2">
-            </div>
-            
-            <div class="form-group margin-zero">
-                <button type="submit" class="btn-checkout btn-applica-filtri">Applica Filtri</button>
-            </div>
-        </div>
-    </form>
-
-    <h3 class="titolo-risultati">Risultati della ricerca</h3>
-    <c:choose>
-        <c:when test="${empty listaOrdini}">
-            <p class="msg-report-vuoto">Nessun ordine trovato per i filtri selezionati.</p>
-        </c:when>
-        <c:otherwise>
-            <table class="tabella-admin">
-                <thead>
-                    <tr>
-                        <th>ID Ordine</th>
-                        <th>ID Cliente</th>
-                        <th>Destinatario</th>
-                        <th>Data Ordine</th>
-                        <th>Totale</th>
-                        <th>Stato</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="ord" items="${listaOrdini}">
+    <h3>Elenco Ordini Ricevuti</h3>
+    <table class="report-table">
+        <thead>
+            <tr>
+                <th>ID Ordine</th>
+                <th>ID Cliente</th>
+                <th>Data e Ora</th>
+                <th>Destinatario</th>
+                <th>Totale (€)</th>
+                <th>Stato</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% 
+                if (listaOrdini != null && !listaOrdini.isEmpty()) {
+                    for (Ordine o : listaOrdini) {
+            %>
                         <tr>
-                            <td><strong># ${ord.id}</strong></td>
-                            <td>${ord.idUtente}</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${not empty ord.nomeDestinatario}">${ord.nomeDestinatario}</c:when>
-                                    <c:otherwise><span class="txt-not-specified">Non specificato</span></c:otherwise>
-                                </c:choose>
-                            </td>
-                            <td>
-                                <fmt:formatDate value="${ord.dataOrdine}" pattern="dd/MM/yyyy HH:mm"/>
-                            </td>
-                            <td class="valore-totale-admin">
-                                &euro; <fmt:formatNumber value="${ord.totale}" pattern="0.00"/>
-                            </td>
-                            <td>
-                                <span class="badge-stato-ordine">
-                                    ${ord.stato}
-                                </span>
-                            </td>
+                            <td><%= o.getId() %></td>
+                            <td><%= o.getIdUtente() %></td>
+                            <td><%= o.getDataOrdine() %></td>
+                            <td><%= o.getNomeDestinatario() != null ? o.getNomeDestinatario() : "N/D" %></td>
+                            <td><%= String.format("%.2f", o.getTotale()) %></td>
+                            <td><strong><%= o.getStato() %></strong></td>
                         </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </c:otherwise>
-    </c:choose>
-</main>
-
-<jsp:include page="/WEB-INF/view/common/footer.jsp" />
+            <% 
+                    }
+                } else {
+            %>
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: #7f8c8d;">Nessun ordine trovato con i filtri selezionati.</td>
+                    </tr>
+            <% 
+                }
+            %>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

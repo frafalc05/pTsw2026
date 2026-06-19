@@ -2,80 +2,90 @@ package it.progetto.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import it.progetto.model.Prodotto;
 
 public class ProdottoDAO {
 
-    // Il tuo metodo attuale per prendere tutti i prodotti attivi (lato cliente)
+    // Lato cliente: prende solo quelli attivi
     public ArrayList<Prodotto> trovaTutti() throws SQLException {
         ArrayList<Prodotto> lista = new ArrayList<>();
-        Connection con = DataSourceProvider.getDataSource().getConnection();
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto WHERE attivo=true");
-        ResultSet rs = ps.executeQuery();
+        String sql = "SELECT * FROM prodotto WHERE attivo=true";
+        try (Connection con = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
 
-        while(rs.next()){
-            Prodotto p = new Prodotto();
-            p.setId(rs.getInt("id"));
-            p.setNome(rs.getString("nome"));
-            p.setDescrizione(rs.getString("descrizione"));
-            p.setPrezzo(rs.getDouble("prezzo"));
-            p.setImmagine(rs.getString("immagine"));
-            p.setQuantita(rs.getInt("quantita"));
-            lista.add(p);
+            while(rs.next()){
+                Prodotto p = new Prodotto();
+                p.setId(rs.getInt("id"));
+                p.setNome(rs.getString("nome"));
+                p.setDescrizione(rs.getString("descrizione"));
+                p.setPrezzo(rs.getDouble("prezzo"));
+                p.setImmagine(rs.getString("immagine"));
+                p.setQuantita(rs.getInt("quantita"));
+                lista.add(p);
+            }
         }
-
-        con.close();
         return lista;
     }
 
-    // Metodo per estrarre un singolo prodotto tramite ID (per visualizzazione dettagli o modifica)
+    // Metodo originale
     public Prodotto getProdottoById(int id) throws SQLException {
         Prodotto p = null;
-        Connection con = DataSourceProvider.getDataSource().getConnection();
-        
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto WHERE id = ?");
-        ps.setInt(1, id);
-        
-        ResultSet rs = ps.executeQuery();
-
-        if (rs.next()) {
-            p = new Prodotto();
-            p.setId(rs.getInt("id"));
-            p.setNome(rs.getString("nome"));
-            p.setDescrizione(rs.getString("descrizione"));
-            p.setPrezzo(rs.getDouble("prezzo"));
-            p.setImmagine(rs.getString("immagine"));
-            p.setQuantita(rs.getInt("quantita"));
+        String sql = "SELECT * FROM prodotto WHERE id = ?";
+        try (Connection con = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    p = new Prodotto();
+                    p.setId(rs.getInt("id"));
+                    p.setNome(rs.getString("nome"));
+                    p.setDescrizione(rs.getString("descrizione"));
+                    p.setPrezzo(rs.getDouble("prezzo"));
+                    p.setImmagine(rs.getString("immagine"));
+                    p.setQuantita(rs.getInt("quantita"));
+                }
+            }
         }
-
-        con.close();
         return p;
     }
 
+    // ALLINEAMENTO SERVLET: Mappa su getProdottoById
+    public Prodotto doRetrieveById(int id) throws SQLException {
+        return getProdottoById(id);
+    }
+
     /* ==========================================================================
-       NUOVI METODI PER IL CRUD AMMINISTRATORE (MARIA)
+       METODI PER IL CRUD AMMINISTRATORE
        ========================================================================== */
 
-    // 1. TROVA TUTTI PER ADMIN (Mostra anche i prodotti non attivi nel pannello di controllo)
+    // Metodo originale per admin
     public ArrayList<Prodotto> trovaTuttiAdmin() throws SQLException {
         ArrayList<Prodotto> lista = new ArrayList<>();
-        Connection con = DataSourceProvider.getDataSource().getConnection();
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto ORDER BY id DESC");
-        ResultSet rs = ps.executeQuery();
+        String sql = "SELECT * FROM prodotto ORDER BY id DESC";
+        try (Connection con = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
 
-        while(rs.next()){
-            Prodotto p = new Prodotto();
-            p.setId(rs.getInt("id"));
-            p.setNome(rs.getString("nome"));
-            p.setDescrizione(rs.getString("descrizione"));
-            p.setPrezzo(rs.getDouble("prezzo"));
-            p.setImmagine(rs.getString("immagine"));
-            p.setQuantita(rs.getInt("quantita"));
-            lista.add(p);
+            while(rs.next()){
+                Prodotto p = new Prodotto();
+                p.setId(rs.getInt("id"));
+                p.setNome(rs.getString("nome"));
+                p.setDescrizione(rs.getString("descrizione"));
+                p.setPrezzo(rs.getDouble("prezzo"));
+                p.setImmagine(rs.getString("immagine"));
+                p.setQuantita(rs.getInt("quantita"));
+                lista.add(p);
+            }
         }
-
-        con.close();
         return lista;
+    }
+
+    // ALLINEAMENTO SERVLET: Mappa su trovaTuttiAdmin
+    public List<Prodotto> doRetrieveAll() throws SQLException {
+        return trovaTuttiAdmin();
     }
 
     // 2. SALVA / INSERISCI NUOVO PRODOTTO
@@ -113,7 +123,7 @@ public class ProdottoDAO {
         }
     }
 
-    // 4. CANCELLAZIONE LOGICA (Imposta attivo = false anziché fare il DELETE HARD, per non rompere i vincoli di integrità)
+    // 4. CANCELLAZIONE LOGICA
     public void doDelete(int id) throws SQLException {
         String query = "UPDATE prodotto SET attivo = false WHERE id = ?";
         

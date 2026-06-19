@@ -1,48 +1,50 @@
 package it.progetto.control;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
-
-import it.progetto.model.Utente;
-import it.progetto.model.Ordine;
 import it.progetto.dao.OrdineDAO;
-
+import it.progetto.model.Utente;
+import it.progetto.model.Ordine; 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 @WebServlet("/ordini")
 public class OrdiniServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession session = request.getSession();
-        Utente utente = (Utente) session.getAttribute("utente");
+        HttpSession session = request.getSession(false);
         
-        // Se l'utente non è loggato, lo rimandiamo al login
-        if (utente == null) {
+        // Sicurezza: se l'utente non è loggato, lo rimandiamo al login
+        if (session == null || session.getAttribute("utente") == null) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
-        
+
+        Utente utente = (Utente) session.getAttribute("utente");
+
         try {
-            // 1. Chiamiamo il DAO per leggere gli ordini reali dell'utente dal DB
-            OrdineDAO ordineDao = new OrdineDAO();
-            List<Ordine> listaOrdini = ordineDao.getOrdiniByUtente(utente.getId());
+            OrdineDAO dao = new OrdineDAO();
+            // Recupera gli ordini associati all'ID dell'utente loggato
+            List<Ordine> listaOrdini = dao.doRetrieveByUtente(utente.getId()); 
             
-            // 2. Passiamo la lista alla pagina JSP tramite un attributo della request
+            // Passa la lista alla pagina JSP
             request.setAttribute("listaOrdini", listaOrdini);
             
-        } catch (Exception e) {
-            e.printStackTrace(); // Ti mostra eventuali errori di lettura in console
+            // Inoltra alla pagina jsp dentro WEB-INF
+            request.getRequestDispatcher("/WEB-INF/view/user/ordini.jsp").forward(request, response);
+            
+        } catch (SQLException e) {
+            throw new ServletException(e);
         }
-        
-        // 3. Inoltriamo alla pagina jsp corretta (adatta il percorso se diverso nel tuo progetto)
-        request.getRequestDispatcher("/WEB-INF/view/user/ordini.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
     }
 }

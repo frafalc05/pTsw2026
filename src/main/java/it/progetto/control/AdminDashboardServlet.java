@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/AdminDashboardServlet")
+@WebServlet("/admin/dashboard")
 public class AdminDashboardServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -27,17 +27,17 @@ public class AdminDashboardServlet extends HttpServlet {
             try {
                 idCliente = Integer.parseInt(idClienteStr);
             } catch (NumberFormatException e) {
-                // Se viene inserito un ID non numerico lo ignoriamo o impostiamo a null
+                // Se viene inserito un ID non numerico lo ignoriamo silenziosamente
             }
         }
 
         OrdineDAO ordineDAO = new OrdineDAO();
         
         try {
-            // 2. Chiamata al database per estrarre la lista filtrata
+            // 2. Chiamata al database per estrarre la lista filtrata complessiva
             List<Ordine> listaOrdini = ordineDAO.doRetrieveAdminReport(dataInizio, dataFine, idCliente);
             
-            // 3. Re-impostiamo i parametri come attributi per mantenere i campi compilati nel form
+            // 3. Impostiamo i dati come attributi per la JSP
             request.setAttribute("listaOrdini", listaOrdini);
             request.setAttribute("dataInizio", dataInizio);
             request.setAttribute("dataFine", dataFine);
@@ -47,7 +47,7 @@ public class AdminDashboardServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // 4. Inoltro dei dati alla pagina di visualizzazione della Dashboard
+        // 4. Inoltro alla pagina di visualizzazione strutturata sotto WEB-INF
         request.getRequestDispatcher("/WEB-INF/view/admin/dashboard.jsp").forward(request, response);
     }
 

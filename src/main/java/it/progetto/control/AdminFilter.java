@@ -14,9 +14,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import it.progetto.model.Utente;
 
-// Questo filtro si attiva su qualsiasi servlet o pagina che inizia con "Admin"
-@WebFilter(urlPatterns = {"/AdminDashboardServlet", "/AdminCatalogoServlet", "/WEB-INF/view/admin/*"})
+@WebFilter(urlPatterns = {"/admin/*"})
 public class AdminFilter extends HttpFilter implements Filter {
+    private static final long serialVersionUID = 1L;
        
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 
             throws IOException, ServletException {
@@ -25,16 +25,14 @@ public class AdminFilter extends HttpFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         
         HttpSession session = httpRequest.getSession(false);
-        
-        // Recuperiamo l'utente loggato dalla sessione
         Utente utente = (session != null) ? (Utente) session.getAttribute("utente") : null;
         
-        // Controllo di sicurezza: se l'utente non c'è OPPURE non è un admin
-        if (utente == null || ! "admin".equals(utente.getRuolo())) {
-            // Lo reindirizziamo alla pagina di login del sito
+        // Controllo se l'utente è loggato e se ha il ruolo di amministratore
+        if (utente == null || ! "ADMIN".equalsIgnoreCase(utente.getRuolo())) {
+            // Se non è admin, lo reindirizziamo alla LoginServlet
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/LoginServlet");
         } else {
-            // L'utente è l'amministratore! Può proseguire verso la pagina richiesta
+            // Se è admin, prosegue normalmente verso la Servlet richiesta
             chain.doFilter(request, response);
         }
     }
