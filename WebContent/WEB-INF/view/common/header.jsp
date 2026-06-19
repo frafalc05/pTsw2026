@@ -26,20 +26,35 @@
                 <span>Carrello <span id="quantita-carrello">(0)</span></span>
             </a>
 
-            <%-- CONTROLLO LOGGATO / NON LOGGATO --%>
+            <%-- CONTROLLO LOGGATO / NON LOGGATO / ADMIN --%>
             <c:choose>
                 <c:when test="${not empty sessionScope.utente}">
-                    <a href="${pageContext.request.contextPath}/ordini" class="header-action">
-                        <i class="bi bi-journal-text"></i>
-                        <span>I miei ordini</span>
-                    </a>
                     
-                    <a href="${pageContext.request.contextPath}/logout" class="header-action">
+                    <%-- Se l'utente in sessione ha il ruolo di 'admin', mostra il pannello di controllo --%>
+                    <c:choose>
+                        <c:when test="${sessionScope.utente.ruolo == 'admin'}">
+                            <a href="${pageContext.request.contextPath}/AdminDashboardServlet" class="header-action">
+                                <i class="bi bi-speedometer2"></i>
+                                <span>Dashboard Admin</span>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <%-- Se è un cliente normale, mostra il link standard ai suoi ordini --%>
+                            <a href="${pageContext.request.contextPath}/ordini" class="header-action">
+                                <i class="bi bi-journal-text"></i>
+                                <span>I miei ordini</span>
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
+                    
+                    <%-- Pulsante Esci comune a tutte le tipologie di account loggati --%>
+                    <a href="${pageContext.request.contextPath}/LogoutServlet" class="header-action">
                         <i class="bi bi-person-check-fill"></i>
                         <span>${sessionScope.utente.nome} (Esci)</span>
                     </a>
                 </c:when>
                 <c:otherwise>
+                    <%-- Se non è presente alcun utente in sessione, mostra il pulsante di Login --%>
                     <a href="${pageContext.request.contextPath}/login" class="header-action">
                         <i class="bi bi-person"></i>
                         <span>Login</span>

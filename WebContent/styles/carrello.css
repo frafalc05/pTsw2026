@@ -247,3 +247,7 @@ html, body {
     text-align: center;
     line-height: 20px; /* Allinea il testo come il bottone accanto */
 }
+textarea.input-checkout {
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
