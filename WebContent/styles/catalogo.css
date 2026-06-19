@@ -27,18 +27,28 @@ html {
     line-height: 1.7;
 }
 
+/* ==========================================================================
+   MODIFICA: Categorie Tonde allineate su un'unica riga orizzontale
+   ========================================================================== */
 .categorie-tonde {
-    max-width: 1220px;
+    max-width: 1260px;          /* Allargato leggermente per ospitare l'ottavo elemento */
     margin: 35px auto 58px;
-    padding: 0 35px;
+    padding: 10px 20px;
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    justify-content: center;    /* Centra i tondini se c'è spazio sufficiente */
+    gap: 22px;                  /* Distanza ottimizzata tra gli elementi */
+    flex-wrap: nowrap;          /* Blocca tassativamente l'andata a capo */
+    overflow-x: auto;           /* Permette uno scroll pulito se lo schermo si restringe */
+    scrollbar-width: none;      /* Nasconde la barra di scorrimento su Firefox */
+}
+
+.categorie-tonde::-webkit-scrollbar {
+    display: none;              /* Nasconde la barra di scorrimento su Chrome/Safari */
 }
 
 .categoria-tonda {
-    width: 132px;
+    width: 125px;               /* Dimensione proporzionata per farli entrare tutti in linea */
+    flex: 0 0 auto;             /* Impedisce ai cerchietti di deformarsi o rimpicciolirsi */
     text-align: center;
     text-decoration: none;
     color: var(--color-granata);
@@ -46,8 +56,8 @@ html {
 }
 
 .categoria-tonda img {
-    width: 108px;
-    height: 108px;
+    width: 104px;               /* Adattamento leggero del diametro interno dell'immagine */
+    height: 104px;
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid #f0d2da;
@@ -98,13 +108,15 @@ html {
     scroll-margin-top: 170px;
 }
 
+/* AGGIUNTO: ID del blocco regali alla gestione dello scorrimento fluido */
 #bouquet,
 #corone,
 #eventi,
 #flowercube,
 #piante,
 #profumatori,
-#terrarium {
+#terrarium,
+#regali {
     scroll-margin-top: 170px;
 }
 
@@ -253,7 +265,8 @@ html {
     #flowercube,
     #piante,
     #profumatori,
-    #terrarium {
+    #terrarium,
+    #regali {
         scroll-margin-top: 230px;
     }
 
@@ -274,7 +287,8 @@ html {
     #flowercube,
     #piante,
     #profumatori,
-    #terrarium {
+    #terrarium,
+    #regali {
         scroll-margin-top: 260px;
     }
 
@@ -317,7 +331,8 @@ html {
     #flowercube,
     #piante,
     #profumatori,
-    #terrarium {
+    #terrarium,
+    #regali {
         scroll-margin-top: 285px;
     }
 
