@@ -53,6 +53,29 @@ public class AdminDashboardServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
+        
+        String action = request.getParameter("action");
+        
+        // INTERCETTAZIONE DELLA MODIFICA STATO ORDINE
+        if ("updateStato".equals(action)) {
+            try {
+                int idOrdine = Integer.parseInt(request.getParameter("idOrdine"));
+                String nuovoStato = request.getParameter("nuovoStato");
+                
+                OrdineDAO ordineDAO = new OrdineDAO();
+                // Chiama il metodo che abbiamo inserito nel tuo OrdineDAO
+                ordineDAO.updateStato(idOrdine, nuovoStato);
+                
+                // Ricarica la pagina in modo pulito con i dati aggiornati
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
+                return;
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+        // Comportamento di fallback se la richiesta POST non riguarda lo stato dell'ordine
         doGet(request, response);
     }
 }
