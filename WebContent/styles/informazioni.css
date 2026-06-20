@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 160px;
+}
+
+.informazioni-page {
+    background:
+        radial-gradient(circle at top left, rgba(248, 220, 228, 0.55), transparent 28%),
+        radial-gradient(circle at top right, rgba(214, 182, 115, 0.20), transparent 30%),
+        linear-gradient(180deg, #fffaf7 0%, #fff6f4 50%, #fffaf7 100%);
+    min-height: 100vh;
+}
+
+.informazioni-hero {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 70px 28px 38px;
+    text-align: center;
+}
+
+.informazioni-hero span {
+    display: inline-block;
+    color: var(--color-granata-light);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 13px;
+    margin-bottom: 13px;
+}
+
+.informazioni-hero h1 {
+    margin: 0 0 18px;
+    color: var(--color-granata);
+    font-size: 46px;
+    font-weight: 500;
+}
+
+.informazioni-hero p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--color-text-soft);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.informazioni-nav {
+    max-width: 1050px;
+    margin: 0 auto 48px;
+    padding: 0 28px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.informazioni-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #f0d2da;
+    color: var(--color-granata);
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 9px 20px rgba(123, 45, 66, 0.08);
+    transition: 0.25s ease;
+}
+
+.informazioni-nav a i {
+    color: var(--color-granata-light);
+    font-size: 18px;
+}
+
+.informazioni-nav a:hover {
+    transform: translateY(-3px);
+    background: #fff0f4;
+    box-shadow: 0 15px 30px rgba(123, 45, 66, 0.15);
+}
+
+.informazioni-container {
+    max-width: 1100px;
+    margin: 0 auto 70px;
+    padding: 0 32px;
+    display: grid;
+    gap: 30px;
+}
+
+.informazioni-card {
+    scroll-margin-top: 160px;
+    display: grid;
+    grid-template-columns: 82px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid #f0d6dc;
+    border-radius: 30px;
+    padding: 32px;
+    box-shadow: 0 12px 30px rgba(123, 45, 66, 0.10);
+}
+
+.informazioni-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a84663, #743044);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 24px rgba(123, 45, 66, 0.22);
+}
+
+.informazioni-icon i {
+    font-size: 30px;
+}
+
+.informazioni-text h2 {
+    margin: 0 0 16px;
+    color: var(--color-granata);
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.informazioni-text p {
+    margin: 0 0 15px;
+    color: var(--color-text-soft);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.informazioni-text p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+    html {
+        scroll-padding-top: 230px;
+    }
+
+    .informazioni-hero {
+        padding: 48px 24px 30px;
+    }
+
+    .informazioni-hero h1 {
+        font-size: 36px;
+    }
+
+    .informazioni-hero p {
+        font-size: 16px;
+    }
+
+    .informazioni-nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0 22px 14px;
+        margin-bottom: 35px;
+    }
+
+    .informazioni-nav a {
+        flex: 0 0 auto;
+    }
+
+    .informazioni-container {
+        padding: 0 20px;
+    }
+
+    .informazioni-card {
+        scroll-margin-top: 230px;
+        grid-template-columns: 1fr;
+        padding: 28px 24px;
+    }
+
+    .informazioni-icon {
+        width: 62px;
+        height: 62px;
+    }
+
+    .informazioni-icon i {
+        font-size: 26px;
+    }
+
+    .informazioni-text h2 {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 520px) {
+    .informazioni-hero h1 {
+        font-size: 31px;
+    }
+
+    .informazioni-card {
+        border-radius: 24px;
+    }
+
+    .informazioni-text p {
+        font-size: 15px;
+    }
+}
