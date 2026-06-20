@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=30">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=30">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/home.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/home.css?v=90">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=30">
 </head>
 
@@ -18,18 +18,16 @@
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
 <main class="home-page">
-
-    <section class="hero-home">
+		<section class="hero-home">
         <div class="hero-flower-wrap">
-            <img src="${pageContext.request.contextPath}/images/home/fiori-home.png"
+            <img src="${pageContext.request.contextPath}/images/home/homefiori.png"
                  alt="Fiorista Maria"
                  class="hero-flower-banner">
         </div>
 
         <div class="hero-content">
-            <h2>Addobbi floreali</h2>
-
-            <p>
+   <p>
+   				<br>
                 Eleganza, passione e creatività in ogni composizione.
                 Bouquet, piante e allestimenti floreali per ogni occasione speciale.
                 Regala emozioni, celebra la bellezza della natura.

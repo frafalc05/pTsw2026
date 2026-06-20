@@ -27,8 +27,8 @@
 
 .hero-home {
     width: 100%;
-    min-height: 650px;
-    padding: 42px 0 70px;
+    min-height: auto;
+    padding: 0 0 38px;
     text-align: center;
     background: linear-gradient(180deg, #fffaf7 0%, #fff4f6 100%);
     overflow: hidden;
@@ -40,21 +40,22 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin: 0 auto 20px;
-    overflow: visible;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .hero-flower-banner {
-    width: min(2050px, 112vw);
+    width: 100%;
     max-width: none;
     height: auto;
     display: block;
-    filter: drop-shadow(0 20px 35px rgba(123, 45, 66, 0.13));
+    margin: 0;
+    filter: drop-shadow(0 12px 24px rgba(123, 45, 66, 0.10));
 }
 
 .hero-content {
     max-width: 980px;
-    margin: -8px auto 0;
+    margin: -18px auto 0;
     padding: 0 24px;
     position: relative;
     z-index: 2;
@@ -652,11 +653,11 @@
 
 @media (max-width: 1300px) {
     .hero-flower-banner {
-        width: min(1650px, 108vw);
+        width: 100%;
     }
 
     .hero-home {
-        min-height: 590px;
+        min-height: auto;
     }
 }
 
@@ -683,11 +684,11 @@
 
     .hero-home {
         min-height: auto;
-        padding: 35px 0 58px;
+        padding: 0 0 45px;
     }
 
     .hero-flower-banner {
-        width: 108vw;
+        width: 100%;
     }
 
     .hero-content h2 {
@@ -708,11 +709,11 @@
 
 @media (max-width: 800px) {
     .hero-home {
-        padding: 28px 0 48px;
+        padding: 0 0 42px;
     }
 
     .hero-flower-wrap {
-        margin-bottom: 18px;
+        margin-bottom: 0;
     }
 
     .hero-flower-banner {
@@ -720,7 +721,7 @@
     }
 
     .hero-content {
-        margin-top: 0;
+        margin-top: -10px;
     }
 
     .hero-content h2 {
@@ -788,7 +789,7 @@
 
 @media (max-width: 520px) {
     .hero-home {
-        padding: 22px 0 42px;
+        padding: 0 0 38px;
     }
 
     .hero-flower-banner {
