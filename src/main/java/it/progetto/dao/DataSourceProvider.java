@@ -27,7 +27,7 @@ public class DataSourceProvider {
 			ds.setUser("root");
 
 
-		ds.setPassword("root");
+			ds.setPassword("root");
 
 
 			dataSource = ds;

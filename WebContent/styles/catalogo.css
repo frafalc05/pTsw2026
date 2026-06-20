@@ -27,28 +27,25 @@ html {
     line-height: 1.7;
 }
 
-/* ==========================================================================
-   MODIFICA: Categorie Tonde allineate su un'unica riga orizzontale
-   ========================================================================== */
 .categorie-tonde {
-    max-width: 1260px;          /* Allargato leggermente per ospitare l'ottavo elemento */
+    max-width: 1260px;
     margin: 35px auto 58px;
     padding: 10px 20px;
     display: flex;
-    justify-content: center;    /* Centra i tondini se c'è spazio sufficiente */
-    gap: 22px;                  /* Distanza ottimizzata tra gli elementi */
-    flex-wrap: nowrap;          /* Blocca tassativamente l'andata a capo */
-    overflow-x: auto;           /* Permette uno scroll pulito se lo schermo si restringe */
-    scrollbar-width: none;      /* Nasconde la barra di scorrimento su Firefox */
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
 .categorie-tonde::-webkit-scrollbar {
-    display: none;              /* Nasconde la barra di scorrimento su Chrome/Safari */
+    display: none;
 }
 
 .categoria-tonda {
-    width: 125px;               /* Dimensione proporzionata per farli entrare tutti in linea */
-    flex: 0 0 auto;             /* Impedisce ai cerchietti di deformarsi o rimpicciolirsi */
+    width: 125px;
+    flex: 0 0 auto;
     text-align: center;
     text-decoration: none;
     color: var(--color-granata);
@@ -56,7 +53,7 @@ html {
 }
 
 .categoria-tonda img {
-    width: 104px;               /* Adattamento leggero del diametro interno dell'immagine */
+    width: 104px;
     height: 104px;
     object-fit: cover;
     border-radius: 50%;
@@ -108,7 +105,6 @@ html {
     scroll-margin-top: 170px;
 }
 
-/* AGGIUNTO: ID del blocco regali alla gestione dello scorrimento fluido */
 #bouquet,
 #corone,
 #eventi,
@@ -253,6 +249,37 @@ html {
     transform: translateY(-2px);
 }
 
+.instagram-category-link {
+    width: fit-content;
+    margin: 28px auto 0;
+    padding: 13px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #fff4f7 0%, #ffffff 100%);
+    border: 1px solid #efcbd5;
+    color: var(--color-granata);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 15.5px;
+    box-shadow: 0 10px 24px rgba(123, 45, 66, 0.12);
+    transition: 0.25s ease;
+}
+
+.instagram-category-link i {
+    font-size: 23px;
+    color: #e4405f;
+}
+
+.instagram-category-link:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #fff0f5 0%, #fff8fa 100%);
+    color: var(--color-granata-light);
+    box-shadow: 0 16px 32px rgba(123, 45, 66, 0.18);
+}
+
 @media (max-width: 1150px) {
     html {
         scroll-padding-top: 230px;
@@ -317,6 +344,13 @@ html {
     .blocco-catalogo {
         padding: 0 22px;
     }
+
+    .instagram-category-link {
+        width: 100%;
+        max-width: 420px;
+        text-align: center;
+        padding: 13px 18px;
+    }
 }
 
 @media (max-width: 560px) {
@@ -346,5 +380,12 @@ html {
 
     .catalogo-intro {
         padding: 42px 20px 28px;
+    }
+
+    .instagram-category-link {
+        flex-direction: column;
+        gap: 7px;
+        border-radius: 22px;
+        font-size: 14.5px;
     }
 }

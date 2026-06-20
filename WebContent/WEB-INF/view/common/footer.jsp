@@ -106,46 +106,46 @@
             </ul>
         </div>
 
-        <div class="footer-column">
-            <h3>Informazioni</h3>
+       <div class="footer-column">
+    <h3>Informazioni</h3>
 
-            <ul class="footer-list">
-                <li>
-                    <span class="footer-small-icon">
-                        <i class="bi bi-truck"></i>
-                    </span>
-                    <a href="#">Consegne</a>
-                </li>
+    <ul class="footer-list">
+        <li>
+            <span class="footer-small-icon">
+                <i class="bi bi-truck"></i>
+            </span>
+            <a href="${pageContext.request.contextPath}/informazioni#consegne">Consegne</a>
+        </li>
 
-                <li>
-                    <span class="footer-small-icon">
-                        <i class="bi bi-credit-card-fill"></i>
-                    </span>
-                    <a href="#">Modalità di pagamento</a>
-                </li>
+        <li>
+            <span class="footer-small-icon">
+                <i class="bi bi-credit-card-fill"></i>
+            </span>
+            <a href="${pageContext.request.contextPath}/informazioni#pagamenti">Modalità di pagamento</a>
+        </li>
 
-                <li>
-                    <span class="footer-small-icon">
-                        <i class="bi bi-file-earmark-text-fill"></i>
-                    </span>
-                    <a href="#">Condizioni di vendita</a>
-                </li>
+        <li>
+            <span class="footer-small-icon">
+                <i class="bi bi-file-earmark-text-fill"></i>
+            </span>
+            <a href="${pageContext.request.contextPath}/informazioni#condizioni">Condizioni di vendita</a>
+        </li>
 
-                <li>
-                    <span class="footer-small-icon">
-                        <i class="bi bi-shield-lock-fill"></i>
-                    </span>
-                    <a href="#">Privacy policy</a>
-                </li>
+        <li>
+            <span class="footer-small-icon">
+                <i class="bi bi-shield-lock-fill"></i>
+            </span>
+            <a href="${pageContext.request.contextPath}/informazioni#privacy">Privacy policy</a>
+        </li>
 
-                <li>
-                    <span class="footer-small-icon">
-                        <i class="bi bi-cookie"></i>
-                    </span>
-                    <a href="#">Cookie policy</a>
-                </li>
-            </ul>
-        </div>
+        <li>
+            <span class="footer-small-icon">
+                <i class="bi bi-cookie"></i>
+            </span>
+            <a href="${pageContext.request.contextPath}/informazioni#cookie">Cookie policy</a>
+        </li>
+    </ul>
+</div>
 
         <div class="footer-column footer-social-column">
             <h3>Seguici</h3>
