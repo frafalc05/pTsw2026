@@ -1,0 +1,499 @@
+@charset "UTF-8";
+
+.eventi-page {
+    background:
+        radial-gradient(circle at top left, rgba(248, 220, 228, 0.55), transparent 28%),
+        radial-gradient(circle at top right, rgba(214, 182, 115, 0.20), transparent 30%),
+        linear-gradient(180deg, #fffaf7 0%, #fff6f4 50%, #fffaf7 100%);
+    overflow: hidden;
+}
+
+.eventi-hero {
+    position: relative;
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.eventi-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.eventi-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(65, 22, 34, 0.78), rgba(65, 22, 34, 0.38), rgba(255, 250, 247, 0.08)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.25));
+    z-index: 1;
+}
+
+.eventi-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    margin-right: auto;
+    padding: 80px 55px;
+    color: #ffffff;
+}
+
+.eventi-hero-content span,
+.eventi-intro-text span,
+.eventi-progetto-text span,
+.eventi-gallery-title span,
+.eventi-highlight-text span,
+.eventi-cta span {
+    display: inline-block;
+    color: #f8dce4;
+    text-transform: uppercase;
+    letter-spacing: 2.6px;
+    font-weight: 800;
+    font-size: 13px;
+    margin-bottom: 13px;
+}
+
+.eventi-intro-text span,
+.eventi-progetto-text span,
+.eventi-gallery-title span,
+.eventi-highlight-text span,
+.eventi-cta span {
+    color: var(--color-granata-light);
+}
+
+.eventi-hero-content h1 {
+    margin: 0 0 22px;
+    font-size: 58px;
+    line-height: 1.08;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.eventi-hero-content p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.85;
+    color: #fff3f6;
+}
+
+.eventi-hero-buttons {
+    margin-top: 34px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.eventi-hero-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-width: 210px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--color-granata);
+    text-decoration: none;
+    font-weight: 800;
+    transition: 0.25s ease;
+}
+
+.eventi-hero-buttons a:first-child {
+    background: var(--color-granata-light);
+    color: #ffffff;
+    box-shadow: 0 12px 26px rgba(40, 10, 20, 0.25);
+}
+
+.eventi-hero-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(40, 10, 20, 0.22);
+}
+
+.eventi-intro {
+    max-width: 1180px;
+    margin: 70px auto 65px;
+    padding: 45px 42px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 46px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid #f0d6dc;
+    border-radius: 34px;
+    box-shadow: 0 12px 30px rgba(123, 45, 66, 0.10);
+}
+
+.eventi-intro-text h2,
+.eventi-progetto-text h2,
+.eventi-gallery-title h2,
+.eventi-highlight-text h2,
+.eventi-cta h2 {
+    margin: 0 0 18px;
+    color: var(--color-granata);
+    font-size: 38px;
+    line-height: 1.18;
+    font-weight: 500;
+}
+
+.eventi-intro-text p,
+.eventi-progetto-text p,
+.eventi-gallery-title p,
+.eventi-highlight-text p,
+.eventi-cta p {
+    margin: 0 0 15px;
+    color: var(--color-text-soft);
+    font-size: 16.5px;
+    line-height: 1.85;
+}
+
+.eventi-intro-image {
+    border-radius: 30px;
+    overflow: hidden;
+    border: 7px solid #ffffff;
+    box-shadow: 0 16px 34px rgba(123, 45, 66, 0.17);
+}
+
+.eventi-intro-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    display: block;
+    transition: 0.45s ease;
+}
+
+.eventi-intro-image:hover img {
+    transform: scale(1.04);
+}
+
+.eventi-servizi {
+    max-width: 1180px;
+    margin: 0 auto 65px;
+    padding: 0 35px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.evento-servizio-card {
+    background: #ffffff;
+    border: 1px solid #f0d6dc;
+    border-radius: 26px;
+    padding: 28px 22px;
+    text-align: center;
+    box-shadow: 0 10px 26px rgba(123, 45, 66, 0.09);
+    transition: 0.25s ease;
+}
+
+.evento-servizio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(123, 45, 66, 0.16);
+}
+
+.evento-servizio-card i {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 17px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a84663, #743044);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 10px 20px rgba(123, 45, 66, 0.20);
+}
+
+.evento-servizio-card h3 {
+    margin: 0 0 10px;
+    color: var(--color-granata);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.evento-servizio-card p {
+    margin: 0;
+    color: var(--color-text-soft);
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.eventi-progetto {
+    max-width: 1260px;
+    margin: 0 auto 70px;
+    padding: 0 35px;
+    display: grid;
+    grid-template-columns: 1fr 0.95fr;
+    gap: 46px;
+    align-items: center;
+}
+
+.eventi-progetto-image {
+    border-radius: 34px;
+    overflow: hidden;
+    border: 8px solid #ffffff;
+    box-shadow: 0 18px 40px rgba(123, 45, 66, 0.18);
+}
+
+.eventi-progetto-image img {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    display: block;
+    transition: 0.45s ease;
+}
+
+.eventi-progetto-image:hover img {
+    transform: scale(1.04);
+}
+
+.eventi-progetto-text {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.90), rgba(255, 239, 244, 0.90));
+    border: 1px solid #f0d6dc;
+    border-radius: 34px;
+    padding: 42px;
+    box-shadow: 0 12px 30px rgba(123, 45, 66, 0.10);
+}
+
+.eventi-progetto-text a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+    padding: 13px 24px;
+    border-radius: 999px;
+    background: var(--color-granata);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    transition: 0.25s ease;
+}
+
+.eventi-progetto-text a:hover {
+    transform: translateY(-3px);
+    background: var(--color-granata-dark);
+}
+
+.eventi-gallery-section {
+    max-width: 1260px;
+    margin: 0 auto 70px;
+    padding: 0 35px;
+}
+
+.eventi-gallery-title {
+    max-width: 820px;
+    margin: 0 auto 34px;
+    text-align: center;
+}
+
+.eventi-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.eventi-gallery img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    display: block;
+    border-radius: 30px;
+    border: 6px solid #ffffff;
+    box-shadow: 0 15px 35px rgba(123, 45, 66, 0.16);
+    transition: 0.3s ease;
+}
+
+.eventi-gallery img:hover {
+    transform: scale(1.02);
+}
+
+.eventi-highlight {
+    max-width: 1180px;
+    margin: 0 auto 70px;
+    padding: 45px 42px;
+    display: grid;
+    grid-template-columns: 0.88fr 1.12fr;
+    gap: 38px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid #f0d6dc;
+    border-radius: 34px;
+    box-shadow: 0 12px 30px rgba(123, 45, 66, 0.10);
+}
+
+.eventi-highlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.eventi-highlight-grid img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    display: block;
+    border-radius: 26px;
+    box-shadow: 0 12px 28px rgba(123, 45, 66, 0.13);
+}
+
+.eventi-cta {
+    max-width: 980px;
+    margin: 0 auto 75px;
+    padding: 48px 35px;
+    text-align: center;
+    border-radius: 34px;
+    background: linear-gradient(135deg, #fff3f5 0%, #ffffff 100%);
+    border: 1px solid #f0d6dc;
+    box-shadow: 0 14px 34px rgba(123, 45, 66, 0.12);
+}
+
+.eventi-cta p {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.eventi-cta-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.eventi-cta-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-width: 210px;
+    padding: 13px 24px;
+    border-radius: 999px;
+    background: var(--color-granata);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    transition: 0.25s ease;
+}
+
+.eventi-cta-buttons a:last-child {
+    background: #ffffff;
+    color: var(--color-granata);
+    border: 1px solid var(--color-granata-light);
+}
+
+.eventi-cta-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(123, 45, 66, 0.18);
+}
+
+@media (max-width: 1100px) {
+    .eventi-intro,
+    .eventi-progetto,
+    .eventi-highlight {
+        grid-template-columns: 1fr;
+    }
+
+    .eventi-servizi {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .eventi-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .eventi-hero-content {
+        max-width: 850px;
+        padding: 70px 35px;
+    }
+}
+
+@media (max-width: 760px) {
+    .eventi-hero {
+        min-height: 620px;
+    }
+
+    .eventi-hero-content {
+        padding: 55px 24px;
+    }
+
+    .eventi-hero-content h1 {
+        font-size: 39px;
+    }
+
+    .eventi-hero-content p {
+        font-size: 16px;
+    }
+
+    .eventi-hero-buttons,
+    .eventi-cta-buttons {
+        flex-direction: column;
+    }
+
+    .eventi-hero-buttons a,
+    .eventi-cta-buttons a {
+        width: 100%;
+    }
+
+    .eventi-intro,
+    .eventi-highlight {
+        margin-left: 18px;
+        margin-right: 18px;
+        padding: 30px 24px;
+    }
+
+    .eventi-intro-text h2,
+    .eventi-progetto-text h2,
+    .eventi-gallery-title h2,
+    .eventi-highlight-text h2,
+    .eventi-cta h2 {
+        font-size: 31px;
+    }
+
+    .eventi-intro-image img,
+    .eventi-progetto-image img {
+        height: 380px;
+    }
+
+    .eventi-servizi {
+        grid-template-columns: 1fr;
+        padding: 0 22px;
+    }
+
+    .eventi-progetto {
+        padding: 0 22px;
+    }
+
+    .eventi-progetto-text {
+        padding: 30px 24px;
+    }
+
+    .eventi-gallery-section {
+        padding: 0 22px;
+    }
+
+    .eventi-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .eventi-gallery img {
+        height: 360px;
+    }
+
+    .eventi-highlight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .eventi-highlight-grid img {
+        height: 320px;
+    }
+
+    .eventi-cta {
+        margin-left: 18px;
+        margin-right: 18px;
+        padding: 36px 24px;
+    }
+}
