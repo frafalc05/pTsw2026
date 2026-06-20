@@ -4,13 +4,12 @@
     Prodotto p = (Prodotto) request.getAttribute("prodotto");
     
     String titoloPagina = (p == null) ? "Inserisci Nuovo Prodotto" : "Modifica Prodotto: " + p.getNome();
-    // Se p è null, l'id deve essere una stringa vuota o non passata per l'inserimento, 
-    // altrimenti teniamo il valore numerico in stringa.
     String idValue = (p == null) ? "" : String.valueOf(p.getId());
     String nome = (p == null) ? "" : p.getNome();
     String descrizione = (p == null) ? "" : p.getDescrizione();
     double prezzo = (p == null) ? 0.0 : p.getPrezzo();
     int quantita = (p == null) ? 1 : p.getQuantita();
+    boolean isAttivo = (p == null) ? true : p.isAttivo(); // Di default un nuovo prodotto è attivo
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -28,6 +27,7 @@
     <form action="${pageContext.request.contextPath}/admin/catalogo" method="POST" enctype="multipart/form-data">
         
         <input type="hidden" name="id" value="<%= idValue %>">
+        <input type="hidden" name="modifica_esplicita" value="true">
 
         <div class="form-group">
             <label for="nome">Nome Prodotto/Fiore:</label>
@@ -47,6 +47,11 @@
         <div class="form-group">
             <label for="quantita">Quantità Disponibile:</label>
             <input type="number" id="quantita" name="quantita" value="<%= quantita %>" required>
+        </div>
+
+        <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px;">
+            <input type="checkbox" id="attivo" name="attivo" value="true" <%= isAttivo ? "checked" : "" %> style="width: auto; margin: 0;">
+            <label for="attivo" style="margin: 0; font-weight: bold; cursor: pointer;">Prodotto Visibile nel Catalogo Utenti</label>
         </div>
 
         <div class="form-group">
