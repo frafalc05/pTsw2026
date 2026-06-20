@@ -21,13 +21,10 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=101">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=101">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=101">
 </head>
 
 <body class="site-theme">
-
-<jsp:include page="/WEB-INF/view/common/header.jsp" />
 
 <main class="admin-main">
 
