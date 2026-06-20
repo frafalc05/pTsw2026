@@ -1,71 +1,113 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="it.progetto.model.Ordine" %>
-<%@ page import="java.text.SimpleDateFormat" %> <%
-    // Recuperiamo i dati passati dalla AdminDashboardServlet
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<%
     List<Ordine> listaOrdini = (List<Ordine>) request.getAttribute("listaOrdini");
     String dataInizio = (String) request.getAttribute("dataInizio");
     String dataFine = (String) request.getAttribute("dataFine");
     String idCliente = (String) request.getAttribute("idCliente");
-    
+
     if (dataInizio == null) dataInizio = "";
     if (dataFine == null) dataFine = "";
     if (idCliente == null) idCliente = "";
 
-    // MODIFICATO: Pattern impostato solo su Giorno-Mese-Anno (rimosso l'orario)
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 %>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Amministratore - Fiorista Maria</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style1.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=101">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=101">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=101">
 </head>
-<body>
 
-<div class="admin-container">
-    <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout-link">Logout</a>
-    <h1>Pannello di Controllo - Maria</h1>
-    <p>Benvenuta nel report gestionale degli ordini.</p>
-    
-    <a href="${pageContext.request.contextPath}/admin/catalogo?action=list" class="btn-nav">Gestisci Catalogo Prodotti</a>
+<body class="site-theme">
 
-    <div class="filter-box">
-        <h3>Filtra Ordini Complessivi</h3>
-        <form action="${pageContext.request.contextPath}/admin/dashboard" method="GET" class="filter-form">
-            <div class="filter-group">
-                <label for="dataInizio">Da Data (X):</label>
-                <input type="date" id="dataInizio" name="dataInizio" value="<%= dataInizio %>">
-            </div>
-            <div class="filter-group">
-                <label for="dataFine">A Data (Y):</label>
-                <input type="date" id="dataFine" name="dataFine" value="<%= dataFine %>">
-            </div>
-            <div class="filter-group">
-                <label for="idCliente">ID Cliente:</label>
-                <input type="number" id="idCliente" name="idCliente" placeholder="Es. 5" value="<%= idCliente %>">
-            </div>
-            <button type="submit" class="btn-filter">Applica Filtri</button>
-            <a href="${pageContext.request.contextPath}/admin/dashboard" style="padding: 10px; color: #7f8c8d; text-decoration: none;">Resetta</a>
-        </form>
+<jsp:include page="/WEB-INF/view/common/header.jsp" />
+
+<main class="admin-main">
+
+    <div class="admin-title-row">
+        <div>
+            <h1>Pannello di controllo</h1>
+            <p class="admin-subtitle">
+                Benvenuta nel report gestionale degli ordini. Da qui puoi filtrare gli ordini ricevuti e aggiornare il loro stato.
+            </p>
+        </div>
+
+        <a href="${pageContext.request.contextPath}/LogoutServlet" class="btn-admin-azione btn-admin-light">
+            <i class="bi bi-box-arrow-right"></i>
+            Logout
+        </a>
     </div>
 
-    <h3>Elenco Ordini Ricevuti</h3>
-    <table class="report-table">
+    <div class="catalogo-shortcut-box">
+        <div>
+            <strong class="admin-box-title">Gestione catalogo</strong>
+            <p>
+                Visualizza, modifica, inserisci o disattiva i prodotti mostrati nel catalogo pubblico.
+            </p>
+        </div>
+
+        <a href="${pageContext.request.contextPath}/admin/catalogo?action=list" class="btn-admin-azione">
+            <i class="bi bi-flower1"></i>
+            Gestisci catalogo
+        </a>
+    </div>
+
+    <h2 class="admin-section-title">Filtra ordini complessivi</h2>
+
+    <form action="${pageContext.request.contextPath}/admin/dashboard" method="GET" class="form-filtri-admin">
+        <div class="row-filtri">
+            <div class="group-filtro">
+                <label for="dataInizio">Da data</label>
+                <input type="date" id="dataInizio" name="dataInizio" value="<%= dataInizio %>" class="input-filtro-data">
+            </div>
+
+            <div class="group-filtro">
+                <label for="dataFine">A data</label>
+                <input type="date" id="dataFine" name="dataFine" value="<%= dataFine %>" class="input-filtro-data">
+            </div>
+
+            <div class="group-filtro">
+                <label for="idCliente">ID cliente</label>
+                <input type="number" id="idCliente" name="idCliente" placeholder="Es. 5" value="<%= idCliente %>" class="input-filtro-number">
+            </div>
+
+            <button type="submit" class="btn-applica-filtri">
+                <i class="bi bi-search"></i>
+                Filtra
+            </button>
+        </div>
+
+        <div class="admin-reset-row">
+            <a href="${pageContext.request.contextPath}/admin/dashboard">Resetta filtri</a>
+        </div>
+    </form>
+
+    <h2 class="titolo-risultati">Elenco ordini ricevuti</h2>
+
+    <table class="tabella-admin">
         <thead>
             <tr>
-                <th>ID Ordine</th>
-                <th>ID Cliente</th>
-                <th>Data Ordine</th> <th>Destinatario</th>
-                <th>Totale (€)</th>
+                <th>ID ordine</th>
+                <th>ID cliente</th>
+                <th>Data ordine</th>
+                <th>Destinatario</th>
+                <th>Totale</th>
                 <th>Stato</th>
             </tr>
         </thead>
+
         <tbody>
-            <% 
+            <%
                 if (listaOrdini != null && !listaOrdini.isEmpty()) {
                     for (Ordine o : listaOrdini) {
             %>
@@ -74,13 +116,13 @@
                             <td><%= o.getIdUtente() %></td>
                             <td><%= o.getDataOrdine() != null ? sdf.format(o.getDataOrdine()) : "N/D" %></td>
                             <td><%= o.getNomeDestinatario() != null ? o.getNomeDestinatario() : "N/D" %></td>
-                            <td><%= String.format("%.2f", o.getTotale()) %></td>
+                            <td class="valore-totale-admin">€ <%= String.format("%.2f", o.getTotale()) %></td>
                             <td>
-                                <form action="${pageContext.request.contextPath}/admin/dashboard" method="POST" style="margin:0;">
+                                <form action="${pageContext.request.contextPath}/admin/dashboard" method="POST" class="form-stato-admin">
                                     <input type="hidden" name="idOrdine" value="<%= o.getId() %>">
                                     <input type="hidden" name="action" value="updateStato">
-                                    
-                                    <select name="nuovoStato" onchange="this.form.submit()" style="padding: 5px; font-weight: bold; border-radius: 4px; cursor: pointer;">
+
+                                    <select name="nuovoStato" onchange="this.form.submit()" class="select-stato-admin">
                                         <option value="In Lavorazione" <%= "In Lavorazione".equalsIgnoreCase(o.getStato()) ? "selected" : "" %>>In Lavorazione</option>
                                         <option value="Spedito" <%= "Spedito".equalsIgnoreCase(o.getStato()) ? "selected" : "" %>>Spedito</option>
                                         <option value="Consegnato" <%= "Consegnato".equalsIgnoreCase(o.getStato()) ? "selected" : "" %>>Consegnato</option>
@@ -89,19 +131,22 @@
                                 </form>
                             </td>
                         </tr>
-            <% 
+            <%
                     }
                 } else {
             %>
                     <tr>
-                        <td colspan="6" style="text-align: center; color: #7f8c8d;">Nessun ordine trovato con i filtri selezionati.</td>
+                        <td colspan="6" class="msg-report-vuoto">
+                            Nessun ordine trovato con i filtri selezionati.
+                        </td>
                     </tr>
-            <% 
+            <%
                 }
             %>
         </tbody>
     </table>
-</div>
+
+</main>
 
 </body>
 </html>

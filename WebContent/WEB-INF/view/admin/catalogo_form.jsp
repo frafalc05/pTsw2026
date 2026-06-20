@@ -1,74 +1,109 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="it.progetto.model.Prodotto" %>
+
 <%
     Prodotto p = (Prodotto) request.getAttribute("prodotto");
-    
-    String titoloPagina = (p == null) ? "Inserisci Nuovo Prodotto" : "Modifica Prodotto: " + p.getNome();
+
+    String titoloPagina = (p == null) ? "Inserisci nuovo prodotto" : "Modifica prodotto: " + p.getNome();
     String idValue = (p == null) ? "" : String.valueOf(p.getId());
     String nome = (p == null) ? "" : p.getNome();
     String descrizione = (p == null) ? "" : p.getDescrizione();
     double prezzo = (p == null) ? 0.0 : p.getPrezzo();
     int quantita = (p == null) ? 1 : p.getQuantita();
-    boolean isAttivo = (p == null) ? true : p.isAttivo(); // Di default un nuovo prodotto è attivo
+    boolean isAttivo = (p == null) ? true : p.isAttivo();
 %>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title><%= titoloPagina %></title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css">
+    <title><%= titoloPagina %> - Fiorista Maria</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=101">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=101">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=101">
 </head>
-<body>
 
-<div class="form-container">
-    <h1><%= titoloPagina %></h1>
-    
-    <form action="${pageContext.request.contextPath}/admin/catalogo" method="POST" enctype="multipart/form-data">
-        
-        <input type="hidden" name="id" value="<%= idValue %>">
-        <input type="hidden" name="modifica_esplicita" value="true">
+<body class="site-theme">
 
-        <div class="form-group">
-            <label for="nome">Nome Prodotto/Fiore:</label>
-            <input type="text" id="nome" name="nome" value="<%= nome %>" required>
+<jsp:include page="/WEB-INF/view/common/header.jsp" />
+
+<main class="admin-main">
+
+    <div class="admin-title-row">
+        <div>
+            <h1><%= titoloPagina %></h1>
+            <p class="admin-subtitle">
+                Compila i dati del prodotto e salva le modifiche per aggiornare il catalogo.
+            </p>
         </div>
 
-        <div class="form-group">
-            <label for="descrizione">Descrizione:</label>
-            <textarea id="descrizione" name="descrizione" rows="4" required><%= descrizione %></textarea>
-        </div>
+        <a href="${pageContext.request.contextPath}/admin/catalogo?action=list" class="btn-admin-azione btn-admin-light">
+            <i class="bi bi-arrow-left"></i>
+            Torna alla lista
+        </a>
+    </div>
 
-        <div class="form-group">
-            <label for="prezzo">Prezzo (€):</label>
-            <input type="number" id="prezzo" name="prezzo" step="0.01" value="<%= prezzo %>" required>
-        </div>
+    <section class="admin-card">
+        <form action="${pageContext.request.contextPath}/admin/catalogo" method="POST" enctype="multipart/form-data" class="admin-product-form">
 
-        <div class="form-group">
-            <label for="quantita">Quantità Disponibile:</label>
-            <input type="number" id="quantita" name="quantita" value="<%= quantita %>" required>
-        </div>
+            <input type="hidden" name="id" value="<%= idValue %>">
+            <input type="hidden" name="modifica_esplicita" value="true">
 
-        <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px;">
-            <input type="checkbox" id="attivo" name="attivo" value="true" <%= isAttivo ? "checked" : "" %> style="width: auto; margin: 0;">
-            <label for="attivo" style="margin: 0; font-weight: bold; cursor: pointer;">Prodotto Visibile nel Catalogo Utenti</label>
-        </div>
+            <div class="admin-form-grid">
+                <div class="group-filtro">
+                    <label for="nome">Nome prodotto</label>
+                    <input type="text" id="nome" name="nome" value="<%= nome %>" required class="input-filtro-data">
+                </div>
 
-        <div class="form-group">
-            <label for="immagine">Seleziona Immagine Prodotto:</label>
-            <input type="file" id="immagine" name="immagine" accept="image/*">
-            <% if (p != null && p.getImmagine() != null && !p.getImmagine().isEmpty()) { %>
-                <p style="font-size: 13px; color: #555; margin-top: 5px;">
-                    Immagine attuale: <strong><%= p.getImmagine() %></strong> (Lascia vuoto per non cambiarla)
-                </p>
-            <% } %>
-        </div>
+                <div class="group-filtro">
+                    <label for="prezzo">Prezzo (€)</label>
+                    <input type="number" id="prezzo" name="prezzo" step="0.01" value="<%= prezzo %>" required class="input-filtro-number">
+                </div>
 
-        <button type="submit" class="btn-submit">Salva Prodotto</button>
-    </form>
+                <div class="group-filtro">
+                    <label for="quantita">Quantità disponibile</label>
+                    <input type="number" id="quantita" name="quantita" value="<%= quantita %>" required class="input-filtro-number">
+                </div>
 
-    <a href="${pageContext.request.contextPath}/admin/catalogo?action=list" class="link-back">Indietro alla lista</a>
-</div>
+                <div class="group-filtro">
+                    <label for="immagine">Immagine prodotto</label>
+                    <input type="file" id="immagine" name="immagine" accept="image/*" class="input-file-admin">
+
+                    <% if (p != null && p.getImmagine() != null && !p.getImmagine().isEmpty()) { %>
+                        <p class="admin-help-text">
+                            Immagine attuale: <strong><%= p.getImmagine() %></strong>. Lascia vuoto per non cambiarla.
+                        </p>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="group-filtro admin-full">
+                <label for="descrizione">Descrizione</label>
+                <textarea id="descrizione" name="descrizione" rows="5" required class="textarea-admin"><%= descrizione %></textarea>
+            </div>
+
+            <label class="admin-check-row" for="attivo">
+                <input type="checkbox" id="attivo" name="attivo" value="true" <%= isAttivo ? "checked" : "" %>>
+                <span>Prodotto visibile nel catalogo utenti</span>
+            </label>
+
+            <div class="admin-form-actions">
+                <button type="submit" class="btn-applica-filtri">
+                    <i class="bi bi-check2-circle"></i>
+                    Salva prodotto
+                </button>
+
+                <a href="${pageContext.request.contextPath}/admin/catalogo?action=list" class="btn-admin-azione btn-admin-light">
+                    Annulla
+                </a>
+            </div>
+
+        </form>
+    </section>
+
+</main>
 
 </body>
 </html>
