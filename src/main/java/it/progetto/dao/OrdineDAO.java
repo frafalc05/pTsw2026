@@ -17,12 +17,9 @@ public class OrdineDAO {
         try (Connection con = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             
-            // Parametri base
             ps.setInt(1, ordine.getIdUtente());
             ps.setDouble(2, ordine.getTotale());
             ps.setString(3, ordine.getStato());
-            
-            // NUOVI: Parametri di spedizione recuperati dall'oggetto Ordine
             ps.setString(4, ordine.getNomeDestinatario());
             ps.setString(5, ordine.getIndirizzo());
             ps.setString(6, ordine.getCitta());
@@ -39,16 +36,26 @@ public class OrdineDAO {
         }
         return 0;
     }
+    
 
-    // 2. Lasciato vuoto per evitare l'errore sulla tabella dettaglio_ordine
+    // CORRETTO: Inserisce i dati reali dentro la tabella riga_ordine congelando il prezzo di acquisto attuale
     public void saveDettaglioOrdine(int idOrdine, int idProdotto, int quantita, double prezzo) throws Exception {
-        // Nessuna operazione richiesta (puoi implementarla in futuro se serve)
+        String query = "INSERT INTO riga_ordine (id_ordine, id_prodotto, quantita, prezzo_acquisto) VALUES (?, ?, ?, ?)";
+        
+        try (Connection con = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
+            
+            ps.setInt(1, idOrdine);
+            ps.setInt(2, idProdotto);
+            ps.setInt(3, quantita);
+            ps.setDouble(4, prezzo); 
+            
+            ps.executeUpdate();
+        }
     }
 
-    // 3. RISOLTO: Aggiunto il '?' mancante dopo 'id_utente ='
     public List<Ordine> getOrdiniByUtente(int idUtente) throws Exception {
         List<Ordine> lista = new ArrayList<>();
-        
         String query = "SELECT * FROM ordine WHERE id_utente = ? ORDER BY data_ordine DESC";
         
         try (Connection con = DataSourceProvider.getDataSource().getConnection();
@@ -64,8 +71,6 @@ public class OrdineDAO {
                     o.setTotale(rs.getDouble("totale"));
                     o.setStato(rs.getString("stato"));
                     o.setDataOrdine(rs.getTimestamp("data_ordine"));
-                    
-                    // Dati spedizione estratti dal DB
                     o.setNomeDestinatario(rs.getString("nome_destinatario"));
                     o.setIndirizzo(rs.getString("indirizzo"));
                     o.setCitta(rs.getString("citta"));
@@ -79,22 +84,14 @@ public class OrdineDAO {
         return lista;
     }
 
-    /**
-     * NUOVO METODO PER L'AMMINISTRATORE
-     * Consente di visualizzare gli ordini complessivi filtrando per intervallo di date e/o ID cliente.
-     */
     public List<Ordine> doRetrieveAdminReport(String dataInizio, String dataFine, Integer idCliente) throws Exception {
         List<Ordine> lista = new ArrayList<>();
-        
-        // Base della query SQL
         StringBuilder sql = new StringBuilder("SELECT * FROM ordine WHERE 1=1");
         
-        // Costruzione dinamica dei filtri
         if (dataInizio != null && !dataInizio.trim().isEmpty()) {
             sql.append(" AND data_ordine >= ?");
         }
         if (dataFine != null && !dataFine.trim().isEmpty()) {
-            // Aggiungiamo la fine della giornata per includere gli ordini fatti nella data limite 'y'
             sql.append(" AND data_ordine <= ?");
         }
         if (idCliente != null) {
@@ -109,11 +106,9 @@ public class OrdineDAO {
             int paramIndex = 1;
             
             if (dataInizio != null && !dataInizio.trim().isEmpty()) {
-                // Imposta il limite "dalla data x" a inizio giornata
                 ps.setString(paramIndex++, dataInizio + " 00:00:00");
             }
             if (dataFine != null && !dataFine.trim().isEmpty()) {
-                // Imposta il limite "alla data y" a fine giornata completa
                 ps.setString(paramIndex++, dataFine + " 23:59:59");
             }
             if (idCliente != null) {
@@ -139,5 +134,21 @@ public class OrdineDAO {
             }
         }
         return lista;
+    }
+
+    /**
+     * NUOVO METODO: Aggiorna lo stato di un ordine specifico nel database.
+     */
+    public void updateStato(int idOrdine, String nuovoStato) throws Exception {
+        String query = "UPDATE ordine SET stato = ? WHERE id = ?";
+        
+        try (Connection con = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
+            
+            ps.setString(1, nuovoStato);
+            ps.setInt(2, idOrdine);
+            
+            ps.executeUpdate();
+        }
     }
 }
