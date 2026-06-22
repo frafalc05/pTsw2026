@@ -1,6 +1,7 @@
 package it.progetto.control;
 
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,21 +18,20 @@ public class LogoutServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // Recupera la sessione corrente, se esiste, senza crearne una nuova
+
         HttpSession session = request.getSession(false);
+
         if (session != null) {
-            session.invalidate(); // Distrugge completamente la sessione (rimuove l'utente)
+            session.invalidate();
         }
-        
-        // Reindirizza alla HomeServlet usando il pattern "/home" configurato nel tuo progetto
+
         response.sendRedirect(request.getContextPath() + "/home");
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
