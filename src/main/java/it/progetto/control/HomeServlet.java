@@ -1,8 +1,13 @@
 package it.progetto.control;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import it.progetto.dao.ConnectionTest;
+import it.progetto.dao.ProdottoDAO;
+import it.progetto.model.Prodotto;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,6 +19,8 @@ import jakarta.servlet.http.HttpServletResponse;
 public class HomeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    private ProdottoDAO prodottoDAO = new ProdottoDAO();
+
     public HomeServlet() {
         super();
     }
@@ -21,7 +28,16 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	ConnectionTest.getConnection();
+        ConnectionTest.getConnection();
+
+        try {
+            ArrayList<Prodotto> piuVendutiOnline = prodottoDAO.trovaPiuVendutiOnline();
+            request.setAttribute("piuVendutiOnline", piuVendutiOnline);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("piuVendutiOnline", new ArrayList<Prodotto>());
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/user/home.jsp");
         dispatcher.forward(request, response);
     }
