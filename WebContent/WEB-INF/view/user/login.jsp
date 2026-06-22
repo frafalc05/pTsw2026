@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Login - Fiorista Maria</title>
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/style1.css">
+    <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="scripts/validation.js" defer></script>
