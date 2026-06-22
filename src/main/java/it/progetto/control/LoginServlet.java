@@ -3,6 +3,7 @@ package it.progetto.control;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 import it.progetto.dao.CarrelloDAO;
 import it.progetto.dao.UtenteDAO;
@@ -45,6 +46,7 @@ public class LoginServlet extends HttpServlet {
 
                 session.setAttribute("utente", utente);
                 session.setAttribute("ruolo", utente.getRuolo());
+                session.setAttribute("accessToken", UUID.randomUUID().toString());
 
                 carrelloDAO.salvaCarrelloSessioneNelDb(utente.getId(), carrelloSessione);
 
