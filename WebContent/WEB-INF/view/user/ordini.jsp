@@ -8,9 +8,11 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/ordine.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=80">
 </head>
 <body>
 
+<jsp:include page="/WEB-INF/view/common/header.jsp" />
     <div class="ordini-container">
         <h2 class="ordini-titolo">Cronologia dei Miei Ordini</h2>
         <p class="ordini-descrizione">Benvenuto nella tua area personale. Qui sotto trovi lo storico dei tuoi acquisti.</p>
