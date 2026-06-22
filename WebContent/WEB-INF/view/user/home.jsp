@@ -1,5 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="it.progetto.model.Prodotto" %>
 
+<%
+    List<Prodotto> piuVendutiOnline = (List<Prodotto>) request.getAttribute("piuVendutiOnline");
+%>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -157,49 +162,68 @@
             </section>
 
             <section class="product-section">
-                <div class="section-title-row">
-                    <h2>I più popolari</h2>
-                    <a href="${pageContext.request.contextPath}/catalogo">Vai al catalogo</a>
-                </div>
+    <div class="section-title-row">
+        <h2>Più venduti online</h2>
+        <a href="${pageContext.request.contextPath}/catalogo">Vai al catalogo</a>
+    </div>
 
-                <div class="product-grid-home">
+    <div class="product-grid-home">
+        <%
+            if (piuVendutiOnline != null && !piuVendutiOnline.isEmpty()) {
+                for (Prodotto p : piuVendutiOnline) {
+        %>
                     <article class="home-product-card">
-                        <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpeg" alt="Bouquet sposa">
+                        <img src="${pageContext.request.contextPath}/images/<%= p.getImmagine() %>" alt="<%= p.getNome() %>">
                         <div class="home-product-info">
-                            <h3>Bouquet Sposa</h3>
-                            <p>Elegante composizione per il giorno più importante.</p>
-                            <span>Su richiesta</span>
+                            <h3><%= p.getNome() %></h3>
+                            <p><%= p.getDescrizione() %></p>
+                            <span>€ <%= String.format("%.2f", p.getPrezzo()) %></span>
                         </div>
                     </article>
+        <%
+                }
+            } else {
+        %>
+                <article class="home-product-card">
+                    <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_sposa.jpeg" alt="Bouquet Sposa">
+                    <div class="home-product-info">
+                        <h3>Bouquet Sposa</h3>
+                        <p>Elegante composizione per il giorno più importante.</p>
+                        <span>Su richiesta</span>
+                    </div>
+                </article>
 
-                    <article class="home-product-card">
-                        <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea2.jpeg" alt="Corona laurea">
-                        <div class="home-product-info">
-                            <h3>Corona di Laurea</h3>
-                            <p>Il simbolo perfetto per celebrare un traguardo.</p>
-                            <span>€ 35,00</span>
-                        </div>
-                    </article>
+                <article class="home-product-card">
+                    <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea2.jpeg" alt="Corona di Laurea">
+                    <div class="home-product-info">
+                        <h3>Corona di Laurea</h3>
+                        <p>Il simbolo perfetto per celebrare un traguardo.</p>
+                        <span>€ 35,00</span>
+                    </div>
+                </article>
 
-                    <article class="home-product-card">
-                        <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_giallo.jpeg" alt="Profumatore">
-                        <div class="home-product-info">
-                            <h3>Profumatore Floreale</h3>
-                            <p>Una fragranza elegante per ambienti raffinati.</p>
-                            <span>€ 19,90</span>
-                        </div>
-                    </article>
+                <article class="home-product-card">
+                    <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_giallo.jpeg" alt="Profumatore">
+                    <div class="home-product-info">
+                        <h3>Profumatore Floreale</h3>
+                        <p>Una fragranza elegante per ambienti raffinati.</p>
+                        <span>€ 19,90</span>
+                    </div>
+                </article>
 
-                    <article class="home-product-card">
-                        <img src="${pageContext.request.contextPath}/images/terrarium/terrarium2.jpeg" alt="Terrarium">
-                        <div class="home-product-info">
-                            <h3>Terrarium Green</h3>
-                            <p>Una piccola composizione verde decorativa.</p>
-                            <span>€ 29,00</span>
-                        </div>
-                    </article>
-                </div>
-            </section>
+                <article class="home-product-card">
+                    <img src="${pageContext.request.contextPath}/images/terrarium/terrarium2.jpeg" alt="Terrarium">
+                    <div class="home-product-info">
+                        <h3>Terrarium Green</h3>
+                        <p>Una piccola composizione verde decorativa.</p>
+                        <span>€ 29,00</span>
+                    </div>
+                </article>
+        <%
+            }
+        %>
+    </div>
+</section>
 
         </div>
 
