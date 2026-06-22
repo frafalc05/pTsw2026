@@ -46,7 +46,6 @@ public class LoginServlet extends HttpServlet {
 
                 session.setAttribute("utente", utente);
                 session.setAttribute("ruolo", utente.getRuolo());
-                session.setAttribute("accessToken", UUID.randomUUID().toString());
 
                 carrelloDAO.salvaCarrelloSessioneNelDb(utente.getId(), carrelloSessione);
 
