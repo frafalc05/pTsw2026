@@ -1,4 +1,4 @@
-/* BOTTONI SPECIFICI LOGIN */
+
 .btn-login {
     padding: 13px;
     border: none;
@@ -14,8 +14,6 @@
 .btn-login:hover {
     background-color: #9b3d57;
 }
-
-/* LOGIN / REGISTRAZIONE */
 .login-section,
 .register-section {
     min-height: 75vh;

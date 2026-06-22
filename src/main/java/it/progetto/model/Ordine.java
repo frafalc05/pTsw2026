@@ -1,27 +1,22 @@
 package it.progetto.model;
 
-import java.sql.Timestamp; // Usiamo Timestamp così gestisce sia data che ora senza errori nel DAO
-
+import java.sql.Timestamp;
 public class Ordine {
-    // Campi originali
-    private int id;
+     private int id;
     private int idUtente;
-    private Timestamp dataOrdine; // Modificato in Timestamp per allinearsi al database
+    private Timestamp dataOrdine; 
     private double totale;
     private String stato;
     
-    // Nuovi campi per la spedizione
     private String nomeDestinatario;
     private String indirizzo;
     private String citta;
     private String cap;
     private String messaggio;
 
-    // 1. Costruttore Vuoto (Fondamentale per i JavaBean)
     public Ordine() {
     }
 
-    // 2. GETTER E SETTER DEI CAMPI ORIGINALI (Quelli che mancavano!)
     
     public int getId() {
         return id;
@@ -63,8 +58,6 @@ public class Ordine {
         this.stato = stato;
     }
 
-    // 3. GETTER E SETTER DEI NUOVI CAMPI DI SPEDIZIONE
-    
     public String getNomeDestinatario() {
         return nomeDestinatario;
     }

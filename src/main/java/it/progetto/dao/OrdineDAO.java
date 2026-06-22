@@ -36,10 +36,7 @@ public class OrdineDAO {
         }
         return 0;
     }
-    
-
-    // CORRETTO: Inserisce i dati reali dentro la tabella riga_ordine congelando il prezzo di acquisto attuale
-    public void saveDettaglioOrdine(int idOrdine, int idProdotto, int quantita, double prezzo) throws Exception {
+   public void saveDettaglioOrdine(int idOrdine, int idProdotto, int quantita, double prezzo) throws Exception {
         String query = "INSERT INTO riga_ordine (id_ordine, id_prodotto, quantita, prezzo_acquisto) VALUES (?, ?, ?, ?)";
         
         try (Connection con = DataSourceProvider.getDataSource().getConnection();
@@ -135,10 +132,6 @@ public class OrdineDAO {
         }
         return lista;
     }
-
-    /**
-     * NUOVO METODO: Aggiorna lo stato di un ordine specifico nel database.
-     */
     public void updateStato(int idOrdine, String nuovoStato) throws Exception {
         String query = "UPDATE ordine SET stato = ? WHERE id = ?";
         

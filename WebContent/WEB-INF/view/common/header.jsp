@@ -16,7 +16,6 @@
     boolean paginaSenzaFooter = loginAttivo || carrelloAttivo;
     String contattiHref = paginaSenzaFooter ? context + "/home#contatti" : "#contatti";
 
-    // Recupera l'utente dalla sessione impostato da LoginServlet
     Utente utenteLoggato = (Utente) session.getAttribute("utente");
 %>
 

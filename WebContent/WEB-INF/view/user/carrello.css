@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. RESET GENERALE (Risolve il taglio a destra dell'header)
-   ========================================================================== */
+
 html, body {
     margin: 0;
     padding: 0;
@@ -13,10 +11,6 @@ html, body {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-
-/* ==========================================================================
-   2. CONTROLLI DI ACQUISTO
-   ========================================================================== */
 .carrello-controls {
     display: flex;
     align-items: center;
@@ -47,10 +41,6 @@ html, body {
 .btn-add-carrello:hover {
     background-color: #52202c;
 }
-
-/* ==========================================================================
-   3. STRUTTURA E TABELLA RIASSUNTIVA DEL CARRELLO
-   ========================================================================== */
 .carrello-box {
     max-width: 1000px;
     margin: 40px auto;
@@ -87,8 +77,6 @@ html, body {
     color: #6b2d3c;
     font-weight: bold;
 }
-
-/* Riga del Totale Finale */
 .riga-totale {
     background-color: #faf6f7;
     font-size: 1.1rem;
@@ -118,10 +106,6 @@ html, body {
     padding: 40px 20px;
     font-size: 1.1rem;
 }
-
-/* ==========================================================================
-   4. BOTTONI E AZIONI FOOTER
-   ========================================================================== */
 .carrello-footer-azioni {
     margin-top: 20px;
     display: flex;
@@ -188,9 +172,6 @@ html, body {
     background-color: #777;
     cursor: not-allowed;
 }
-/* ==========================================================================
-   5. STILI PER LA PAGINA DI CHECKOUT (Senza stili inline)
-   ========================================================================== */
 .form-checkout {
     margin-top: 20px;
 }
@@ -245,7 +226,7 @@ html, body {
 .link-ritorno {
     text-decoration: none;
     text-align: center;
-    line-height: 20px; /* Allinea il testo come il bottone accanto */
+    line-height: 20px; 
 }
 textarea.input-checkout {
     resize: vertical;

@@ -15,9 +15,9 @@ import jakarta.servlet.http.Part;
 
 @WebServlet("/admin/catalogo")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024 * 2,  // 2MB
-    maxFileSize = 1024 * 1024 * 10,       // 10MB
-    maxRequestSize = 1024 * 1024 * 50     // 50MB
+    fileSizeThreshold = 1024 * 1024 * 2,  
+    maxFileSize = 1024 * 1024 * 10,       
+    maxRequestSize = 1024 * 1024 * 50    
 )
 public class AdminCatalogoServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -36,12 +36,10 @@ public class AdminCatalogoServlet extends HttpServlet {
         try {
             switch (action) {
                 case "new":
-                    // Mostra il form vuoto per un nuovo inserimento
                     request.getRequestDispatcher("/WEB-INF/view/admin/catalogo_form.jsp").forward(request, response);
                     break;
                     
                 case "edit":
-                    // Recupera il prodotto per ID e mostra il form precompilato
                     int idModifica = Integer.parseInt(request.getParameter("id"));
                     Prodotto p = prodottoDAO.doRetrieveById(idModifica);
                     request.setAttribute("prodotto", p);
@@ -49,14 +47,12 @@ public class AdminCatalogoServlet extends HttpServlet {
                     break;
                     
                 case "delete":
-                    // Disattiva il prodotto (Cancellazione logica)
                     int idCancella = Integer.parseInt(request.getParameter("id"));
                     prodottoDAO.doDelete(idCancella);
                     response.sendRedirect(request.getContextPath() + "/admin/catalogo?action=list");
                     break;
                     
                 default:
-                    // Elenco completo di tutti gli elementi del catalogo attivi per l'admin
                     List<Prodotto> catalogo = prodottoDAO.doRetrieveAll();
                     request.setAttribute("catalogo", catalogo);
                     request.getRequestDispatcher("/WEB-INF/view/admin/catalogo_lista.jsp").forward(request, response);
@@ -71,10 +67,8 @@ public class AdminCatalogoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // Forza la codifica UTF-8 per evitare problemi con lettere accentate
         request.setCharacterEncoding("UTF-8");
 
-        // Recupero dei parametri inviati dal Form
         String idStr = request.getParameter("id");
         String nome = request.getParameter("nome");
         String descrizione = request.getParameter("descrizione");
@@ -90,48 +84,41 @@ public class AdminCatalogoServlet extends HttpServlet {
         p.setPrezzo(prezzo);
         p.setQuantita(quantita);
 
-        // --- GESTIONE E SALVATAGGIO FILE IMMAGINE ---
         try {
-            Part filePart = request.getPart("immagine"); // Mappato sul name="immagine" del tag <input>
+            Part filePart = request.getPart("immagine"); 
             if (filePart != null && filePart.getSize() > 0) {
                 String nomeFile = filePart.getSubmittedFileName();
-                p.setImmagine(nomeFile); // Imposta il nome del file nel database (es: rosa.jpg)
+                p.setImmagine(nomeFile); 
                 
-                // Individua il percorso reale della cartella root sul server locale di Tomcat
                 String appPath = request.getServletContext().getRealPath("");
                 String uploadPath = appPath + File.separator + "images";
                 
-                // Crea fisicamente la cartella /images sul server se non esiste
                 File uploadDir = new File(uploadPath);
                 if (!uploadDir.exists()) {
                     uploadDir.mkdir();
                 }
                 
-                // Scrive il file binario dell'immagine nella cartella /images/ del server
                 filePart.write(uploadPath + File.separator + nomeFile);
             } else if (idStr != null && !idStr.trim().isEmpty()) {
-                // In fase di MODIFICA: se l'admin non carica una nuova foto, recupera e mantiene quella vecchia
+                
                 Prodotto vecchioProdotto = prodottoDAO.doRetrieveById(Integer.parseInt(idStr));
                 if (vecchioProdotto != null) {
                     p.setImmagine(vecchioProdotto.getImmagine());
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Registra nei log del server eventuali anomalie di caricamento file
+            e.printStackTrace(); 
         }
 
-        // --- PERSISTENZA SUL DATABASE ---
         try {
             if (idStr == null || idStr.trim().isEmpty()) {
-                // Esegue l'inserimento con flag attivo=true automatico
+         
                 prodottoDAO.doSave(p);
             } else {
-                // Aggiorna il prodotto esistente sul database
                 p.setId(Integer.parseInt(idStr));
                 prodottoDAO.doUpdate(p);
             }
-            // Pattern Post-Redirect-Get per evitare reinvii accidentali dei dati ricaricando la pagina
-            response.sendRedirect(request.getContextPath() + "/admin/catalogo?action=list");
+           response.sendRedirect(request.getContextPath() + "/admin/catalogo?action=list");
         } catch (Exception e) {
             throw new ServletException(e);
         }
