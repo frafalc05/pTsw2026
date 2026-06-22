@@ -10,6 +10,7 @@
     String descrizione = (p == null) ? "" : p.getDescrizione();
     double prezzo = (p == null) ? 0.0 : p.getPrezzo();
     int quantita = (p == null) ? 1 : p.getQuantita();
+    String categoria = (p == null || p.getCategoria() == null) ? "" : p.getCategoria();
     boolean isAttivo = (p == null) ? true : p.isAttivo();
 %>
 
@@ -21,7 +22,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=101">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=101">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=101">
 </head>
 
 <body class="site-theme">
@@ -56,12 +57,27 @@
 
                 <div class="group-filtro">
                     <label for="prezzo">Prezzo (€)</label>
-                    <input type="number" id="prezzo" name="prezzo" step="0.01" value="<%= prezzo %>" required class="input-filtro-number">
+                    <input type="number" id="prezzo" name="prezzo" step="0.01" min="0" value="<%= prezzo %>" required class="input-filtro-number">
                 </div>
 
                 <div class="group-filtro">
                     <label for="quantita">Quantità disponibile</label>
-                    <input type="number" id="quantita" name="quantita" value="<%= quantita %>" required class="input-filtro-number">
+                    <input type="number" id="quantita" name="quantita" min="0" value="<%= quantita %>" required class="input-filtro-number">
+                </div>
+
+                <div class="group-filtro">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria" required class="input-filtro-data">
+                        <option value="">Seleziona categoria</option>
+                        <option value="Bouquet" <%= "Bouquet".equals(categoria) ? "selected" : "" %>>Bouquet</option>
+                        <option value="Corone di Laurea" <%= "Corone di Laurea".equals(categoria) ? "selected" : "" %>>Corone di Laurea</option>
+                        <option value="Eventi e Cerimonie" <%= "Eventi e Cerimonie".equals(categoria) ? "selected" : "" %>>Eventi e Cerimonie</option>
+                        <option value="Flower Cube" <%= "Flower Cube".equals(categoria) ? "selected" : "" %>>Flower Cube</option>
+                        <option value="Piante e Orchidee" <%= "Piante e Orchidee".equals(categoria) ? "selected" : "" %>>Piante e Orchidee</option>
+                        <option value="Profumatori" <%= "Profumatori".equals(categoria) ? "selected" : "" %>>Profumatori</option>
+                        <option value="Terrarium" <%= "Terrarium".equals(categoria) ? "selected" : "" %>>Terrarium</option>
+                        <option value="Idee Regalo" <%= "Idee Regalo".equals(categoria) ? "selected" : "" %>>Idee Regalo</option>
+                    </select>
                 </div>
 
                 <div class="group-filtro">
