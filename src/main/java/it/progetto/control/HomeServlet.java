@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import it.progetto.dao.ConnectionTest;
+import it.progetto.dao.ConnectionDB;
 import it.progetto.dao.ProdottoDAO;
 import it.progetto.model.Prodotto;
 
@@ -28,7 +28,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ConnectionTest.getConnection();
+        ConnectionDB.getConnection();
 
         try {
             ArrayList<Prodotto> piuVendutiOnline = prodottoDAO.trovaPiuVendutiOnline();
