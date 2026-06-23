@@ -124,8 +124,7 @@
                                     </a>
 
                                     <a href="${pageContext.request.contextPath}/admin/catalogo?action=delete&id=<%= p.getId() %>"
-                                       class="btn-table-admin btn-table-delete"
-                                       onclick="return confirm('Sicuro di voler nascondere questo prodotto dal catalogo pubblico?');">
+                                       class="btn-table-admin btn-table-delete">
                                         Elimina
                                     </a>
                                 </div>

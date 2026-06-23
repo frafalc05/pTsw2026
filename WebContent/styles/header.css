@@ -99,38 +99,6 @@
     font-size: 28px;
 }
 
-
-
-.logo-symbol {
-    width: 48px;
-    height: 48px;
-    border: 1px solid #caa66a;
-    color: #b28a4a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 27px;
-}
-
-.header-logo h1 {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 28px;
-    font-weight: 500;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #9d7845;
-}
-
-.header-logo p {
-    margin: 2px 0 0;
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #a84663;
-}
-
 @media (max-width: 1500px) {
     .header-top {
         grid-template-columns: 400px 1fr 250px;

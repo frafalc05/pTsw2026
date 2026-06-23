@@ -56,8 +56,7 @@
                         <i class="bi bi-geo-alt-fill"></i>
                     </span>
                     <a href="https://www.google.com/maps/search/?api=1&query=Via+Vittorio+Emanuele+4+Pellezzano+84080"
-                       target="_blank"
-                       rel="noopener noreferrer">
+                       target="_blank">
                         Via Vittorio Emanuele, 4<br>
                         Pellezzano, 84080
                     </a>
@@ -107,13 +106,13 @@
         </div>
 
        <div class="footer-column">
-    <h3>Informazioni</h3>
+    		<h3>Informazioni</h3>
 
-    <ul class="footer-list">
-        <li>
-            <span class="footer-small-icon">
-                <i class="bi bi-truck"></i>
-            </span>
+    		<ul class="footer-list">
+        		<li>
+            	<span class="footer-small-icon">
+                	<i class="bi bi-truck"></i>
+            	</span>
             <a href="${pageContext.request.contextPath}/informazioni#consegne">Consegne</a>
         </li>
 
@@ -157,41 +156,32 @@
             <div class="footer-social">
                 <a href="https://wa.me/393485238469"
                    class="footer-social-icon whatsapp"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="WhatsApp">
+                   target="_blank">
                     <i class="bi bi-whatsapp"></i>
                 </a>
 
                 <a href="https://www.instagram.com/fiorista_maria_coperchia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                    class="footer-social-icon instagram"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Instagram">
+                   target="_blank">
                     <i class="bi bi-instagram"></i>
                 </a>
 
                 <a href="https://www.facebook.com/share/18p4GnNAcM/"
                    class="footer-social-icon facebook"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Facebook">
+                   target="_blank">
                     <i class="bi bi-facebook"></i>
                 </a>
 
                 <a href="https://www.google.com/maps/search/?api=1&query=Via+Vittorio+Emanuele+4+Pellezzano+84080"
                    class="footer-social-icon maps"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Maps">
+                   target="_blank">
                     <i class="bi bi-geo-alt-fill"></i>
                 </a>
             </div>
 
             <a class="footer-review-button"
                href="https://www.facebook.com/fioripellezzano/reviews"
-               target="_blank"
-               rel="noopener noreferrer">
+               target="_blank">
                 <i class="bi bi-chat-heart-fill"></i>
                 Dicono di noi
             </a>
