@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Fiorista Maria</title>
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/login.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="scripts/validation.js" defer></script>
-</head>
 
-<body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/login.css?v=30">
+    <script src="${pageContext.request.contextPath}/scripts/validation.js?v=30" defer></script>
+</head>
+<body class="site-theme login-page">
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
