@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/CarrelloServlet")
+@WebServlet(urlPatterns = {"/CarrelloServlet", "/carrello"})
 public class CarrelloServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

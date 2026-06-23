@@ -69,7 +69,6 @@
                     out.print("<input type='number' id='qta-" + p.getId() + "' value='1' min='1' class='qta-input'>");
                     out.print("<button class='btn-add-carrello' data-id='" + p.getId() + "' type='button'>Aggiungi</button>");
                     out.print("</div>");
-                    out.print("<a class='btn' href='#'>Dettagli</a>");
                     out.print("</div>");
                     out.print("</article>");
                 }
