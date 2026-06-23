@@ -13,12 +13,11 @@
     <title>Gestione Catalogo - Fiorista Maria</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=101">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=101">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=130">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=130">
 </head>
 
 <body class="site-theme">
-
 
 <main class="admin-main">
 
@@ -65,9 +64,11 @@
                 <th>ID</th>
                 <th>Immagine</th>
                 <th>Nome</th>
+                <th>Categoria</th>
                 <th>Descrizione</th>
                 <th>Prezzo</th>
                 <th>Quantità</th>
+                <th>Stato</th>
                 <th>Azioni</th>
             </tr>
         </thead>
@@ -79,19 +80,43 @@
             %>
                         <tr>
                             <td><%= p.getId() %></td>
+
                             <td>
                                 <% if (p.getImmagine() != null && !p.getImmagine().isEmpty()) { %>
-                                    <img src="${pageContext.request.contextPath}/images/<%= p.getImmagine() %>" alt="<%= p.getNome() %>" class="admin-product-img">
+                                    <img src="<%= request.getContextPath() %>/immagine-prodotto/<%= p.getImmagine() %>" alt="<%= p.getNome() %>" class="admin-product-img">
                                 <% } else { %>
                                     <span class="txt-not-specified">No img</span>
                                 <% } %>
                             </td>
+
                             <td>
                                 <strong class="admin-product-name"><%= p.getNome() %></strong>
                             </td>
-                            <td><%= p.getDescrizione() != null ? p.getDescrizione() : "" %></td>
-                            <td class="valore-totale-admin">€ <%= String.format("%.2f", p.getPrezzo()) %></td>
-                            <td><%= p.getQuantita() %></td>
+
+                            <td>
+                                <%= p.getCategoria() != null ? p.getCategoria() : "" %>
+                            </td>
+
+                            <td>
+                                <%= p.getDescrizione() != null ? p.getDescrizione() : "" %>
+                            </td>
+
+                            <td class="valore-totale-admin">
+                                € <%= String.format("%.2f", p.getPrezzo()) %>
+                            </td>
+
+                            <td>
+                                <%= p.getQuantita() %>
+                            </td>
+
+                            <td>
+                                <% if (p.isAttivo()) { %>
+                                    <span class="badge-admin badge-attivo">Attivo</span>
+                                <% } else { %>
+                                    <span class="badge-admin badge-non-attivo">Non attivo</span>
+                                <% } %>
+                            </td>
+
                             <td>
                                 <div class="admin-table-actions">
                                     <a href="${pageContext.request.contextPath}/admin/catalogo?action=edit&id=<%= p.getId() %>" class="btn-table-admin btn-table-edit">
@@ -100,7 +125,7 @@
 
                                     <a href="${pageContext.request.contextPath}/admin/catalogo?action=delete&id=<%= p.getId() %>"
                                        class="btn-table-admin btn-table-delete"
-                                       onclick="return confirm('Sicuro di voler nascondere o eliminare questo prodotto dal catalogo pubblico?');">
+                                       onclick="return confirm('Sicuro di voler nascondere questo prodotto dal catalogo pubblico?');">
                                         Elimina
                                     </a>
                                 </div>
@@ -111,7 +136,7 @@
                 } else {
             %>
                     <tr>
-                        <td colspan="7" class="msg-report-vuoto">
+                        <td colspan="9" class="msg-report-vuoto">
                             Nessun prodotto presente nel catalogo.
                         </td>
                     </tr>
