@@ -2,7 +2,12 @@ package it.progetto.control;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.UUID;
 
 import it.progetto.dao.ProdottoDAO;
 import it.progetto.model.Prodotto;
@@ -97,19 +102,32 @@ public class AdminCatalogoServlet extends HttpServlet {
             Part filePart = request.getPart("immagine");
 
             if (filePart != null && filePart.getSize() > 0) {
-                String nomeFile = filePart.getSubmittedFileName();
-                p.setImmagine(nomeFile);
+                String nomeOriginale = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+                String estensione = "";
 
-                String appPath = request.getServletContext().getRealPath("");
-                String uploadPath = appPath + File.separator + "images";
-
-                File uploadDir = new File(uploadPath);
-
-                if (!uploadDir.exists()) {
-                    uploadDir.mkdir();
+                int punto = nomeOriginale.lastIndexOf(".");
+                if (punto >= 0) {
+                    estensione = nomeOriginale.substring(punto);
                 }
 
-                filePart.write(uploadPath + File.separator + nomeFile);
+                String nomeFile = UUID.randomUUID().toString() + estensione;
+                String sottoCartella = creaNomeCartella(categoria);
+
+                String percorsoImages = request.getServletContext().getRealPath("/images");
+
+                if (percorsoImages == null) {
+                    throw new ServletException("Percorso images non disponibile");
+                }
+
+                Path cartellaUpload = Paths.get(percorsoImages, sottoCartella);
+                Files.createDirectories(cartellaUpload);
+
+                Path fileDestinazione = cartellaUpload.resolve(nomeFile);
+
+                Files.copy(filePart.getInputStream(), fileDestinazione, StandardCopyOption.REPLACE_EXISTING);
+
+                p.setImmagine(sottoCartella + "/" + nomeFile);
+
             } else if (idStr != null && !idStr.trim().isEmpty()) {
                 Prodotto vecchioProdotto = prodottoDAO.doRetrieveById(Integer.parseInt(idStr));
 
@@ -120,7 +138,7 @@ public class AdminCatalogoServlet extends HttpServlet {
                 p.setImmagine("");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new ServletException(e);
         }
 
         try {
@@ -135,5 +153,28 @@ public class AdminCatalogoServlet extends HttpServlet {
         } catch (Exception e) {
             throw new ServletException(e);
         }
+    }
+
+    private String creaNomeCartella(String categoria) {
+        if (categoria == null || categoria.trim().isEmpty()) {
+            return "prodotti";
+        }
+
+        String valore = categoria.toLowerCase().trim();
+
+        valore = valore.replace("à", "a");
+        valore = valore.replace("è", "e");
+        valore = valore.replace("é", "e");
+        valore = valore.replace("ì", "i");
+        valore = valore.replace("ò", "o");
+        valore = valore.replace("ù", "u");
+
+        valore = valore.replaceAll("[^a-z0-9]", "");
+
+        if (valore.isEmpty()) {
+            return "prodotti";
+        }
+
+        return valore;
     }
 }

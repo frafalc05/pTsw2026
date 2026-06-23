@@ -7,18 +7,15 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 8px 28px rgba(123, 45, 66, 0.10);
-    backdrop-filter: blur(8px);
 }
 
 .header-top {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Spinge Logo a sinistra, Nav al centro, Azioni a destra */
+    justify-content: space-between; 
     width: 100%;
     padding: 10px 20px;
     box-sizing: border-box;
-    flex-wrap: nowrap; /* Impedisce di spaccare le righe in modo disordinato */
 }
 
 .header-logo {
@@ -33,7 +30,6 @@
     max-width: 100%;
     height: auto;
     display: block;
-    filter: drop-shadow(0 6px 12px rgba(123, 45, 66, 0.10));
 }
 
 .header-nav {
@@ -69,7 +65,8 @@
 }
 
 .header-nav a:hover,
-.header-nav a.active {
+.header-nav a.active, .header-action:hover,
+.header-action.active {
     color: #a84663;
 }
 
@@ -84,7 +81,6 @@
     align-items: center;
     gap: 30px;
 }
-
 .header-action {
     display: flex;
     align-items: center;
@@ -96,16 +92,14 @@
     text-transform: uppercase;
     white-space: nowrap;
     transition: 0.25s ease;
+    position: relative;
 }
 
 .header-action i {
     font-size: 28px;
 }
 
-.header-action:hover {
-    color: #a84663;
-    transform: translateY(-1px);
-}
+
 
 .logo-symbol {
     width: 48px;

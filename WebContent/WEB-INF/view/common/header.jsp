@@ -5,7 +5,7 @@
     String uri = request.getRequestURI().toLowerCase();
     String context = request.getContextPath();
 
-    boolean homeAttiva = uri.endsWith("/home") || uri.endsWith(context.toLowerCase() + "/");
+    boolean homeAttiva =uri.contains("/home");
     boolean catalogoAttivo = uri.endsWith("/catalogo") || uri.contains("/catalogo");
     boolean eventiAttivo = uri.endsWith("/eventi") || uri.contains("/eventi");
     boolean chiSiamoAttivo = uri.endsWith("/chi-siamo") || uri.contains("/chi-siamo");
@@ -23,7 +23,7 @@
     <div class="header-top">
 
         <a href="${pageContext.request.contextPath}/home" class="header-logo">
-            <img src="${pageContext.request.contextPath}/images/home/banner-header.png"
+        <img src="${pageContext.request.contextPath}/images/home/banner-header.png"
                  alt="Fiorista Maria - Addobbi Floreali">
         </a>
 
