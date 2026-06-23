@@ -3,16 +3,18 @@
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <title>Il tuo Carrello - Fiorista Maria</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/carrello.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=10">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=20">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=20">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/carrello.css?v=20">
 </head>
-<body>
+
+<body class="site-theme carrello-page">
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
