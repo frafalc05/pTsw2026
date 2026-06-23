@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const id = bottone.getAttribute("data-id");
             const inputQuantita = document.getElementById("qta-" + id);
             const quantita = inputQuantita ? inputQuantita.value : 1;
+            const testoOriginale = bottone.textContent;
+
+            mostraMessaggioProdotto(bottone, "", "");
+
+            bottone.disabled = true;
+            bottone.textContent = "Aggiungo...";
 
             fetch("CarrelloServlet", {
                 method: "POST",
@@ -18,19 +24,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.text();
             })
             .then(function (text) {
-                console.log("Risposta servlet:", text);
-
                 let data;
 
                 try {
                     data = JSON.parse(text);
                 } catch (e) {
-                    alert("Errore: la servlet non ha restituito JSON. Guarda Console Eclipse.");
+                    console.error("Risposta non JSON:", text);
+                    mostraMessaggioProdotto(bottone, "Errore durante l'aggiunta al carrello.", "errore");
+                    bottone.textContent = testoOriginale;
+                    bottone.disabled = false;
                     return;
                 }
 
                 if (data.errore) {
-                    alert("Errore servlet: " + data.errore);
+                    mostraMessaggioProdotto(bottone, data.errore, "errore");
+                    bottone.textContent = testoOriginale;
+                    bottone.disabled = false;
                     return;
                 }
 
@@ -41,12 +50,54 @@ document.addEventListener("DOMContentLoaded", function () {
                     badge.style.display = "inline-block";
                 }
 
-                alert("Prodotto aggiunto al carrello!");
+                bottone.textContent = "Aggiunto";
+                mostraMessaggioProdotto(bottone, "Prodotto aggiunto al carrello.", "successo");
+
+                setTimeout(function () {
+                    bottone.textContent = testoOriginale;
+                    bottone.disabled = false;
+                }, 1000);
             })
             .catch(function (error) {
                 console.error("Errore fetch:", error);
-                alert("Errore tecnico durante l'aggiunta al carrello.");
+                mostraMessaggioProdotto(bottone, "Errore tecnico durante l'aggiunta al carrello.", "errore");
+                bottone.textContent = testoOriginale;
+                bottone.disabled = false;
             });
         });
     });
 });
+
+function mostraMessaggioProdotto(bottone, testo, tipo) {
+    const contenitore = bottone.closest(".prodotto-info");
+
+    if (!contenitore) {
+        return;
+    }
+
+    let messaggio = contenitore.querySelector(".messaggio-carrello");
+
+    if (!messaggio) {
+        messaggio = document.createElement("p");
+        messaggio.classList.add("messaggio-carrello");
+        contenitore.appendChild(messaggio);
+    }
+
+    messaggio.textContent = testo;
+    messaggio.classList.remove("messaggio-successo", "messaggio-errore");
+
+    if (tipo === "successo") {
+        messaggio.classList.add("messaggio-successo");
+    }
+
+    if (tipo === "errore") {
+        messaggio.classList.add("messaggio-errore");
+    }
+
+    if (testo !== "") {
+        setTimeout(function () {
+            messaggio.textContent = "";
+            messaggio.classList.remove("messaggio-successo", "messaggio-errore");
+        }, 2500);
+    }
+}

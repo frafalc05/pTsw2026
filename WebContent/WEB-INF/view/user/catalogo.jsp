@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=60">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=60">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/catalogo.css?v=60">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/catalogo.css?v=999">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=60">
 </head>
 
@@ -238,7 +238,7 @@
 
 <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 
-<script src="${pageContext.request.contextPath}/scripts/carrello.js?v=60"></script>
+<script src="${pageContext.request.contextPath}/scripts/carrello.js?v=999"></script>
 
 </body>
 </html>
