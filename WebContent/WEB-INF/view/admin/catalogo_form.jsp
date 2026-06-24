@@ -12,6 +12,18 @@
     int quantita = (p == null) ? 1 : p.getQuantita();
     String categoria = (p == null || p.getCategoria() == null) ? "" : p.getCategoria();
     boolean isAttivo = (p == null) ? true : p.isAttivo();
+
+    boolean categoriaPredefinita =
+        "Bouquet".equals(categoria) ||
+        "Corone di Laurea".equals(categoria) ||
+        "Eventi e Cerimonie".equals(categoria) ||
+        "Flower Cube".equals(categoria) ||
+        "Piante e Orchidee".equals(categoria) ||
+        "Profumatori".equals(categoria) ||
+        "Terrarium".equals(categoria) ||
+        "Idee Regalo".equals(categoria);
+
+    String nuovaCategoriaValue = (!categoria.isEmpty() && !categoriaPredefinita) ? categoria : "";
 %>
 
 <!DOCTYPE html>
@@ -21,8 +33,8 @@
     <title><%= titoloPagina %> - Fiorista Maria</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=101">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=101">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=130">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=130">
 </head>
 
 <body class="site-theme">
@@ -66,8 +78,8 @@
                 </div>
 
                 <div class="group-filtro">
-                    <label for="categoria">Categoria</label>
-                    <select id="categoria" name="categoria" required class="input-filtro-data">
+                    <label for="categoria">Categoria esistente</label>
+                    <select id="categoria" name="categoria" class="input-filtro-data">
                         <option value="">Seleziona categoria</option>
                         <option value="Bouquet" <%= "Bouquet".equals(categoria) ? "selected" : "" %>>Bouquet</option>
                         <option value="Corone di Laurea" <%= "Corone di Laurea".equals(categoria) ? "selected" : "" %>>Corone di Laurea</option>
@@ -78,6 +90,11 @@
                         <option value="Terrarium" <%= "Terrarium".equals(categoria) ? "selected" : "" %>>Terrarium</option>
                         <option value="Idee Regalo" <%= "Idee Regalo".equals(categoria) ? "selected" : "" %>>Idee Regalo</option>
                     </select>
+                </div>
+
+                <div class="group-filtro">
+                    <label for="nuovaCategoria">Nuova categoria</label>
+                    <input type="text" id="nuovaCategoria" name="nuovaCategoria" value="<%= nuovaCategoriaValue %>" placeholder="Scrivi qui se vuoi creare una nuova categoria" class="input-filtro-data">
                 </div>
 
                 <div class="group-filtro">
@@ -117,6 +134,29 @@
     </section>
 
 </main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const selectCategoria = document.getElementById("categoria");
+    const nuovaCategoria = document.getElementById("nuovaCategoria");
+
+    function aggiornaCategoria() {
+        const valoreNuova = nuovaCategoria.value.trim();
+
+        if (valoreNuova.length > 0) {
+            selectCategoria.value = "";
+            selectCategoria.disabled = true;
+            selectCategoria.classList.add("input-disabled");
+        } else {
+            selectCategoria.disabled = false;
+            selectCategoria.classList.remove("input-disabled");
+        }
+    }
+
+    nuovaCategoria.addEventListener("input", aggiornaCategoria);
+    aggiornaCategoria();
+});
+</script>
 
 </body>
 </html>

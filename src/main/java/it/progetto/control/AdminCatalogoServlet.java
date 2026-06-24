@@ -1,13 +1,11 @@
 package it.progetto.control;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.UUID;
 
 import it.progetto.dao.ProdottoDAO;
 import it.progetto.model.Prodotto;
@@ -83,7 +81,16 @@ public class AdminCatalogoServlet extends HttpServlet {
         String prezzoStr = request.getParameter("prezzo");
         String quantitaStr = request.getParameter("quantita");
         String categoria = request.getParameter("categoria");
+        String nuovaCategoria = request.getParameter("nuovaCategoria");
         String attivoStr = request.getParameter("attivo");
+
+        if (nuovaCategoria != null && !nuovaCategoria.trim().isEmpty()) {
+            categoria = nuovaCategoria.trim();
+        }
+
+        if (categoria == null || categoria.trim().isEmpty()) {
+            throw new ServletException("La categoria è obbligatoria");
+        }
 
         double prezzo = (prezzoStr != null && !prezzoStr.trim().isEmpty()) ? Double.parseDouble(prezzoStr) : 0.0;
         int quantita = (quantitaStr != null && !quantitaStr.trim().isEmpty()) ? Integer.parseInt(quantitaStr) : 0;
@@ -103,27 +110,13 @@ public class AdminCatalogoServlet extends HttpServlet {
 
             if (filePart != null && filePart.getSize() > 0) {
                 String nomeOriginale = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-                String estensione = "";
-
-                int punto = nomeOriginale.lastIndexOf(".");
-                if (punto >= 0) {
-                    estensione = nomeOriginale.substring(punto);
-                }
-
-                String nomeFile = UUID.randomUUID().toString() + estensione;
+                String nomeFile = System.currentTimeMillis() + "_" + pulisciNomeFile(nomeOriginale);
                 String sottoCartella = creaNomeCartella(categoria);
 
-                String percorsoImages = request.getServletContext().getRealPath("/images");
-
-                if (percorsoImages == null) {
-                    throw new ServletException("Percorso images non disponibile");
-                }
-
-                Path cartellaUpload = Paths.get(percorsoImages, sottoCartella);
+                Path cartellaUpload = getCartellaUpload().resolve(sottoCartella);
                 Files.createDirectories(cartellaUpload);
 
                 Path fileDestinazione = cartellaUpload.resolve(nomeFile);
-
                 Files.copy(filePart.getInputStream(), fileDestinazione, StandardCopyOption.REPLACE_EXISTING);
 
                 p.setImmagine(sottoCartella + "/" + nomeFile);
@@ -153,6 +146,34 @@ public class AdminCatalogoServlet extends HttpServlet {
         } catch (Exception e) {
             throw new ServletException(e);
         }
+    }
+
+    private Path getCartellaUpload() {
+        return Paths.get(System.getProperty("user.home"), "fiorista-maria", "uploads", "images");
+    }
+
+    private String pulisciNomeFile(String nomeFile) {
+        if (nomeFile == null || nomeFile.trim().isEmpty()) {
+            return "immagine.jpg";
+        }
+
+        String valore = nomeFile.toLowerCase().trim();
+
+        valore = valore.replace("à", "a");
+        valore = valore.replace("è", "e");
+        valore = valore.replace("é", "e");
+        valore = valore.replace("ì", "i");
+        valore = valore.replace("ò", "o");
+        valore = valore.replace("ù", "u");
+
+        valore = valore.replaceAll("\\s+", "_");
+        valore = valore.replaceAll("[^a-z0-9._-]", "");
+
+        if (valore.isEmpty()) {
+            return "immagine.jpg";
+        }
+
+        return valore;
     }
 
     private String creaNomeCartella(String categoria) {
