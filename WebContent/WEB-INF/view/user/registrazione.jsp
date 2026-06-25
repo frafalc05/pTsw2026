@@ -2,12 +2,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrati - Fiorista Maria</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/base.css">
 	<link rel="stylesheet" href="styles/login.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/validation.css">
+	<script src="${pageContext.request.contextPath}/scripts/validationRegistrazione.js?v=30" defer></script>
 </head>
 <body>
 
@@ -26,22 +28,22 @@
                 </div>
             <% } %>
 
-            <form class="register-form" action="${pageContext.request.contextPath}/registrazione" method="post">
+            <form class="register-form" action="${pageContext.request.contextPath}/registrazione" method="post"novalidate>
                 
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+                <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome">
 
                 <label for="cognome">Cognome</label>
-                <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
+                <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome">
 
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
+                <input type="email" id="email" name="email" placeholder="Inserisci la tua email" >
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Crea una password" required>
+                <input type="password" id="password" name="password" placeholder="Crea una password">
 
                 <label for="confermaPassword">Conferma Password</label>
-                <input type="password" id="confermaPassword" name="confermaPassword" placeholder="Ripeti la password" required>
+                <input type="password" id="confermaPassword" name="confermaPassword" placeholder="Ripeti la password">
 
                 <button type="submit" class="btn-login">Registrati</button>
             </form>

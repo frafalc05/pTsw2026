@@ -12,9 +12,7 @@ public class Prodotto {
 	private boolean attivo;
 
 
-	public Prodotto() {
 
-	}
 
 
 	public int getId() {

@@ -3,14 +3,15 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
     <title>Login - Fiorista Maria</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=30">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/header.css?v=30">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/login.css?v=30">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/validation.css">
     <script src="${pageContext.request.contextPath}/scripts/validation.js?v=30" defer></script>
+    
 </head>
 <body class="site-theme login-page">
 
@@ -27,22 +28,20 @@
             </div>
         <% } %>
 
-        <form action="${pageContext.request.contextPath}/login" method="post" class="login-form">
+        <form action="${pageContext.request.contextPath}/login" method="post" class="login-form" novalidate>
             <label for="email">Email</label>
             <input 
                 type="email" 
                 id="email" 
                 name="email" 
-                placeholder="Inserisci la tua email"
-                required>
+                placeholder="Inserisci la tua email">
 
             <label for="password">Password</label>
             <input 
                 type="password" 
                 id="password" 
                 name="password" 
-                placeholder="Inserisci la password"
-                required>
+                placeholder="Inserisci la password">
 
             <button type="submit" class="btn-login">Accedi</button>
         </form>

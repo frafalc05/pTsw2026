@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = {"/login", "/LoginServlet"})
+@WebServlet(urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        try {
+        try { 
             Utente utente = utenteDAO.login(email, password);
 
             if (utente != null) {

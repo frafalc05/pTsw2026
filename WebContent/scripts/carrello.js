@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             mostraMessaggioProdotto(bottone, "", "");
 
             bottone.disabled = true;
-            bottone.textContent = "Aggiungo...";
+            bottone.textContent = "Aggiungo";
 
             fetch("CarrelloServlet", {
                 method: "POST",

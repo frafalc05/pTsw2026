@@ -35,14 +35,13 @@
             <c:otherwise>
                 <div class="ordini-table-wrapper">
                     <table class="ordini-table">
-                        <thead>
+                   
                             <tr>
                                 <th>ID Ordine</th>
                                 <th>Totale Speso</th>
                                 <th>Stato Avanzamento</th>
                             </tr>
-                        </thead>
-                        <tbody>
+                       
                             <c:forEach var="ordine" items="${listaOrdini}">
                                 <tr>
                                     <td><strong># ${ordine.id}</strong></td>
@@ -52,7 +51,6 @@
                                     </td>
                                 </tr>
                             </c:forEach>
-                        </tbody>
                     </table>
                 </div>
             </c:otherwise>

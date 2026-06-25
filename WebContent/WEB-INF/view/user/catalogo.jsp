@@ -22,7 +22,7 @@
         }
     }
 %>
-
+<!-- crea l'id html della categoria -->
 <%!
     String creaIdCategoria(String categoria) {
         if (categoria == null || categoria.trim().isEmpty()) {
@@ -124,22 +124,22 @@
                 </div>
 
                 <% if ("Bouquet".equalsIgnoreCase(categoria)) { %>
-                    <a class="instagram-category-link" href="https://www.instagram.com/stories/highlights/17995067203847328/" target="_blank" rel="noopener noreferrer">
+                    <a class="instagram-category-link" href="https://www.instagram.com/stories/highlights/17995067203847328/" target="_blank" >
                         <i class="bi bi-instagram"></i>
                         <span>Visualizza di più nella nostra pagina Instagram</span>
                     </a>
                 <% } else if ("Corone di Laurea".equalsIgnoreCase(categoria)) { %>
-                    <a class="instagram-category-link" href="https://www.instagram.com/stories/highlights/17844852000118610/" target="_blank" rel="noopener noreferrer">
+                    <a class="instagram-category-link" href="https://www.instagram.com/stories/highlights/17844852000118610/" target="_blank">
                         <i class="bi bi-instagram"></i>
                         <span>Visualizza di più nella nostra pagina Instagram</span>
                     </a>
                 <% } else if ("Eventi e Cerimonie".equalsIgnoreCase(categoria)) { %>
-                    <a class="instagram-category-link" href="https://www.instagram.com/stories/highlights/17871661169641258/" target="_blank" rel="noopener noreferrer">
+                    <a class="instagram-category-link" href="https://www.instagram.com/stories/highlights/17871661169641258/" target="_blank">
                         <i class="bi bi-instagram"></i>
                         <span>Visualizza di più nella nostra pagina Instagram</span>
                     </a>
                 <% } else if ("Flower Cube".equalsIgnoreCase(categoria)) { %>
-                    <a class="instagram-category-link" href="https://www.instagram.com/stories/highlights/17861236106643197/" target="_blank" rel="noopener noreferrer">
+                    <a class="instagram-category-link" href="https://www.instagram.com/stories/highlights/17861236106643197/" target="_blank" >
                         <i class="bi bi-instagram"></i>
                         <span>Visualizza di più nella nostra pagina Instagram</span>
                     </a>

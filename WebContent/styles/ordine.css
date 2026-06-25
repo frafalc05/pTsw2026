@@ -30,7 +30,7 @@
     background-color: #6B2D3C; 
     color: white;
 }
-
+/*pseudo classse tutte le righe pari*/
 .ordini-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -108,8 +108,3 @@
     background-color: #fcedf0;
 }
 
-@keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0px); }
-}

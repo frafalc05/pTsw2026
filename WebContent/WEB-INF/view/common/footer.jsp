@@ -46,7 +46,7 @@
                     <span class="footer-small-icon">
                         <i class="bi bi-whatsapp"></i>
                     </span>
-                    <a href="https://wa.me/393485238469" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/393485238469" target="_blank">
                         +39 348 523 8469
                     </a>
                 </li>
@@ -113,8 +113,8 @@
             	<span class="footer-small-icon">
                 	<i class="bi bi-truck"></i>
             	</span>
-            <a href="${pageContext.request.contextPath}/informazioni#consegne">Consegne</a>
-        </li>
+            	<a href="${pageContext.request.contextPath}/informazioni#consegne">Consegne</a>
+        	</li>
 
         <li>
             <span class="footer-small-icon">

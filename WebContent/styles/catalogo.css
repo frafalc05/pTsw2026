@@ -13,7 +13,7 @@ html {
 }
 
 .catalogo-intro h1 {
-    color: var(--color-granata);
+    color: #6B2D3C;
     font-size: 42px;
     font-weight: 500;
     margin: 0 0 12px;
@@ -22,7 +22,7 @@ html {
 .catalogo-intro p {
     max-width: 720px;
     margin: 0 auto;
-    color: var(--color-text-soft);
+    color: #777777;
     font-size: 17px;
     line-height: 1.7;
 }
@@ -48,7 +48,7 @@ html {
     flex: 0 0 auto;
     text-align: center;
     text-decoration: none;
-    color: var(--color-granata);
+    color:  #6B2D3C;
     transition: 0.25s ease;
 }
 
@@ -79,7 +79,7 @@ html {
     width: 30px;
     height: 2px;
     margin: 8px auto 0;
-    background: var(--color-gold-light);
+    background: #d4af37;
     border-radius: 999px;
     transition: 0.25s ease;
 }
@@ -89,13 +89,13 @@ html {
 }
 
 .categoria-tonda:hover img {
-    border-color: var(--color-granata-light);
+    border-color: #d4af37;
     box-shadow: 0 16px 32px rgba(123, 45, 66, 0.22);
 }
 
 .categoria-tonda:hover::after {
     width: 48px;
-    background: var(--color-granata-light);
+    background: #d4af37;
 }
 
 .blocco-catalogo {
@@ -117,8 +117,8 @@ html {
 }
 
 .blocco-catalogo h2 {
-    color: var(--color-granata);
-    border-left: 5px solid var(--color-granata-light);
+    color: #6B2D3C;;
+    border-left: 5px solid #d4af37;
     padding-left: 14px;
     margin: 0 0 25px;
     font-size: 30px;
@@ -175,7 +175,7 @@ html {
 .prodotto-info .prezzo {
     font-size: 20px;
     font-weight: 900;
-    color: var(--color-granata-light);
+    color:#6B2D3C;
     margin-bottom: 15px;
     min-height: auto;
 }
@@ -225,7 +225,7 @@ html {
 
 .btn-add-carrello:hover,
 .btn-aggiungi-carrello:hover {
-    background-color: var(--color-granata);
+    background-color: #7b1e2e;
     transform: translateY(-2px);
 }
 
@@ -246,7 +246,7 @@ html {
     border-radius: 999px;
     background: linear-gradient(135deg, #fff4f7 0%, #ffffff 100%);
     border: 1px solid #efcbd5;
-    color: var(--color-granata);
+    color: #7b1e2e;
     text-decoration: none;
     font-weight: 800;
     font-size: 15.5px;
@@ -262,7 +262,7 @@ html {
 .instagram-category-link:hover {
     transform: translateY(-3px);
     background: linear-gradient(135deg, #fff0f5 0%, #fff8fa 100%);
-    color: var(--color-granata-light);
+    color: #d4af37;
     box-shadow: 0 16px 32px rgba(123, 45, 66, 0.18);
 }
 

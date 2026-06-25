@@ -2,7 +2,7 @@ package it.progetto.model;
 
 import java.sql.Timestamp;
 public class Ordine {
-     private int id;
+    private int id;
     private int idUtente;
     private Timestamp dataOrdine; 
     private double totale;
@@ -13,9 +13,6 @@ public class Ordine {
     private String citta;
     private String cap;
     private String messaggio;
-
-    public Ordine() {
-    }
 
     
     public int getId() {
