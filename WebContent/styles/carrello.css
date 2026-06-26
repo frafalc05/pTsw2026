@@ -154,16 +154,9 @@
     font-weight: bold;
     transition: background-color 0.2s ease;
 }
-
-.btn-checkout:hover:not(.btn-disabilitato) {
-    background-color: #218838;
+.btn-checkout:hover{
+	background-color: #1e7e34;
 }
-
-.btn-disabilitato {
-    background-color: #777777;
-    cursor: not-allowed;
-}
-
 .form-checkout {
     margin-top: 20px;
 }
@@ -179,8 +172,7 @@
     color: #333333;
 }
 
-.input-checkout,
-.select-checkout {
+.input-checkout {
     width: 100%;
     padding: 10px;
     border: 1px solid #cccccc;
@@ -225,6 +217,41 @@ textarea.input-checkout {
     text-align: center;
     line-height: 20px;
 }
+
+
+.checkout-title {
+    color: #6b2d3c;
+    margin-bottom: 15px;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.payment-option {
+    display: inline-flex;
+    align-items: center;
+    font-weight: normal;
+    margin: 0;
+    cursor: pointer;
+}
+
+.payment-option input {
+    margin-right: 8px;
+    accent-color: #6b2d3c;
+}
+
+.payment-box {
+    background-color: #faf6f7;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #e2d9db;
+    margin-bottom: 15px;
+}
+
 
 @media (max-width: 900px) {
     .carrello-box {

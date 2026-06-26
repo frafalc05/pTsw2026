@@ -134,7 +134,7 @@ html {
 .prodotto-box {
     background: #ffffff;
     border-radius: 22px;
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);;
     overflow: hidden;
     border: 1px solid #f2d9df;
     transition: 0.25s ease;
@@ -142,7 +142,7 @@ html {
 
 .prodotto-box:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    box-shadow:  0 16px 32px rgba(0, 0, 0, 0.15);
 }
 
 .prodotto-box img {
@@ -160,13 +160,13 @@ html {
 .prodotto-info h3 {
     margin: 0 0 10px;
     font-size: 21px;
-    color: var(--color-granata);
+    color: #6B2D3C;
     font-weight: 600;
 }
 
 .prodotto-info p {
     font-size: 15px;
-    color: var(--color-text-soft);
+    color: #777777;
     margin: 0 0 12px;
     min-height: 42px;
     line-height: 1.5;
@@ -195,7 +195,7 @@ html {
     border-radius: 10px;
     text-align: center;
     font-size: 15px;
-    color: var(--color-text);
+    color: #333;
     background: #fffaf7;
 }
 
@@ -206,14 +206,14 @@ html {
 .btn-add-carrello,
 .btn-aggiungi-carrello {
     display: inline-block;
-    background-color: var(--color-granata-light);
+    background-color: #7b1e2e;
     color: #ffffff;
     padding: 10px 19px;
     text-decoration: none;
     border-radius: 999px;
     font-size: 15px;
     font-weight: 800;
-    border: 1px solid var(--color-granata);
+    border: 1px solid #6B2D3C;
     cursor: pointer;
     transition: 0.25s ease;
 }
@@ -275,11 +275,11 @@ html {
 }
 
 .messaggio-successo {
-    color: #2e7d32;
+    color: #6B2D3C !important;
 }
 
 .messaggio-errore {
-    color: #b3261e;
+    color: #b3261e !important;
 }
 
 @media (max-width: 1150px) {

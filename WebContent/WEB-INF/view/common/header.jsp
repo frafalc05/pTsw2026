@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="it.progetto.model.Utente" %>
+<%@ page import="it.progetto.model.*" %>
+<%@ page import="java.util.List" %>
 
 <%
     String uri = request.getRequestURI().toLowerCase();
@@ -12,11 +13,22 @@
     boolean carrelloAttivo = uri.endsWith("/carrello") || uri.contains("/carrello") || uri.contains("/carrelloservlet");
     boolean loginAttivo = uri.endsWith("/login") || uri.contains("/login");
     boolean ordiniAttivo = uri.contains("/ordini");
-
     boolean paginaSenzaFooter = loginAttivo || carrelloAttivo;
     String contattiHref = paginaSenzaFooter ? context + "/home#contatti" : "#contatti";
 
     Utente utenteLoggato = (Utente) session.getAttribute("utente");
+    int totaleArticoli = 0;
+
+    List<ProdottoQuantita> carrello =
+        (List<ProdottoQuantita>) session.getAttribute("carrello");
+
+    if (carrello != null) {
+        for (ProdottoQuantita item : carrello) {
+            totaleArticoli += item.getQuantita();
+        }
+    }
+    
+    
 %>
 
 <header class="main-header">
@@ -39,6 +51,7 @@
             <a href="${pageContext.request.contextPath}/CarrelloServlet" class="header-action <%= carrelloAttivo ? "active" : "" %>">
                 <i class="bi bi-bag-heart"></i>
                 <span>Carrello</span>
+                <span id="carrello-count"><%= totaleArticoli %></span>
             </a>
 
             <% if (utenteLoggato != null) { %>
