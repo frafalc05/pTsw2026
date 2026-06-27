@@ -27,7 +27,7 @@ public class AdminFilter extends HttpFilter implements Filter {
         HttpSession session = httpRequest.getSession(false);
         Utente utente = (session != null) ? (Utente) session.getAttribute("utente") : null;
         if (utente == null || ! "ADMIN".equalsIgnoreCase(utente.getRuolo())) {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/LoginServlet");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
         } else {
             chain.doFilter(request, response);
         }

@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=80">
 </head>
 
-<body class="site-theme">
+<body >
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-<main class="eventi-page">
+<div class="eventi-page">
 
     <section class="eventi-hero">
         <div class="eventi-hero-overlay"></div>
@@ -35,7 +35,7 @@
             </p>
 
             <div class="eventi-hero-buttons">
-                <a href="https://wa.me/393485238469" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/393485238469" target="_blank" >
                     Richiedi un preventivo
                 </a>
 
@@ -125,7 +125,7 @@
                 accompagnare l’emozione della giornata.
             </p>
 
-            <a href="https://wa.me/393485238469" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/393485238469" target="_blank">
                 Parla con noi del tuo evento
             </a>
         </div>
@@ -178,18 +178,18 @@
         </p>
 
         <div class="eventi-cta-buttons">
-            <a href="https://wa.me/393485238469" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/393485238469" target="_blank" >
                 <i class="bi bi-whatsapp"></i>
                 Scrivici su WhatsApp
             </a>
 
-            <a href="${pageContext.request.contextPath}/catalogo#eventi">
+            <a href="${pageContext.request.contextPath}/catalogo#eventiecerimonie">
                 Vai agli eventi nel catalogo
             </a>
         </div>
     </section>
 
-</main>
+</div>
 
 <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 

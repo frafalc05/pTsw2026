@@ -110,7 +110,7 @@ public class AdminCatalogoServlet extends HttpServlet {
 
             if (filePart != null && filePart.getSize() > 0) {
                 String nomeOriginale = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-                String nomeFile = System.currentTimeMillis() + "_" + pulisciNomeFile(nomeOriginale);
+                String nomeFile = pulisciNomeFile(nomeOriginale);
                 String sottoCartella = creaNomeCartella(categoria);
 
                 Path cartellaUpload = getCartellaUpload().resolve(sottoCartella);

@@ -17,7 +17,7 @@
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-<main class="informazioni-page">
+<div class="informazioni-page">
 
     <section class="informazioni-hero">
         <span>Fiorista Maria</span>
@@ -202,7 +202,7 @@
 
     </section>
 
-</main>
+</div>
 
 <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 

@@ -27,9 +27,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=101">
 </head>
 
-<body class="site-theme">
+<body>
 
-<main class="admin-main">
+<div class="admin-main">
 
     <div class="admin-title-row">
         <div>
@@ -92,7 +92,6 @@
     <h2 class="titolo-risultati">Elenco ordini ricevuti</h2>
 
     <table class="tabella-admin">
-        <thead>
             <tr>
                 <th>ID ordine</th>
                 <th>ID cliente</th>
@@ -101,9 +100,8 @@
                 <th>Totale</th>
                 <th>Stato</th>
             </tr>
-        </thead>
 
-        <tbody>
+        
             <%
                 if (listaOrdini != null && !listaOrdini.isEmpty()) {
                     for (Ordine o : listaOrdini) {
@@ -140,10 +138,9 @@
             <%
                 }
             %>
-        </tbody>
     </table>
 
-</main>
+</div>
 
 </body>
 </html>

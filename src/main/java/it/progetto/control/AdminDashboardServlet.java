@@ -69,8 +69,6 @@ public class AdminDashboardServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        
-      
         doGet(request, response);
     }
 }

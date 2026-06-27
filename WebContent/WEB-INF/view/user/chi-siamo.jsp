@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/footer.css?v=70">
 </head>
 
-<body class="site-theme">
+<body>
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-<main class="chi-siamo-page">
+<div class="chi-siamo-page">
 
     <section class="chi-hero">
         <div class="chi-hero-text">
@@ -31,7 +31,7 @@
 
             <div class="chi-hero-buttons">
                 <a href="${pageContext.request.contextPath}/catalogo" class="chi-btn-primary">Scopri il catalogo</a>
-                <a href="https://wa.me/393485238469" target="_blank" rel="noopener noreferrer" class="chi-btn-secondary">
+                <a href="https://wa.me/393485238469" target="_blank"  class="chi-btn-secondary">
                     Contattaci su WhatsApp
                 </a>
             </div>
@@ -151,14 +151,14 @@
 
         <div class="chi-cta-buttons">
             <a href="${pageContext.request.contextPath}/catalogo">Vai al catalogo</a>
-            <a href="https://www.instagram.com/fiorista_maria_coperchia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/fiorista_maria_coperchia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" >
                 <i class="bi bi-instagram"></i>
                 Seguici su Instagram
             </a>
         </div>
     </section>
 
-</main>
+</div>
 
 <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 
