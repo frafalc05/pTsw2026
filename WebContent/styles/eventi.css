@@ -5,7 +5,7 @@
         radial-gradient(circle at top left, rgba(248, 220, 228, 0.55), transparent 28%),
         radial-gradient(circle at top right, rgba(214, 182, 115, 0.20), transparent 30%),
         linear-gradient(180deg, #fffaf7 0%, #fff6f4 50%, #fffaf7 100%);
-    overflow: hidden;
+    	overflow: hidden;
 }
 
 .eventi-hero {
@@ -63,7 +63,7 @@
 .eventi-gallery-title span,
 .eventi-highlight-text span,
 .eventi-cta span {
-    color: var(--color-granata-light);
+    color: #a8323a;
 }
 
 .eventi-hero-content h1 {
@@ -104,7 +104,7 @@
 }
 
 .eventi-hero-buttons a:first-child {
-    background: var(--color-granata-light);
+    background: #a8323a;
     color: #ffffff;
     box-shadow: 0 12px 26px rgba(40, 10, 20, 0.25);
 }
@@ -134,7 +134,7 @@
 .eventi-highlight-text h2,
 .eventi-cta h2 {
     margin: 0 0 18px;
-    color: var(--color-granata);
+    color:  #8B1E2D;
     font-size: 38px;
     line-height: 1.18;
     font-weight: 500;
@@ -146,7 +146,7 @@
 .eventi-highlight-text p,
 .eventi-cta p {
     margin: 0 0 15px;
-    color: var(--color-text-soft);
+    color:  #666666;
     font-size: 16.5px;
     line-height: 1.85;
 }
@@ -210,14 +210,14 @@
 
 .evento-servizio-card h3 {
     margin: 0 0 10px;
-    color: var(--color-granata);
+    color: #8B1E2D;
     font-size: 22px;
     font-weight: 600;
 }
 
 .evento-servizio-card p {
     margin: 0;
-    color: var(--color-text-soft);
+    color:  #666666;
     font-size: 15px;
     line-height: 1.65;
 }
@@ -266,7 +266,7 @@
     margin-top: 14px;
     padding: 13px 24px;
     border-radius: 999px;
-    background: var(--color-granata);
+    background: #8B1E2D;
     color: #ffffff;
     text-decoration: none;
     font-weight: 800;
@@ -275,7 +275,7 @@
 
 .eventi-progetto-text a:hover {
     transform: translateY(-3px);
-    background: var(--color-granata-dark);
+    background: #5a121a;
 }
 
 .eventi-gallery-section {
@@ -381,8 +381,8 @@
 
 .eventi-cta-buttons a:last-child {
     background: #ffffff;
-    color: var(--color-granata);
-    border: 1px solid var(--color-granata-light);
+    color: #8B1E2D;
+    border: 1px solid  #c24a55;
 }
 
 .eventi-cta-buttons a:hover {
