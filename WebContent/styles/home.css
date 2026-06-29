@@ -22,7 +22,7 @@
         radial-gradient(circle at top left, rgba(248, 220, 228, 0.55), transparent 28%),
         radial-gradient(circle at top right, rgba(214, 182, 115, 0.22), transparent 30%),
         linear-gradient(180deg, #fffaf7 0%, #fff6f4 45%, #fffaf7 100%);
-    overflow: hidden;
+    	overflow: hidden;
 }
 
 .hero-home {
@@ -120,70 +120,6 @@
 .btn-secondary-home:hover {
     background: #fff0f4;
     transform: translateY(-3px);
-}
-
-.home-categories {
-    max-width: 1220px;
-    margin: 18px auto 58px;
-    padding: 0 35px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.home-category {
-    width: 132px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--color-granata);
-    transition: 0.25s ease;
-}
-
-.home-category img {
-    width: 108px;
-    height: 108px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #f0d2da;
-    background: #ffffff;
-    box-shadow: 0 10px 22px rgba(123, 45, 66, 0.14);
-    transition: 0.25s ease;
-}
-
-.home-category span {
-    display: block;
-    margin-top: 12px;
-    font-size: 12.5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    line-height: 1.35;
-}
-
-.home-category::after {
-    content: "";
-    display: block;
-    width: 30px;
-    height: 2px;
-    margin: 8px auto 0;
-    background: var(--color-gold-light);
-    border-radius: 999px;
-    transition: 0.25s ease;
-}
-
-.home-category:hover {
-    transform: translateY(-5px);
-}
-
-.home-category:hover img {
-    border-color: var(--color-granata-light);
-    box-shadow: 0 16px 32px rgba(123, 45, 66, 0.22);
-}
-
-.home-category:hover::after {
-    width: 48px;
-    background: var(--color-granata-light);
 }
 
 .home-about {

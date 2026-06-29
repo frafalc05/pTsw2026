@@ -83,7 +83,7 @@
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-<main>
+<div>
 
     <section class="catalogo-intro">
         <h1>Catalogo</h1>
@@ -152,7 +152,7 @@
         </section>
     <% } %>
 
-</main>
+</div>
 
 <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 

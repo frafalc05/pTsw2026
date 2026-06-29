@@ -39,7 +39,7 @@
                     Richiedi un preventivo
                 </a>
 
-                <a href="https://www.instagram.com/stories/highlights/17871661169641258/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/stories/highlights/17871661169641258/" target="_blank" >
                     <i class="bi bi-instagram"></i>
                     Guarda su Instagram
                 </a>
