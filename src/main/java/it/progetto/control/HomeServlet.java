@@ -21,9 +21,7 @@ public class HomeServlet extends HttpServlet {
 
     private ProdottoDAO prodottoDAO = new ProdottoDAO();
 
-    public HomeServlet() {
-        super();
-    }
+   
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

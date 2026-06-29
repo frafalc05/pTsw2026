@@ -22,7 +22,7 @@ html {
 
 .informazioni-hero span {
     display: inline-block;
-    color: var(--color-granata-light);
+    color: #a84663;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 800;
@@ -32,7 +32,7 @@ html {
 
 .informazioni-hero h1 {
     margin: 0 0 18px;
-    color: var(--color-granata);
+    color: #743044;
     font-size: 46px;
     font-weight: 500;
 }
@@ -40,7 +40,7 @@ html {
 .informazioni-hero p {
     max-width: 760px;
     margin: 0 auto;
-    color: var(--color-text-soft);
+    color: #6d4a51;
     font-size: 18px;
     line-height: 1.75;
 }
@@ -62,8 +62,8 @@ html {
     padding: 12px 20px;
     border-radius: 999px;
     background: #ffffff;
-    border: 1px solid #f0d2da;
-    color: var(--color-granata);
+    border: 1px solid #f0d6dc;
+    color: #743044;
     text-decoration: none;
     font-weight: 800;
     box-shadow: 0 9px 20px rgba(123, 45, 66, 0.08);
@@ -71,7 +71,7 @@ html {
 }
 
 .informazioni-nav a i {
-    color: var(--color-granata-light);
+    color: #a84663;
     font-size: 18px;
 }
 
@@ -120,14 +120,14 @@ html {
 
 .informazioni-text h2 {
     margin: 0 0 16px;
-    color: var(--color-granata);
+    color: #743044;
     font-size: 30px;
     font-weight: 500;
 }
 
 .informazioni-text p {
     margin: 0 0 15px;
-    color: var(--color-text-soft);
+    color: #6d4a51;
     font-size: 16px;
     line-height: 1.85;
 }
