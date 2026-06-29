@@ -22,7 +22,7 @@
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-<main class="home-page">
+<div class="home-page">
 		<section class="hero-home">
         <div class="hero-flower-wrap">
             <img src="${pageContext.request.contextPath}/images/home/homefiori.png"
@@ -50,42 +50,7 @@
         </div>
     </section>
 
-    <section class="home-categories">
-        <a class="home-category" href="${pageContext.request.contextPath}/catalogo#bouquet">
-            <img src="${pageContext.request.contextPath}/images/bouquet/bouquet_tulipani.jpeg" alt="Bouquet">
-            <span>Bouquet</span>
-        </a>
-
-        <a class="home-category" href="${pageContext.request.contextPath}/catalogo#corone">
-            <img src="${pageContext.request.contextPath}/images/coronalaurea/corona_laurea_rose.jpeg" alt="Corone di Laurea">
-            <span>Corone di Laurea</span>
-        </a>
-
-        <a class="home-category" href="${pageContext.request.contextPath}/catalogo#eventi">
-            <img src="${pageContext.request.contextPath}/images/eventi/evento_matrimonio.jpeg" alt="Eventi">
-            <span>Eventi e Cerimonie</span>
-        </a>
-
-        <a class="home-category" href="${pageContext.request.contextPath}/catalogo#flowercube">
-            <img src="${pageContext.request.contextPath}/images/flowercube/flower_cube.jpeg" alt="Flower Cube">
-            <span>Flower Cube</span>
-        </a>
-
-        <a class="home-category" href="${pageContext.request.contextPath}/catalogo#piante">
-            <img src="${pageContext.request.contextPath}/images/piante/orchidea_bianca.jpeg" alt="Piante">
-            <span>Piante e Orchidee</span>
-        </a>
-
-        <a class="home-category" href="${pageContext.request.contextPath}/catalogo#profumatori">
-            <img src="${pageContext.request.contextPath}/images/profumatori/profumatore_muha_blu.jpeg" alt="Profumatori">
-            <span>Profumatori</span>
-        </a>
-
-        <a class="home-category" href="${pageContext.request.contextPath}/catalogo#terrarium">
-            <img src="${pageContext.request.contextPath}/images/terrarium/terrarium1.jpeg" alt="Terrarium">
-            <span>Terrarium</span>
-        </a>
-    </section>
+    
 
     <section id="chi-siamo" class="home-about">
         <div class="about-text">
