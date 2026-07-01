@@ -28,7 +28,7 @@
                         Non hai ancora effettuato ordini su Fiorista Maria.<br>
                         Esplora il nostro catalogo per scoprire splendidi bouquet e composizioni uniche.
                     </p>
-                    <a href="${pageContext.request.contextPath}/" class="btn-link">Inizia a fare acquisti</a>
+                    <a href="${pageContext.request.contextPath}/catalogo" class="btn-link">Inizia a fare acquisti</a>
                 </div>
             </c:when>
             

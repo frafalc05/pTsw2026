@@ -278,7 +278,6 @@
 }
 
 .home-product-card::after {
-    content: "♡";
     position: absolute;
     top: 12px;
     right: 12px;
