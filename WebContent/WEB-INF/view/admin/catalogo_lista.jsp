@@ -19,7 +19,7 @@
 
 <body class="site-theme">
 
-<main class="admin-main">
+<div class="admin-main">
 
     <div class="admin-title-row">
         <div>
@@ -59,7 +59,7 @@
     <h2 class="titolo-risultati">Prodotti presenti nel catalogo</h2>
 
     <table class="tabella-admin">
-        <thead>
+       
             <tr>
                 <th>ID</th>
                 <th>Immagine</th>
@@ -71,9 +71,7 @@
                 <th>Stato</th>
                 <th>Azioni</th>
             </tr>
-        </thead>
-
-        <tbody>
+        
             <%
                 if (catalogo != null && !catalogo.isEmpty()) {
                     for (Prodotto p : catalogo) {
@@ -142,10 +140,10 @@
             <%
                 }
             %>
-        </tbody>
+      
     </table>
 
-</main>
+</div>
 
 </body>
 </html>

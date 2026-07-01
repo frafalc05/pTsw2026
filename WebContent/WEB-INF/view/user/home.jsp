@@ -31,19 +31,19 @@
         </div>
 
         <div class="hero-content">
-   <p>
+   		<p>
    				<br>
                 Eleganza, passione e creatività in ogni composizione.
                 Bouquet, piante e allestimenti floreali per ogni occasione speciale.
                 Regala emozioni, celebra la bellezza della natura.
-            </p>
+         </p>
 
             <div class="hero-buttons">
                 <a href="${pageContext.request.contextPath}/catalogo" class="btn-primary-home">
                     Scopri il catalogo
                 </a>
 
-                <a href="https://wa.me/393485238469" target="_blank" rel="noopener noreferrer" class="btn-secondary-home">
+                <a href="https://wa.me/393485238469" target="_blank"  class="btn-secondary-home">
                     Ordina su WhatsApp
                 </a>
             </div>
@@ -225,7 +225,7 @@
                 </p>
             </article>
 
-            <a href="https://www.facebook.com/fioripellezzano/reviews" target="_blank" rel="noopener noreferrer" class="reviews-button">
+            <a href="https://www.facebook.com/fioripellezzano/reviews" target="_blank"  class="reviews-button">
                 Leggi tutte le recensioni
             </a>
         </aside>
@@ -255,7 +255,7 @@
                 <div class="experience-card-content">
                     <h3>Eventi e cerimonie</h3>
                     <p>Allestimenti floreali eleganti per matrimoni, lauree e occasioni speciali.</p>
-                    <a href="${pageContext.request.contextPath}/catalogo#eventi" class="experience-card-link">Scopri di più</a>
+                    <a href="${pageContext.request.contextPath}/catalogo#eventiecerimonie" class="experience-card-link">Scopri di più</a>
                 </div>
             </article>
 
@@ -291,8 +291,7 @@
             <span>Assistenza sempre<br>disponibile</span>
         </div>
     </section>
-
-</main>
+   </div>
 
 <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 

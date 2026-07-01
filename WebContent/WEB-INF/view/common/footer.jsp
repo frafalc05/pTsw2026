@@ -39,7 +39,7 @@
                     <span class="footer-small-icon">
                         <i class="bi bi-envelope-fill"></i>
                     </span>
-                    <a href="mailto:floristamaria@hotmail.it">floristamaria@hotmail.it</a>
+                    <a href="mailto:floristamaria@hotmail.it">fioristamaria@hotmail.it</a>
                 </li>
 
                 <li>

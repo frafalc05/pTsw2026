@@ -22,7 +22,7 @@
         "Profumatori".equals(categoria) ||
         "Terrarium".equals(categoria) ||
         "Idee Regalo".equals(categoria);
-
+																																													
     String nuovaCategoriaValue = (!categoria.isEmpty() && !categoriaPredefinita) ? categoria : "";
 %>
 
@@ -35,11 +35,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/base.css?v=130">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin.css?v=130">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/validation.css">
+    <script src="${pageContext.request.contextPath}/scripts/validationModificaCatalogo.js?v=30" defer></script>
 </head>
 
-<body class="site-theme">
+<body>
 
-<main class="admin-main">
+<div class="admin-main">
 
     <div class="admin-title-row">
         <div>
@@ -59,22 +61,21 @@
         <form action="${pageContext.request.contextPath}/admin/catalogo" method="POST" enctype="multipart/form-data" class="admin-product-form">
 
             <input type="hidden" name="id" value="<%= idValue %>">
-            <input type="hidden" name="modifica_esplicita" value="true">
 
             <div class="admin-form-grid">
                 <div class="group-filtro">
                     <label for="nome">Nome prodotto</label>
-                    <input type="text" id="nome" name="nome" value="<%= nome %>" required class="input-filtro-data">
+                    <input type="text" id="nome" name="nome" value="<%= nome %>" class="input-filtro-data">
                 </div>
 
                 <div class="group-filtro">
                     <label for="prezzo">Prezzo (€)</label>
-                    <input type="number" id="prezzo" name="prezzo" step="0.01" min="0" value="<%= prezzo %>" required class="input-filtro-number">
+                    <input type="number" id="prezzo" name="prezzo" step="0.01" min="0" value="<%= prezzo %>" class="input-filtro-number">
                 </div>
 
                 <div class="group-filtro">
                     <label for="quantita">Quantità disponibile</label>
-                    <input type="number" id="quantita" name="quantita" min="0" value="<%= quantita %>" required class="input-filtro-number">
+                    <input type="number" id="quantita" name="quantita" min="0" value="<%= quantita %>"  class="input-filtro-number">
                 </div>
 
                 <div class="group-filtro">
@@ -111,7 +112,7 @@
 
             <div class="group-filtro admin-full">
                 <label for="descrizione">Descrizione</label>
-                <textarea id="descrizione" name="descrizione" rows="5" required class="textarea-admin"><%= descrizione %></textarea>
+                <textarea id="descrizione" name="descrizione" rows="5"  class="textarea-admin"><%= descrizione %></textarea>
             </div>
 
             <label class="admin-check-row" for="attivo">
@@ -133,30 +134,7 @@
         </form>
     </section>
 
-</main>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const selectCategoria = document.getElementById("categoria");
-    const nuovaCategoria = document.getElementById("nuovaCategoria");
-
-    function aggiornaCategoria() {
-        const valoreNuova = nuovaCategoria.value.trim();
-
-        if (valoreNuova.length > 0) {
-            selectCategoria.value = "";
-            selectCategoria.disabled = true;
-            selectCategoria.classList.add("input-disabled");
-        } else {
-            selectCategoria.disabled = false;
-            selectCategoria.classList.remove("input-disabled");
-        }
-    }
-
-    nuovaCategoria.addEventListener("input", aggiornaCategoria);
-    aggiornaCategoria();
-});
-</script>
+</div>
 
 </body>
 </html>

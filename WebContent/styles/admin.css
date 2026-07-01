@@ -5,25 +5,25 @@
     margin: 55px auto 70px;
     padding: 0 35px;
     text-align: left;
-    color: var(--color-text);
+    color: #333333;
 }
 
 .admin-main h1 {
     margin: 0 0 12px;
-    color: var(--color-granata);
+    color:#8B1A2B;
     font-size: 42px;
     font-weight: 500;
     letter-spacing: 0.4px;
 }
 
 .admin-main p {
-    color: var(--color-text-soft);
+    color: #777777;
 }
 
 .admin-subtitle {
     max-width: 760px;
     margin: 0 0 32px;
-    color: var(--color-text-soft);
+    color: #777777;
     font-size: 17px;
     line-height: 1.7;
 }
@@ -59,7 +59,7 @@
 
 .catalogo-shortcut-box p {
     margin: 0;
-    color: var(--color-text-soft);
+    color:  #6f6f6f;
     font-size: 16px;
     line-height: 1.6;
 }
@@ -67,7 +67,7 @@
 .admin-box-title {
     display: block;
     margin-bottom: 7px;
-    color: var(--color-granata);
+    color: #7b2d42;
     font-size: 19px;
     font-weight: 800;
 }
@@ -92,12 +92,12 @@
     min-height: 45px;
     padding: 12px 22px;
     border-radius: 999px;
-    background: var(--color-granata);
+    background: #7b2d42;
     color: #ffffff;
     text-decoration: none;
     font-size: 15px;
     font-weight: 800;
-    border: 1px solid var(--color-granata);
+    border: 1px solid #7b2d42;
     cursor: pointer;
     box-shadow: 0 9px 20px rgba(123, 45, 66, 0.20);
     transition: 0.25s ease;
@@ -107,31 +107,31 @@
 .btn-applica-filtri:hover,
 .btn-submit:hover,
 .btn-filter:hover {
-    background: var(--color-granata-dark);
+    background: #5e2132;
     transform: translateY(-2px);
     box-shadow: 0 14px 28px rgba(123, 45, 66, 0.25);
 }
 
 .btn-admin-light {
     background: #ffffff;
-    color: var(--color-granata);
+    color: #7b2d42;
     border-color: #efcbd5;
     box-shadow: 0 9px 20px rgba(123, 45, 66, 0.10);
 }
 
 .btn-admin-light:hover {
     background: #fff0f4;
-    color: var(--color-granata);
+    color: #7b2d42;
 }
 
 .titolo-risultati,
 .admin-section-title,
 .filter-box h3 {
     margin: 38px 0 18px;
-    color: var(--color-granata);
+    color: #7b2d42;
     font-size: 30px;
     font-weight: 500;
-    border-left: 5px solid var(--color-granata-light);
+    border-left: 5px solid #b46a7a;
     padding-left: 14px;
 }
 
@@ -165,7 +165,7 @@
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: var(--color-granata);
+    color: #7b2d42;
     font-weight: 800;
     font-size: 14px;
     letter-spacing: 0.4px;
@@ -182,7 +182,7 @@
     border: 1px solid #e2c5ce;
     border-radius: 14px;
     background: #fffaf7;
-    color: var(--color-text);
+    color:  #2b2b2b;
     font-size: 15px;
     outline: none;
     transition: 0.25s ease;
@@ -195,7 +195,7 @@
 .form-group input:focus,
 .form-group textarea:focus,
 .select-stato-admin:focus {
-    border-color: var(--color-granata-light);
+    border-color: #d9a3ad;
     box-shadow: 0 0 0 4px rgba(168, 70, 99, 0.12);
     background: #ffffff;
 }
@@ -207,7 +207,7 @@
     border: 1px solid #e2c5ce;
     border-radius: 16px;
     background: #fffaf7;
-    color: var(--color-text);
+    color: #2b2b2b;
     font-size: 15px;
     resize: vertical;
     outline: none;
@@ -216,7 +216,7 @@
 }
 
 .textarea-admin:focus {
-    border-color: var(--color-granata-light);
+    border-color: #e2b3bb;
     box-shadow: 0 0 0 4px rgba(168, 70, 99, 0.12);
     background: #ffffff;
 }
@@ -228,7 +228,7 @@ input[type="file"] {
     border: 1px dashed #d9aeba;
     border-radius: 14px;
     background: #fffaf7;
-    color: var(--color-text-soft);
+    color: #6f6f6f;
 }
 
 .input-disabled {
@@ -239,7 +239,7 @@ input[type="file"] {
 
 .admin-help-text {
     margin: 9px 0 0;
-    color: var(--color-text-soft);
+    color: #6f6f6f;
     font-size: 13px;
     line-height: 1.5;
 }
@@ -264,7 +264,7 @@ input[type="file"] {
     display: flex;
     align-items: center;
     gap: 11px;
-    color: var(--color-granata);
+    color: #7b2d42;
     font-weight: 800;
     cursor: pointer;
 }
@@ -272,7 +272,7 @@ input[type="file"] {
 .admin-check-row input {
     width: 18px;
     height: 18px;
-    accent-color: var(--color-granata-light);
+    accent-color:  #d9a3ad;
 }
 
 .admin-form-actions {
@@ -285,7 +285,7 @@ input[type="file"] {
 
 .admin-reset-row a,
 .link-back {
-    color: var(--color-granata-light);
+    color:  #d9a3ad;
     text-decoration: none;
     font-weight: 800;
 }
@@ -312,7 +312,7 @@ input[type="file"] {
 .report-table th {
     padding: 17px 15px;
     background: linear-gradient(135deg, #fff3f5 0%, #fffaf7 100%);
-    color: var(--color-granata);
+    color: #7b2d42;
     font-size: 14px;
     font-weight: 900;
     text-transform: uppercase;
@@ -327,7 +327,7 @@ input[type="file"] {
     padding: 16px 15px;
     border: none;
     border-bottom: 1px solid #f4dde3;
-    color: var(--color-text-soft);
+    color: #6f6f6f;
     font-size: 15px;
     line-height: 1.5;
     vertical-align: middle;
@@ -355,13 +355,13 @@ input[type="file"] {
 
 .valore-totale-admin {
     font-weight: 900;
-    color: var(--color-granata);
+    color: #7b2d42;
     white-space: nowrap;
 }
 
 .msg-report-vuoto {
     text-align: center;
-    color: var(--color-text-soft);
+    color: #6f6f6f;
     padding: 34px 20px;
     background: #ffffff;
     font-size: 16px;
@@ -378,7 +378,7 @@ input[type="file"] {
 }
 
 .admin-product-name {
-    color: var(--color-granata);
+    color:#7b2d42;
 }
 
 .btn-table-admin,
@@ -397,7 +397,7 @@ input[type="file"] {
 .btn-table-edit,
 .btn-edit {
     background: #fff0f4;
-    color: var(--color-granata);
+    color:#7b2d42;
     border: 1px solid #efcbd5;
 }
 
@@ -427,7 +427,7 @@ input[type="file"] {
 
 .badge-stato-ordine {
     background: #fff0f4;
-    color: var(--color-granata);
+    color: #7b2d42;
     border: 1px solid #efcbd5;
 }
 
@@ -447,7 +447,7 @@ input[type="file"] {
 
 .select-stato-admin {
     border-radius: 999px;
-    color: var(--color-granata);
+    color: #7b2d42;
     font-weight: 800;
     cursor: pointer;
 }
