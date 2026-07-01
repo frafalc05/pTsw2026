@@ -6,36 +6,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("password");
 	const confermaPasswordInput = document.getElementById("confermaPassword");
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    emailInput.addEventListener("change", function () {
-        validaEmail();
-    });
+	nomeInput.addEventListener("change", validaNome);
+	cognomeInput.addEventListener("change", validaCognome);
+	emailInput.addEventListener("change", validaEmail);
+	passwordInput.addEventListener("change", validaPassword);
+	confermaPasswordInput.addEventListener("change", validaConfermaPassword);
     form.addEventListener("submit", function (event) {
-        let formatoValido = true;
+        let valido = true;
 		rimuoviErrore(nomeInput);
 		rimuoviErrore(cognomeInput);
         rimuoviErrore(emailInput);
         rimuoviErrore(passwordInput);
 		rimuoviErrore(confermaPasswordInput);
-        if (!validaEmail()) {
-            formatoValido = false;
-        }
-        if (passwordInput.value.trim() === "") {
-            mostraErrore(passwordInput, "La password non può essere vuota.");
-            formatoValido = false;
-        }
-		if (nomeInput.value.trim() === "") {
-		         mostraErrore(nome, "Nome obbligatorio");
-		          formatoValido = false;
-		 }
-		if (cognomeInput.value.trim() === "") {
-		        mostraErrore(cognome, "Cognome obbligatorio");
-		        formatoValido = false;
-		 }
-		 if (confermaPasswordInput.value !== passwordInput.value) {
-		             mostraErrore(confermaPasswordInput, "Le password non coincidono.");
-		             formatoValido = false;
-		         }
-        if (!formatoValido) {
+		if (!validaNome()) valido = false;
+		if (!validaCognome()) valido = false;
+		if (!validaEmail()) valido = false;
+		if (!validaPassword()) valido = false;
+		if (!validaConfermaPassword()) valido = false;
+        if (!valido) {
             event.preventDefault();
         }
     });
@@ -64,4 +52,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	        return true;
 	    }
+		function validaNome() {
+		    rimuoviErrore(nomeInput);
+
+		    if (nomeInput.value.trim() === "") {
+		        mostraErrore(nomeInput, "Nome obbligatorio");
+		        return false;
+		    }
+		    return true;
+		}
+		function validaCognome() {
+		    rimuoviErrore(cognomeInput);
+
+		    if (cognomeInput.value.trim() === "") {
+		        mostraErrore(cognomeInput, "Cognome obbligatorio");
+		        return false;
+		    }
+		    return true;
+		}
+		function validaPassword() {
+		    rimuoviErrore(passwordInput);
+
+		    if (passwordInput.value.trim() === "") {
+		        mostraErrore(passwordInput, "Password obbligatoria");
+		        return false;
+		    }
+		    return true;
+		}
+		function validaConfermaPassword() {
+		    rimuoviErrore(confermaPasswordInput);
+
+		    if (confermaPasswordInput.value !== passwordInput.value) {
+		        mostraErrore(confermaPasswordInput, "Le password non coincidono");
+		        return false;
+		    }
+		    return true;
+		}
 });

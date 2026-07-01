@@ -9,50 +9,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const nuovaCategoriaInput = document.getElementById("nuovaCategoria");
     const descrizioneInput = document.getElementById("descrizione");
     const immagineInput = document.getElementById("immagine");
+	nomeInput.addEventListener("change", validaNome);
+	prezzoInput.addEventListener("change", validaPrezzo);
+	quantitaInput.addEventListener("change", validaQuantita);
+	    categoriaSelect.addEventListener("change", validaCategoria);
+	    nuovaCategoriaInput.addEventListener("input", validaCategoria);
+	    descrizioneInput.addEventListener("change", validaDescrizione);
 
     form.addEventListener("submit", function (event) {
 
-        let valido = true;
+		let valido = true;
 
-        rimuoviErrore(nomeInput);
-        rimuoviErrore(prezzoInput);
-        rimuoviErrore(quantitaInput);
-        rimuoviErrore(categoriaSelect);
-        rimuoviErrore(nuovaCategoriaInput);
-        rimuoviErrore(descrizioneInput);
-
-        
-        if (nomeInput.value.trim() === "") {
-            mostraErrore(nomeInput, "Il nome è obbligatorio");
-            valido = false;
-        }
+		       if (!validaNome()) valido = false;
+		       if (!validaPrezzo()) valido = false;
+		       if (!validaQuantita()) valido = false;
+		       if (!validaCategoria()) valido = false;
+		       if (!validaDescrizione()) valido = false;
 
         
-        if (prezzoInput.value.trim() === "" || parseFloat(prezzoInput.value) < 0) {
-            mostraErrore(prezzoInput, "Inserisci un prezzo valido");
-            valido = false;
-        }
-
-        
-        if (quantitaInput.value.trim() === "" || parseInt(quantitaInput.value) < 0) {
-            mostraErrore(quantitaInput, "Inserisci una quantità valida");
-            valido = false;
-        }
-
-        if (
-            categoriaSelect.value.trim() === "" &&
-            nuovaCategoriaInput.value.trim() === ""
-        ) {
-            mostraErrore(categoriaSelect, "Seleziona o inserisci una categoria");
-            valido = false;
-        }
-
        
-        if (descrizioneInput.value.trim() === "") {
-            mostraErrore(descrizioneInput, "La descrizione è obbligatoria");
-            valido = false;
-        }
-
         if (!valido) {
             event.preventDefault();
         }
@@ -91,4 +66,56 @@ document.addEventListener("DOMContentLoaded", function () {
             errore.remove();
         }
     }
+	function validaNome() {
+	       rimuoviErrore(nomeInput);
+
+	       if (nomeInput.value.trim() === "") {
+	           mostraErrore(nomeInput, "Il nome è obbligatorio");
+	           return false;
+	       }
+	       return true;
+	   }
+
+	   function validaPrezzo() {
+	       rimuoviErrore(prezzoInput);
+
+	       if (prezzoInput.value.trim() === "" || parseFloat(prezzoInput.value) < 0) {
+	           mostraErrore(prezzoInput, "Inserisci un prezzo valido");
+	           return false;
+	       }
+	       return true;
+	   }
+
+	   function validaQuantita() {
+	       rimuoviErrore(quantitaInput);
+
+	       if (quantitaInput.value.trim() === "" || parseInt(quantitaInput.value) < 0) {
+	           mostraErrore(quantitaInput, "Inserisci una quantità valida");
+	           return false;
+	       }
+	       return true;
+	   }
+
+	   function validaCategoria() {
+	       rimuoviErrore(categoriaSelect);
+
+	       if (
+	           categoriaSelect.value.trim() === "" &&
+	           nuovaCategoriaInput.value.trim() === ""
+	       ) {
+	           mostraErrore(categoriaSelect, "Seleziona o inserisci una categoria");
+	           return false;
+	       }
+	       return true;
+	   }
+
+	   function validaDescrizione() {
+	       rimuoviErrore(descrizioneInput);
+
+	       if (descrizioneInput.value.trim() === "") {
+	           mostraErrore(descrizioneInput, "La descrizione è obbligatoria");
+	           return false;
+	       }
+	       return true;
+	   }
 });

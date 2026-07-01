@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import it.progetto.dao.CarrelloDAO;
+import it.progetto.dao.PreferitiDAO;
 import it.progetto.dao.UtenteDAO;
 import it.progetto.model.ProdottoQuantita;
 import it.progetto.model.Utente;
@@ -23,6 +24,7 @@ public class LoginServlet extends HttpServlet {
 
     private UtenteDAO utenteDAO = new UtenteDAO();
     private CarrelloDAO carrelloDAO = new CarrelloDAO();
+    private PreferitiDAO preferitiDAO = new PreferitiDAO();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -51,6 +53,13 @@ public class LoginServlet extends HttpServlet {
 
                 List<ProdottoQuantita> carrelloDb = carrelloDAO.caricaCarrelloUtente(utente.getId());
                 session.setAttribute("carrello", carrelloDb);
+                List<Integer> wishlistOspite = (List<Integer>) session.getAttribute("wishlist_ospite");
+                if (wishlistOspite != null && !wishlistOspite.isEmpty()) {
+                    for (Integer idProd : wishlistOspite) {
+                        preferitiDAO.aggiungiPreferito(utente.getId(), idProd);
+                    }
+                    session.removeAttribute("wishlist_ospite");
+                }
 
                 if ("ADMIN".equalsIgnoreCase(utente.getRuolo())) {
                     response.sendRedirect(request.getContextPath() + "/admin/dashboard");

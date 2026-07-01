@@ -21,6 +21,10 @@
             prodottiPerCategoria.get(categoria).add(p);
         }
     }
+    List<Integer> wishlistCorrente = (List<Integer>) session.getAttribute("wishlist_ospite");
+    if (wishlistCorrente == null) {
+        wishlistCorrente = new ArrayList<Integer>();
+    }
 %>
 <!-- crea l'id html della categoria -->
 <%!
@@ -47,11 +51,18 @@
         return valore;
     }
 
-    void renderProdotto(HttpServletRequest request, JspWriter out, Prodotto p) throws java.io.IOException {
+    void renderProdotto(HttpServletRequest request, JspWriter out, Prodotto p, List<Integer>wishlistCorrente) throws java.io.IOException {
         String imgPath = (p.getImmagine() != null) ? p.getImmagine().trim() : "";
         String srcTarget = request.getContextPath() + "/immagine-prodotto/" + imgPath;
+        
+        boolean isInWishlist = wishlistCorrente != null && wishlistCorrente.contains(p.getId());
+        
+        String iconaCuore = isInWishlist ? "bi-heart-fill" : "bi-heart";
 
         out.print("<article class='prodotto-box'>");
+        out.print("<button class='btn-wishlist' data-id='" + p.getId() + "' title='Aggiungi ai preferiti' type='button'>");
+        out.print("<i class='bi " + iconaCuore + "'></i>"); 
+        out.print("</button>");
         out.print("<img src='" + srcTarget + "' alt='" + p.getNome() + "'>");
         out.print("<div class='prodotto-info'>");
         out.print("<h3>" + p.getNome() + "</h3>");
@@ -119,7 +130,7 @@
 
                 <div class="griglia-prodotti">
                     <% for (Prodotto p : listaCategoria) {
-                        renderProdotto(request, out, p);
+                        renderProdotto(request, out, p,wishlistCorrente);
                     } %>
                 </div>
 
@@ -157,6 +168,7 @@
 <jsp:include page="/WEB-INF/view/common/footer.jsp" />
 
 <script src="${pageContext.request.contextPath}/scripts/carrello.js?v=1200"></script>
+<script src="${pageContext.request.contextPath}/scripts/wishlist.js?v=1200"></script>
 
 </body>
 </html>

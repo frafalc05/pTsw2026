@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-	console.log("VALIDATION JS CARICATO");
     const form = document.querySelector(".form-checkout");
 
     const nomeDestinatario = document.getElementById("nome_destinatario");
@@ -14,9 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const capRegex = /^[0-9]{5}$/;
     const cartaRegex = /^[0-9]{16}$/;
     const cvvRegex = /^[0-9]{3}$/;
+	nomeDestinatario.addEventListener("change", validaNome);
+	indirizzo.addEventListener("change", validaIndirizzo);
+	citta.addEventListener("change", validaCitta);
+	cap.addEventListener("change", validaCAP);
+
+	numeroCarta.addEventListener("change", validaCarta);
+	cvv.addEventListener("change", validaCVV);
 
     form.addEventListener("submit", function (event) {
-		console.log("SUBMIT INTERCETTATO");
         let valido = true;
 
         rimuoviErrore(nomeDestinatario);
@@ -27,33 +32,29 @@ document.addEventListener("DOMContentLoaded", function () {
         rimuoviErrore(scadenza);
         rimuoviErrore(cvv);
 
-        if (nomeDestinatario.value.trim() === "") {
-            mostraErrore(nomeDestinatario, "Nome destinatario obbligatorio");
+        if (!validaNome()) {
+      
             valido = false;
         }
 
-        if (indirizzo.value.trim() === "") {
-            mostraErrore(indirizzo, "Indirizzo obbligatorio");
+        if (!validaIndirizzo()) {
+           
             valido = false;
         }
 
-        if (citta.value.trim() === "") {
-            mostraErrore(citta, "Città obbligatoria");
+        if (!validaCitta()) {
             valido = false;
         }
 
-        if (!capRegex.test(cap.value.trim())) {
-            mostraErrore(cap, "CAP non valido (5 numeri)");
+        if (!validaCAP()) {
             valido = false;
         }
-		/*toglie gli spazi*/
-        if (!cartaRegex.test(numeroCarta.value.replace(/\s/g, ""))) {
-            mostraErrore(numeroCarta, "Numero carta non valido");
+        if (!validaCarta()) {
             valido = false;
         }
 
-        if (!cvvRegex.test(cvv.value.trim())) {
-            mostraErrore(cvv, "CVV non valido");
+        if (!validaCVV()) {
+           
             valido = false;
         }
 
@@ -82,4 +83,59 @@ document.addEventListener("DOMContentLoaded", function () {
             errore.remove();
         }
     }
+	function validaNome() {
+	    rimuoviErrore(nomeDestinatario);
+
+	    if (nomeDestinatario.value.trim() === "") {
+	        mostraErrore(nomeDestinatario, "Nome destinatario obbligatorio");
+	        return false;
+	    }
+	    return true;
+	}
+	function validaIndirizzo() {
+	    rimuoviErrore(indirizzo);
+
+	    if (indirizzo.value.trim() === "") {
+	        mostraErrore(indirizzo, "Indirizzo obbligatorio");
+	        return false;
+	    }
+	    return true;
+	}
+	function validaCitta() {
+	    rimuoviErrore(citta);
+		if (citta.value.trim() === "") {
+			        mostraErrore(citta, "Città obbligatoria");
+			        return false;
+		}
+	    return true;
+	}
+	function validaCAP() {
+	    rimuoviErrore(cap);
+
+	    if (!capRegex.test(cap.value.trim())) {
+	        mostraErrore(cap, "CAP non valido (5 numeri)");
+	        return false;
+	    }
+	    return true;
+	}
+	function validaCarta() {
+	    rimuoviErrore(numeroCarta);
+
+	    const valore = numeroCarta.value.replace(/\s/g, "");
+
+	    if (!cartaRegex.test(valore)) {
+	        mostraErrore(numeroCarta, "Numero carta non valido");
+	        return false;
+	    }
+	    return true;
+	}
+	function validaCVV() {
+	    rimuoviErrore(cvv);
+
+	    if (!cvvRegex.test(cvv.value.trim())) {
+	        mostraErrore(cvv, "CVV non valido");
+	        return false;
+	    }
+	    return true;
+	}
 });

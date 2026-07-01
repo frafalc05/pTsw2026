@@ -1,0 +1,91 @@
+
+.wishlist-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: 60vh;
+}
+
+.wishlist-container h1 {
+    color: #743044;
+    font-weight: bold;
+}
+
+.wishlist-container p {
+    color: #6d4a51;
+}
+
+
+.wishlist-vuota {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.wishlist-vuota i {
+    font-size: 4rem;
+    color: #f0d6dc;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.wishlist-vuota h2 {
+    color: #743044;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.wishlist-vuota p {
+    color: #6d4a51;
+    margin-bottom: 20px;
+}
+
+.wishlist-vuota a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #743044;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.wishlist-vuota a:hover {
+    background-color: #a84663;
+}
+
+
+.btn-wishlist {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #a84663; 
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(123, 45, 66, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-wishlist:hover {
+    transform: scale(1.1);
+    background-color: #fff3f5; 
+    color: #743044;            
+}
+
+.btn-wishlist.active {
+    color: #743044;           
+}
+
+.btn-wishlist.active .bi-heart::before {
+    content: "\f415"; 
+}

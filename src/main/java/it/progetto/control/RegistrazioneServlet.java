@@ -29,21 +29,26 @@ public class RegistrazioneServlet extends HttpServlet {
         String password = request.getParameter("password");
         String conferma = request.getParameter("confermaPassword");
 
-        if (password == null || !password.equals(conferma)) {
-            request.setAttribute("errore", "Le password non coincidono");
-            request.getRequestDispatcher("/WEB-INF/view/user/registrazione.jsp").forward(request, response);
-            return;
-        }
-
-        Utente u = new Utente();
-        u.setNome(nome);
-        u.setCognome(cognome);
-        u.setEmail(email);
-        u.setPassword(DigestUtils.sha256Hex(password));
-        u.setRuolo("USER");
+        
+        
 
         try {
             UtenteDAO dao = new UtenteDAO();
+            if (dao.doRetrieveByEmail(email) != null) {
+                request.setAttribute("errore", "Questa email è già registrata.");
+
+                request.getRequestDispatcher("/WEB-INF/view/user/registrazione.jsp")
+                       .forward(request, response);
+                return;
+            }
+
+            Utente u = new Utente();
+            u.setNome(nome);
+            u.setCognome(cognome);
+            u.setEmail(email);
+            u.setPassword(DigestUtils.sha256Hex(password));
+            u.setRuolo("USER");
+
             dao.insertUtente(u);
 
             response.sendRedirect(request.getContextPath() + "/login");

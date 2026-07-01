@@ -16,7 +16,7 @@
     
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-    <main class="register-section">
+    <div class="register-section">
         <div class="register-box">
             <h1>Crea un Account</h1>
             <p>Inserisci i tuoi dati per registrarti.</p>
@@ -52,7 +52,7 @@
                 Hai già un account? <a href="${pageContext.request.contextPath}/login">Accedi</a>
             </div>
         </div>
-    </main>
+    </div>
 
 </body>
 </html>

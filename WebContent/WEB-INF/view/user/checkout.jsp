@@ -20,7 +20,7 @@
 
 <jsp:include page="/WEB-INF/view/common/header.jsp" />
 
-<main>
+<div>
     <div class="carrello-box">
         <h2>Dati di Spedizione e Pagamento</h2>
 
@@ -130,6 +130,6 @@
 
         </form>
     </div>
-</main>
+</div>
 </body>
 </html>
